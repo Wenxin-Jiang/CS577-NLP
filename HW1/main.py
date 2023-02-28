@@ -57,7 +57,20 @@ def text_features(dataset, embedding):
     return text_features
 
 
+def data_cleaning(dataset: pd.DataFrame) -> None:
+    '''
+        Clean the duplicated entries
+    '''
+    dataset = dataset.sort_values("id")
+    dataset_dup = dataset.duplicated(subset=["id"])
+    index = np.where(dataset_dup==True)
+    dataset = dataset.drop(index[0])
+    return dataset
+
 def pre_processing(train_set: pd.DataFrame, test_set: pd.DataFrame):
+    train_set = data_cleaning(train_set)
+    test_set = data_cleaning(test_set)
+    logger.info(f"After data cleaning, len(train_set) is {len(train_set)}, len(test_set) is {len(test_set)}")
     embedding = feature_rep(train_set, test_set)
     
     # Create trianing and testing inputs
@@ -76,7 +89,7 @@ def pre_processing(train_set: pd.DataFrame, test_set: pd.DataFrame):
     train_targets = np.zeros((len(emotions), len(emotion_set)))
     for i, emotion in enumerate(emotions):
         train_targets[i, emotion] = 1
-
+    # TODO: Data cleaning
     return embedding, text_features_train, text_features_test,\
         emotion_set, train_targets, emotion2int, int2emotion
 
@@ -84,7 +97,7 @@ def pre_processing(train_set: pd.DataFrame, test_set: pd.DataFrame):
 def post_processing(test_set, pred_emotions):
     output = test_set.copy()
     output['emotions'] = pred_emotions
-    output.to_csv("./test_lg.csv")
+    output.to_csv("./test_lr.csv")
     return output
 
 def LR():
@@ -115,7 +128,7 @@ def LR():
     predictions = 1 / (1 + np.exp(-scores))
     predictions = np.round(predictions)
     predicted_emotion = int2emotion[np.argmax(predictions[0])]
-    logger.debug(predicted_emotion)
+    # logger.debug(predicted_emotion)
     
     pred_emotion = []
 
