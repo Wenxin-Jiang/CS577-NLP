@@ -234,7 +234,7 @@ def LR():
     # logger.info(f"Input size = {np.array(text_features_train).shape}")
     for scores in score_arr:
         plt.plot(np.arange(len(scores)), scores)
-        plt.title(f"{folds}-fold Cross Validation, lr={learning_rate}, lambda={reg_lambda}, iteration={num_iters}, highest acc={best_score}")
+        plt.title(f"LR: {folds}-fold Cross Validation, lr={learning_rate}, lambda={reg_lambda}, iteration={num_iters}, highest acc={best_score}")
     plt.xlabel("Iteration")
     plt.ylabel("Validation Accuracy")
     plt.savefig(f"LR_highestAcc={best_score}_{folds}-fold Cross Validation_lr={learning_rate}_lambda={reg_lambda}_iteration={num_iters}.png")
@@ -258,15 +258,152 @@ def LR():
     return
 
 
+class NeuralNetwork:
+    # Reference: https://pylessons.com/Neural-network-single-layer-part3
+    # Reference: https://towardsai.net/p/machine-learning/nothing-but-numpy-understanding-creating-neural-networks-with-computational-graphs-from-scratch-6299901091b0
+    def __init__(self, input_size, hidden_size, output_size):
+        self.W1 = np.random.randn(input_size, hidden_size) * 0.01
+        # logger.debug(f"W1: {self.W1.shape}")
+        self.b1 = np.zeros((1, hidden_size))
+        # logger.debug(f"b1: {self.b1.shape}")
+        self.W2 = np.random.randn(hidden_size, output_size) * 0.01
+        # logger.debug(f"W2: {self.W2.shape}")
+        self.b2 = np.zeros((1, output_size))
+        # logger.debug(f"b2: {self.b2.shape}")
+        self.scores = []
+    def forward(self, X):
+        # logger.debug(X.shape)
+        # logger.debug(self.W1.shape)
+        self.z1 = np.dot(X, self.W1) + self.b1
+        # logger.debug(f"z1: {self.z1.shape}")
+        # self.a1 = np.tanh(self.z1)
+        # Use ReLU instead
+        self.a1 = np.maximum(0, self.z1)
+        # logger.debug(self.W2.shape)
+        self.z2 = np.dot(self.a1, self.W2) + self.b2
+        exp_scores = np.exp(self.z2 - np.max(self.z2))
+        self.probs = exp_scores / np.sum(exp_scores, axis=1, keepdims=True)
+        return self.probs
+    
+        
+    def backward(self, X, y, y_hat, learning_rate):
+        # logger.debug(f"X.shape={X.shape}, y.shape={y.shape}, y_hat.shape={y_hat.shape}")
+        delta2 = y_hat
+        delta2[range(len(X)), np.argmax(y, axis=1)] -= 1
+        # logger.debug(self.W2.shape)
+        # logger.debug(self.z1.shape)
+        delta1 = delta2.dot(self.W2.T) * (1 - np.power(np.tanh(self.z1), 2))
+        
+        dW2 = np.dot(self.a1.T, delta2)
+        db2 = np.sum(delta2, axis=0, keepdims=True)
+        dW1 = np.dot(X.T, delta1)
+        db1 = np.sum(delta1, axis=0)
+
+        self.W2 -= learning_rate * dW2
+        self.b2 -= learning_rate * db2
+        self.W1 -= learning_rate * dW1
+        self.b1 -= learning_rate * db1
+
+    def train(self, X, y, val_targets, text_features_val, num_epochs, learning_rate):
+        for epoch in range(num_epochs):
+            # forward pass
+            y_hat = self.forward(X)
+            # calculate the loss
+            correct_logprobs = -np.log(y_hat[range(len(X)), np.argmax(y, axis=1)]+1e-12)
+            data_loss = np.sum(correct_logprobs) / len(X)
+            # print the loss every 100 epochs
+            
+
+                # self.scores.append(score)
+            # backward pass
+            # logger.debug(X.shape)
+            # logger.debug(y.shape)
+            self.backward(X, y, y_hat, learning_rate)
+            if epoch % 50 == 0:
+                score = np.mean(self.predict(text_features_val) == np.argmax(val_targets, axis=1))
+                self.scores.append(score)
+                logger.info(f"Epoch: {epoch}, loss: {data_loss}, accuracy: {score * 100:.2f}%.")
+
+            # eval
+
+            
+            
+    def predict(self, X):
+        # forward pass
+        y_hat = self.forward(X)
+        # return the index with highest probability
+        return np.argmax(y_hat, axis=1)
+
+
+    def get_scores(self):
+        return self.scores
+    
 def NN():
+    TRAIN_PATH = "./train.csv"
+    TEST_PATH = "./test.csv"
+    train_set = read_csv(TRAIN_PATH)
+    test_set = read_csv(TEST_PATH)
+    val_set = read_csv(TRAIN_PATH)
+    train_set = data_cleaning(train_set)
+    val_set = data_cleaning(val_set)
+    test_set = data_cleaning(test_set)
+    embedding, _, _, text_features_test,\
+            emotion_set, _, _, emotion2int, int2emotion = pre_processing(train_set, val_set, test_set)
+    
+    folds = 5
+    scores = []
+    best_score = 0
+    for fold in range(folds):
+        train_set, val_set, test_set = data_loading(fold, folds)
+        _, text_features_train, text_features_val, _,\
+                _, train_targets, val_targets, _, _ = pre_processing(train_set, val_set, test_set)
+        weights = np.zeros((len(embedding), len(emotion_set)))
+        if fold == 0:
+            logger.info(f"Input size = {np.array(text_features_train).shape}")
+        text_features_train = np.array(text_features_train)
+        train_targets = np.array(train_targets)
+        text_features_val = np.array(text_features_val)
+        val_targets = np.array(val_targets)
+        X = np.array(text_features_train)
+        y = np.array(train_targets)
+        # create a neural network with 100 hidden units
+        nn = NeuralNetwork(len(text_features_train[0]), 120, len(emotion_set))\
 
-    # your Multi-layer Neural Network
-    pass
+        # train the neural network
+        num_epochs = 2000
+        lr = 0.001
+        nn.train(X, y, val_targets, text_features_val, num_epochs=num_epochs, learning_rate=lr)
 
+        scores_fold = nn.get_scores()
+        scores.append(scores_fold)
+        if scores_fold[-1] > best_score:
+            best_nn = nn
+            best_score = scores_fold[-1]
+        
+    for score in scores:
+        plt.plot(np.arange(len(score)), score)
+    plt.title(f"NN: {folds}-fold Cross Validation, lr={lr}, epochs={num_epochs}, acc={best_score}")
+    plt.xlabel("Iteration")
+    plt.ylabel("Validation Accuracy")
+    plt.savefig(f"NN_highestAcc={best_score}_{folds}-fold Cross Validation_lr={lr}_epochs={num_epochs}.png")
+
+
+    pred_test = best_nn(text_features_test)
+    largest_idx = np.argmax(pred_test, axis=1)
+    # logger.debug(largest_idx)
+    test_pred = np.eye(pred_test.shape[1])[largest_idx]
+    # logger.debug(np.argmax(val_pred))
+    predicted_emotions = []
+    for pred_emotion in np.argmax(test_pred, axis=1):      
+        predicted_emotions.append(int2emotion[pred_emotion])
+
+    test_set['emotions'] = predicted_emotions
+    test_set.to_csv("./test_nn.csv")
+    logger.info(f"Saving test results...")
 
 if __name__ == '__main__':
     print ("..................Beginning of Logistic Regression................")
-    LR()
+    # LR()
     print ("..................End of Logistic Regression................")
 
     print("------------------------------------------------")
