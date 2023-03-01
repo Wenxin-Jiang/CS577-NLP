@@ -20,19 +20,15 @@ def read_csv(path: str) -> pd.DataFrame:
     return file
 
 
-def loss_lr(pred, gt):
 
-    return
-
-
-def feature_rep(train_set, val_set, test_set):
+def feature_rep(train_set, val_set):
     # Create feature representations for data
     word2vec = {}
     word_set = {}
     word_all = []
     idx = 0
     # logger.debug(train_set)
-    for dataset in (train_set, val_set, test_set):
+    for dataset in (train_set, val_set):
         for text in dataset.text:
             words = text.split()
             for word in words:
@@ -42,7 +38,6 @@ def feature_rep(train_set, val_set, test_set):
                     idx += 1
         word_set = set(word_all)
         # logger.debug(idx)
-    # logger.info(len(word2vec))
     # logger.info(len(word_set))
         # print(text)
         # break
@@ -55,7 +50,10 @@ def text_features(dataset, embedding):
         features = [0] * len(embedding)
         words = text.split()
         for word in words:
-            features[embedding[word]] = 1
+            try: 
+                features[embedding[word]] = 1
+            except:
+                continue
         text_features.append(features)
     # logger.info(len(text_features[0]))
     # logger.info(len(text_features))
@@ -97,7 +95,8 @@ def data_loading(epoch, num_epochs):
 
 def pre_processing(train_set: pd.DataFrame, val_set: pd.DataFrame, test_set: pd.DataFrame):
     
-    embedding = feature_rep(train_set, val_set, test_set)
+    embedding = feature_rep(train_set, val_set)
+    logger.info(f"Size of vocabulary = {len(embedding)}")
     # Create trianing and testing inputs
     text_features_train = text_features(train_set, embedding)
     text_features_val = text_features(val_set, embedding)
@@ -143,88 +142,119 @@ def LR():
     val_set = data_cleaning(val_set)
     test_set = data_cleaning(test_set)
     embedding, _, _, text_features_test,\
-          emotion_set, _, _, emotion2int, int2emotion = pre_processing(train_set, val_set, test_set)
+            emotion_set, _, _, emotion2int, int2emotion = pre_processing(train_set, val_set, test_set)
     # your logistic regression 
-    weights = np.zeros((len(embedding), len(emotion_set)))
-    learning_rate = 0.01
-    num_epochs = 10
+    # TODO: LR vs. Accuracy
+    learning_rate = 0.1
+    num_iters = 120
+    reg_lambda = 0.001
+    folds = 5
 
     errors_train = []
     errors_val = []
-    
-    
-    for epoch in range(num_epochs):
-        # Cross validation
-        train_set, val_set, test_set = data_loading(epoch, num_epochs)
+
+    # weights = np.zeros((len(embedding), len(emotion_set)))
+    best_score = 0
+    score_arr = []
+    for fold in range(folds):
+        train_set, val_set, test_set = data_loading(fold, folds)
         _, text_features_train, text_features_val, _,\
-          _, train_targets, val_targets, _, _ = pre_processing(train_set, val_set, test_set)
-        # text_features_train = text_features(train_set, embedding)
-        # text_features_val = text_features(val_set, embedding)
-        # text_features_test = text_features(test_set, embedding)
+                _, train_targets, val_targets, _, _ = pre_processing(train_set, val_set, test_set)
+        weights = np.zeros((len(embedding), len(emotion_set)))
+        if fold == 0:
+            logger.info(f"Input size = {np.array(text_features_train).shape}")
+        scores = []
+        for iter in range(num_iters):
+            # Cross validation
+            
+            # text_features_train = text_features(train_set, embedding)
+            # text_features_val = text_features(val_set, embedding)
+            # text_features_test = text_features(test_set, embedding)
 
 
-        output = np.dot(np.array(text_features_train), weights)
-        # Logistic regression function (Sigmoid)
-        predictions = sigmoid(output)
-        # logger.debug(np.array(predictions).shape)
-        # logger.debug(np.array(train_targets).shape)
-        error = train_targets - predictions
-        errors_train.append(error)
-        gradient = np.dot(np.array(text_features_train).T, error)
-        weights += learning_rate * gradient
-        
-           
-        # evaluation on val_set
-        pred_val = sigmoid(np.dot(np.array(text_features_val), weights))
-        error_val = val_targets - pred_val
-        # logger.debug(pred_val.shape)
-        # logger.debug(val_targets.shape)
-        # largest_idx = np.argmax(pred_val)
-        # pred = np.eye(pred_val.shape[1])[np.argmax(pred_val, axis=1)]
-        # logger.debug(pred)
-        # pred[largest_idx] = 1
-        errors_val.append(error_val)
+            output = np.dot(np.array(text_features_train), weights)
+            # Logistic regression function (Sigmoid)
+            predictions = sigmoid(output)
+            # logger.debug(np.array(predictions).shape)
+            # logger.debug(np.array(train_targets).shape)
+            error = train_targets - predictions
+            errors_train.append(error)
+            gradient = np.dot(np.array(text_features_train).T, error) + reg_lambda * weights
+            weights += learning_rate * gradient
+            
+                
+            # evaluation on val_set
+            pred_val = sigmoid(np.dot(np.array(text_features_val), weights))
+            error_val = val_targets - pred_val
+            # logger.debug(pred_val.shape)
+            # logger.debug(val_targets.shape)
+            # largest_idx = np.argmax(pred_val)
+            # pred = np.eye(pred_val.shape[1])[np.argmax(pred_val, axis=1)]
+            # logger.debug(pred)
+            # pred[largest_idx] = 1
+            errors_val.append(error_val)
+            
+            predictions = sigmoid(pred_val)
+            # predictions = 1 / (1 + np.exp(-pred_val))
+            # logger.debug(predictions)
+            largest_idx = np.argmax(predictions, axis=1)
+            # logger.debug(largest_idx)
+            val_pred = np.eye(predictions.shape[1])[largest_idx]
+            # logger.debug(np.argmax(val_pred))
+            # =============
+            # predicted_emotions = []
+            # for pred_emotion in np.argmax(val_pred, axis=1):      
+            #     predicted_emotions.append(int2emotion[pred_emotion])
+
+            # val_emotions = []
+            # for val_emotion in np.argmax(val_targets, axis=1):
+            #     val_emotions.append(int2emotion[val_emotion])
+            # # val_emotions = int2emotion[np.argmax(val_targets, axis=1)]
+            # # logger.debug(predicted_emotions)
+            # # logger.debug(val_emotions)
+            # count = 0
+            # for i in range(len(predicted_emotions)):
+            #     if predicted_emotions[i] == val_emotions[i]:
+            #         count += 1
+            # =============
+            score = np.mean(\
+                np.argmax(val_pred, axis=1) == \
+                    np.argmax(val_targets, axis=1))
+            # score = count / len(val_targets)
+            scores.append(score)
+            # if score > 0:
+                # logger.debug(predicted_emotion)
+            logger.info(f"Iteration {iter}: Accuracy = {score * 100:.2f}%")
+            # break
+        if score == 0 or score > best_score:
+            best_weights = weights
+            best_score = score
+        score_arr.append(scores)
+        logger.info(f"Best Accuracy = {best_score * 100:.2f}%")
+    # logger.info(f"Input size = {np.array(text_features_train).shape}")
+    for scores in score_arr:
+        plt.plot(np.arange(len(scores)), scores)
+        plt.title(f"{folds}-fold Cross Validation, lr={learning_rate}, lambda={reg_lambda}, iteration={num_iters}, highest acc={best_score}")
+    plt.xlabel("Iteration")
+    plt.ylabel("Validation Accuracy")
+    plt.savefig(f"LR_highestAcc={best_score}_{folds}-fold Cross Validation_lr={learning_rate}_lambda={reg_lambda}_iteration={num_iters}.png")
 
 
-        predictions = 1 / (1 + np.exp(-pred_val))
-        predictions = np.round(predictions)
-        predicted_emotion = int2emotion[np.argmax(predictions[0])]
-        val_emotions = int2emotion[np.argmax(val_targets)]
-        score = np.sum(predicted_emotion==val_emotions) / len(val_targets)
-        logger.info(f"Epoch {epoch}: Accuracy = {score * 100}%")
-        # break
-    logger.debug(errors_train)
-    logger.debug(errors_val)
+    # Predict test data and save results into csv file
+    pred_test = sigmoid(np.dot(np.array(text_features_test), best_weights))
 
-    # Predict emotions for the test data
-    scores = np.dot(text_features_test, weights)
-    predictions = 1 / (1 + np.exp(-scores))
-    predictions = np.round(predictions)
-    predicted_emotion = int2emotion[np.argmax(predictions[0])]
-    # logger.debug(predicted_emotion)
-    
-    pred_emotion = []
+    predictions = sigmoid(pred_test)
+    largest_idx = np.argmax(predictions, axis=1)
+    # logger.debug(largest_idx)
+    test_pred = np.eye(predictions.shape[1])[largest_idx]
+    # logger.debug(np.argmax(val_pred))
+    predicted_emotions = []
+    for pred_emotion in np.argmax(test_pred, axis=1):      
+        predicted_emotions.append(int2emotion[pred_emotion])
 
-    scores = np.dot(text_features_test, weights)
-    predictions = 1 / (1 + np.exp(-scores))
-    # logger.debug(predictions)
-    # predictions = np.ones(predictions.shape) * np.argmax(predictions, axis=1)
-    # len(np.argmax(predictions, axis=1))
-    pred = np.zeros(predictions.shape)
-    for idx in range(pred.shape[0]):
-        # logger.debug(np.argmax(predictions, axis=1)[idx])
-        pred[idx][np.argmax(predictions, axis=1)[idx]] = 1
-
-    for idx in range(pred.shape[0]):
-        # logger.debug(np.where(pred[idx]==1))
-        
-        # logger.debug(int_to_emotion[np.where(pred[idx]==1)[0][0]])
-        pred_emotion.append(int2emotion[np.where(pred[idx]==1)[0][0]])
-    # predictions = np.argmax(predictions)
-    # predicted_emotion = int_to_emotion[np.argmax(predictions[0])]
-    # logger.debug(pred_emotion)
-    output = post_processing(test_set, pred_emotion)
-    
+    test_set['emotions'] = predicted_emotions
+    test_set.to_csv("./test_lg.csv")
+    logger.info(f"Saving test results...")
     return
 
 
