@@ -11,6 +11,10 @@ def sigmoid(x: float):
     return output
 
 
+def softmax(x):
+    ex = np.exp(x - np.max(x))
+    return ex/ex.sum()
+
 def read_csv(path: str) -> pd.DataFrame:
     file = pd.read_csv(path)
     return file
