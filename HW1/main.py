@@ -388,8 +388,7 @@ def NN():
     plt.ylabel("Validation Accuracy")
     plt.savefig(f"NN_highestAcc={best_score}_{folds}-fold Cross Validation_lr={lr}_epochs={num_epochs}.png")
 
-
-    pred_test = best_nn(text_features_test)
+    pred_test = best_nn.predict(text_features_test)
     largest_idx = np.argmax(pred_test, axis=1)
     # logger.debug(largest_idx)
     test_pred = np.eye(pred_test.shape[1])[largest_idx]
