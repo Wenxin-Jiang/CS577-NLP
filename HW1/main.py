@@ -145,6 +145,7 @@ def LR():
             emotion_set, _, _, emotion2int, int2emotion = pre_processing(train_set, val_set, test_set)
     # your logistic regression 
     # TODO: LR vs. Accuracy
+    
     learning_rate = 0.1
     num_iters = 120
     reg_lambda = 0.001
