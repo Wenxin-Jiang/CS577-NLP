@@ -226,7 +226,7 @@ def LR():
             # if score > 0:
                 # logger.debug(predicted_emotion)
             logger.info(f"Iteration {iter}: Accuracy = {score * 100:.2f}%")
-            # break
+            break
         if score == 0 or score > best_score:
             best_weights = weights
             best_score = score
@@ -309,9 +309,9 @@ class NeuralNetwork:
         for epoch in range(num_epochs):
             # forward pass
             y_hat = self.forward(X)
-            # calculate the loss
-            correct_logprobs = -np.log(y_hat[range(len(X)), np.argmax(y, axis=1)]+1e-12)
-            data_loss = np.sum(correct_logprobs) / len(X)
+            # calculate the cross entropy loss
+            loss = -np.log(y_hat[range(len(X)), np.argmax(y, axis=1)]+1e-12)
+            data_loss = np.sum(loss) / len(X)
             # print the loss every 100 epochs
             
 
@@ -374,7 +374,7 @@ def NN():
         nn = NeuralNetwork(len(text_features_train[0]), 120, len(emotion_set))\
 
         # train the neural network
-        num_epochs = 2000
+        num_epochs = 250
         lr = 0.001
         nn.train(X, y, val_targets, text_features_val, num_epochs=num_epochs, learning_rate=lr)
 
@@ -384,14 +384,15 @@ def NN():
             best_nn = nn
             best_score = scores_fold[-1]
         logger.info(f"Best Accuracy = {best_score * 100:.2f}%")
-        # break
+        break
     for score in scores:
         plt.plot(np.arange(len(score)), score)
-    plt.title(f"NN: {folds}-fold Cross Validation, lr={lr}, epochs={num_epochs}, acc={best_score}")
+    plt.title(f"NN: {folds}-fold, lr={lr}, acc={best_score * 100:.2f}%")
     plt.xlabel("Iteration")
     plt.ylabel("Validation Accuracy")
     plt.savefig(f"NN_highestAcc={best_score}_{folds}-fold Cross Validation_lr={lr}_epochs={num_epochs}.png")
-
+   
+    # predict the test results
     pred_test = best_nn.predict(text_features_test)
     # logger.debug(pred_test)
     largest_idx = np.argmax(pred_test, axis=1)
@@ -408,7 +409,7 @@ def NN():
 
 if __name__ == '__main__':
     print ("..................Beginning of Logistic Regression................")
-    # LR()
+    LR()
     print ("..................End of Logistic Regression................")
 
     print("------------------------------------------------")
