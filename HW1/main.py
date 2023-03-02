@@ -320,7 +320,7 @@ class NeuralNetwork:
             # logger.debug(y.shape)
             self.backward(X, y, y_hat, learning_rate)
             if epoch % 100 == 0:
-                pred_val = nn.predict(text_features_val)
+                pred_val = self.predict(text_features_val)
                 score = np.mean(np.argmax(pred_val, axis=1) == np.argmax(val_targets, axis=1))
                 self.scores.append(score)
                 logger.info(f"Epoch: {epoch}, loss: {data_loss}, accuracy: {score * 100:.2f}%.")
