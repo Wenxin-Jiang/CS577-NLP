@@ -319,8 +319,9 @@ class NeuralNetwork:
             # logger.debug(X.shape)
             # logger.debug(y.shape)
             self.backward(X, y, y_hat, learning_rate)
-            if epoch % 50 == 0:
-                score = np.mean(self.predict(text_features_val) == np.argmax(val_targets, axis=1))
+            if epoch % 100 == 0:
+                pred_val = nn.predict(text_features_val)
+                score = np.mean(np.argmax(pred_val, axis=1) == np.argmax(val_targets, axis=1))
                 self.scores.append(score)
                 logger.info(f"Epoch: {epoch}, loss: {data_loss}, accuracy: {score * 100:.2f}%.")
 
@@ -332,7 +333,9 @@ class NeuralNetwork:
         # forward pass
         y_hat = self.forward(X)
         # return the index with highest probability
-        return np.argmax(y_hat, axis=1)
+        # logger.debug(y_hat.shape)
+        return y_hat
+
 
 
     def get_scores(self):
@@ -380,7 +383,7 @@ def NN():
             best_nn = nn
             best_score = scores_fold[-1]
         logger.info(f"Best Accuracy = {best_score * 100:.2f}%")
-
+        break
     for score in scores:
         plt.plot(np.arange(len(score)), score)
     plt.title(f"NN: {folds}-fold Cross Validation, lr={lr}, epochs={num_epochs}, acc={best_score}")
@@ -389,6 +392,7 @@ def NN():
     plt.savefig(f"NN_highestAcc={best_score}_{folds}-fold Cross Validation_lr={lr}_epochs={num_epochs}.png")
 
     pred_test = best_nn.predict(text_features_test)
+    logger.debug(pred_test)
     largest_idx = np.argmax(pred_test, axis=1)
     # logger.debug(largest_idx)
     test_pred = np.eye(pred_test.shape[1])[largest_idx]
