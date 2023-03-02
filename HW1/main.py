@@ -383,7 +383,7 @@ def NN():
             best_nn = nn
             best_score = scores_fold[-1]
         logger.info(f"Best Accuracy = {best_score * 100:.2f}%")
-        break
+        # break
     for score in scores:
         plt.plot(np.arange(len(score)), score)
     plt.title(f"NN: {folds}-fold Cross Validation, lr={lr}, epochs={num_epochs}, acc={best_score}")
@@ -392,7 +392,7 @@ def NN():
     plt.savefig(f"NN_highestAcc={best_score}_{folds}-fold Cross Validation_lr={lr}_epochs={num_epochs}.png")
 
     pred_test = best_nn.predict(text_features_test)
-    logger.debug(pred_test)
+    # logger.debug(pred_test)
     largest_idx = np.argmax(pred_test, axis=1)
     # logger.debug(largest_idx)
     test_pred = np.eye(pred_test.shape[1])[largest_idx]
