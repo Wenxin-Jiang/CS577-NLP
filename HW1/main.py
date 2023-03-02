@@ -84,7 +84,8 @@ def data_loading(epoch, num_epochs):
     # logger.info(f"After data cleaning, len(train_set) is {len(train_set)}, len(test_set) is {len(test_set)}")
 
     # Cross validation
-    df_shuffle = train_set.sample(frac=1)
+    # df_shuffle = train_set.sample(frac=1)
+    df_shuffle = train_set.copy()
     # logger.info(len(df_shuffle))
     df_size = len(df_shuffle)
     idx_split_left = df_size//num_epochs * (epoch)
@@ -144,9 +145,8 @@ def LR():
     embedding, _, _, text_features_test,\
             emotion_set, _, _, emotion2int, int2emotion = pre_processing(train_set, val_set, test_set)
     # your logistic regression 
-    # TODO: LR vs. Accuracy
     
-    learning_rate = 0.1
+    learning_rate = 0.01
     num_iters = 120
     reg_lambda = 0.001
     folds = 5
@@ -320,7 +320,7 @@ class NeuralNetwork:
             # logger.debug(X.shape)
             # logger.debug(y.shape)
             self.backward(X, y, y_hat, learning_rate)
-            if epoch % 100 == 0:
+            if epoch % 10 == 0:
                 pred_val = self.predict(text_features_val)
                 score = np.mean(np.argmax(pred_val, axis=1) == np.argmax(val_targets, axis=1))
                 self.scores.append(score)
@@ -353,40 +353,50 @@ def NN():
     test_set = data_cleaning(test_set)
     embedding, _, _, text_features_test,\
             emotion_set, _, _, emotion2int, int2emotion = pre_processing(train_set, val_set, test_set)
-    
+
     folds = 5
+    
     scores = []
+    # lr_list = [0.001, 0.0001, 0.01]
+    lr = 0.001
+    best_scores = []
+    # for lr in lr_list:
     best_score = 0
-    for fold in range(folds):
-        train_set, val_set, test_set = data_loading(fold, folds)
-        _, text_features_train, text_features_val, _,\
-                _, train_targets, val_targets, _, _ = pre_processing(train_set, val_set, test_set)
-        weights = np.zeros((len(embedding), len(emotion_set)))
-        if fold == 0:
+    
+    # for fold in range(folds):
+    fold = 3
+    train_set, val_set, test_set = data_loading(fold, folds)
+    _, text_features_train, text_features_val, _,\
+            _, train_targets, val_targets, _, _ = pre_processing(train_set, val_set, test_set)
+    weights = np.zeros((len(embedding), len(emotion_set)))
+    if fold == 0:
             logger.info(f"Input size = {np.array(text_features_train).shape}")
-        text_features_train = np.array(text_features_train)
-        train_targets = np.array(train_targets)
-        text_features_val = np.array(text_features_val)
-        val_targets = np.array(val_targets)
-        X = np.array(text_features_train)
-        y = np.array(train_targets)
-        # create a neural network with 100 hidden units
-        nn = NeuralNetwork(len(text_features_train[0]), 120, len(emotion_set))\
+    text_features_train = np.array(text_features_train)
+    train_targets = np.array(train_targets)
+    text_features_val = np.array(text_features_val)
+    val_targets = np.array(val_targets)
+    X = np.array(text_features_train)
+    y = np.array(train_targets)
+    # create a neural network with 100 hidden units
+    nn = NeuralNetwork(len(text_features_train[0]), 120, len(emotion_set))
+    # train the neural network
+    num_epochs = 1000
 
-        # train the neural network
-        num_epochs = 250
-        lr = 0.001
-        nn.train(X, y, val_targets, text_features_val, num_epochs=num_epochs, learning_rate=lr)
+    
+    nn.train(X, y, val_targets, text_features_val, num_epochs=num_epochs, learning_rate=lr)
 
-        scores_fold = nn.get_scores()
-        scores.append(scores_fold)
-        if scores_fold[-1] > best_score:
+    scores_fold = nn.get_scores()
+    scores.append(scores_fold)
+    if scores_fold[-1] > best_score:
             best_nn = nn
             best_score = scores_fold[-1]
-        logger.info(f"Best Accuracy = {best_score * 100:.2f}%")
-        break
+            logger.info(f"fold={fold}")
+    logger.info(f"Best Accuracy = {best_score * 100:.2f}%")
+    best_scores.append(best_score)
+
+            # break
     for score in scores:
-        plt.plot(np.arange(len(score)), score)
+            plt.plot(np.arange(len(score)), score)
     plt.title(f"NN: {folds}-fold, lr={lr}, acc={best_score * 100:.2f}%")
     plt.xlabel("Iteration")
     plt.ylabel("Validation Accuracy")
