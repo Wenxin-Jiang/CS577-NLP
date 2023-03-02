@@ -379,7 +379,8 @@ def NN():
         if scores_fold[-1] > best_score:
             best_nn = nn
             best_score = scores_fold[-1]
-        
+        logger.info(f"Best Accuracy = {best_score * 100:.2f}%")
+
     for score in scores:
         plt.plot(np.arange(len(score)), score)
     plt.title(f"NN: {folds}-fold Cross Validation, lr={lr}, epochs={num_epochs}, acc={best_score}")
