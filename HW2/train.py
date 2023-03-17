@@ -27,6 +27,21 @@ import gensim.downloader as api
 from neural_archs import DAN, RNN, LSTM
 from utils import WiCDataset
 
+
+def words_to_embeddings(words, embedding_size, init_word_embs="scratch", glove_model=None):
+    word_embeddings = []
+    if init_word_embs == "glove":
+        for word in words:
+            if word in glove_model:
+                word_embeddings.append(glove_model[word])
+            else:
+                word_embeddings.append(np.zeros(embedding_size)) # TODO: test if necessary
+        return np.stack(word_embeddings)
+    elif init_word_embs == "scratch":
+        # TODO
+        pass
+
+
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
@@ -43,6 +58,12 @@ if __name__ == "__main__":
         # TODO: Feed the GloVe embeddings to NN modules appropriately
         # for initializing the embeddings
         glove_embs = api.load("glove-wiki-gigaword-50")
+        embedding_size = glove_embs.vector_size
+        print(f"Glove Embedding size is {embedding_size}")
+
+    input_size = embedding_size
+    hidden_size = 128
+    output_size = 2
 
     # TODO: Freely modify the inputs to the declaration of each module below
     if args.neural_arch == "dan":
@@ -65,6 +86,31 @@ if __name__ == "__main__":
     # https://pytorch.org/tutorials/beginner/data_loading_tutorial.html
     # and implement a PyTorch Dataset class for the WiC dataset in
     # utils.py
+    train_data_path = "./WiC_dataset/train/train.data.txt"
+    dev_data_path = "./WiC_dataset/dev/dev.data.txt"
+    test_data_path = "./WiC_dataset/test/test.data.txt"
+    
+    train_label_path = "./WiC_dataset/train/train.gold.txt"
+    dev_label_path = "./WiC_dataset/dev/dev.gold.txt"
+    test_label_path = "./WiC_dataset/test/test.gold.txt"
+
+    train_set = WiCDataset(train_data_path, train_label_path)
+    dev_set = WiCDataset(dev_data_path, dev_label_path)
+    test_set = WiCDataset(test_data_path, test_label_path)
+
+    for dataset in [train_set, dev_set, test_set]:
+        for i in range(len(dataset)):
+            target = dataset[i]["target"]
+            context1 = dataset[i]["context1"]
+            context2 = dataset[i]["context2"]      
+            input = context1.split() + context2.split()
+            dataset[i]["input"] = words_to_embeddings(input, embedding_size, \
+                                                      init_word_embs=args.init_word_embs)
+    
+    train_dataloader = torch.utils.data.DataLoader(train_set, batch_size=32, shuffle=True)
+    dev_dataloader = torch.utils.data.DataLoader(dev_set, batch_size=32, shuffle=True)
+    test_dataloader = torch.utils.data.DataLoader(test_set, batch_size=32, shuffle=True)
+
 
     # TODO: Training and validation loop here
 
