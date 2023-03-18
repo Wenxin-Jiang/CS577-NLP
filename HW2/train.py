@@ -31,10 +31,12 @@ from utils import WiCDataset
 def words_to_embeddings(words, embedding_size, init_word_embs="scratch", glove_model=None):
     word_embeddings = []
     if init_word_embs == "glove":
+        glove_model = api.load("glove-wiki-gigaword-50")
         for word in words:
             if word in glove_model:
                 word_embeddings.append(glove_model[word])
             else:
+                print(f"{word} does not exist in glove_model!!! Appending zeros as input.")
                 word_embeddings.append(np.zeros(embedding_size)) # TODO: test if necessary
         return np.stack(word_embeddings)
     elif init_word_embs == "scratch":
@@ -113,7 +115,66 @@ if __name__ == "__main__":
 
 
     # TODO: Training and validation loop here
+    num_epochs = 10
+    lr = 0.001
 
+    loss_CE = torch.nn.CrossEntropyLoss()
+    optimizer = torch.optim.Adam(model.parameters(), lr=lr)
+
+    for epoch in range(num_epochs):
+        model.train()
+        train_loss = 0
+        train_correct = 0
+
+        for batch in train_dataloader:
+            inputs = batch["input"].to(torch_device)
+            targets = batch["target"].to(torch_device)
+
+            optimizer.zero_grad()
+            outputs = model(inputs)
+            loss = loss_CE(outputs, targets)
+
+            loss.backward()
+            optimizer.step()
+
+            train_loss += loss.item()
+            preds = torch.argmax(outputs, dim=1)
+            train_correct += (preds == targets).sum().item()
+        
+        train_loss /= len(train_dataloader)
+        train_acc = train_correct / len(train_set)
+
+        # Validation
+        model.eval()
+        val_loss = 0
+        val_correct = 0
+
+        with torch.no_grad():
+            for batch in dev_dataloader: #TODO: check if dev==val
+                inputs = batch["input"].to(torch_device)
+                targets = batch["target"].to(torch_device)
+
+                outputs = model(inputs)
+                loss = loss_CE(outputs, targets)
+
+                val_loss += loss.item()
+                preds = torch.argmax(outputs, dim=1)
+                val_correct += (preds == targets).sum().item()
+
+        val_loss /= len(dev_dataloader)
+        val_acc = val_correct / len(dev_dataloader)
+
+        print(f"Epoch {epoch+1}/{num_epochs}, Train loss: {train_loss:.4f},\
+               Train accuracy: {train_acc:.4f},\nVal loss: {val_loss:.4f}, Val acc: {val_acc:.4f}")
     # TODO: Testing loop
     # Write predictions (F or T) for each test example into test.pred.txt
     # One line per each example, in the same order as test.data.txt.
+    model. eval()
+    with open("test.pred.txt", "w") as pred_file:
+        for batch in test_dataloader:
+            inputs = batch["input"].to(torch_device)
+            outputs = model(inputs)
+            preds = torch.argmax(outputs, dim=1)
+            preds = ["T" if pred.item() == 1 else "F" for pred in preds]
+            for pred in preds:
+                pred_file.write(f"{pred}\n")
