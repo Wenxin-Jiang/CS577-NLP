@@ -67,17 +67,17 @@ if __name__ == "__main__":
 
     # TODO: Freely modify the inputs to the declaration of each module below
     if args.neural_arch == "dan":
-        model = DAN().to(torch_device)
+        model = DAN(input_size, hidden_size, output_size).to(torch_device)
     elif args.neural_arch == "rnn":
-        if args.rnn_bidirect:
-            model = RNN().to(torch_device)
-        else:
-            model = RNN().to(torch_device)
+        # if args.rnn_bidirect:
+        model = RNN(input_size, hidden_size, output_size, num_layers=1, bidirectional=args.rnn_bidirect).to(torch_device)
+        # else:
+        #     model = RNN().to(torch_device)
     elif args.neural_arch == "lstm":
-        if args.rnn_bidirect:
-            model = LSTM().to(torch_device)
-        else:
-            model = LSTM().to(torch_device)
+        # if args.rnn_bidirect:
+        model = LSTM(input_size, hidden_size, output_size, num_layers=1, bidirectional=args.rnn_bidirect).to(torch_device)
+        # else:
+        #     model = LSTM().to(torch_device)
 
     # TODO: Read off the WiC dataset files from the `WiC_dataset' directory
     # (will be located in /homes/cs577/WiC_dataset/(train, dev, test))

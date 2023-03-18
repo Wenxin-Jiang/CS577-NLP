@@ -5,14 +5,14 @@ import torch
 # other functions or attributes you might need.
 class DAN(torch.nn.Module):
     def __init__(self, input_size, hidden_size, output_size):
-        # TODO: Declare DAN architecture
+        # Done: Declare DAN architecture
         super(DAN, self).__init__()
         self.layer1 = torch.nn.Linear(input_size, hidden_size)
         self.layer2 = torch.nn.Linear(hidden_size, output_size)
         self.relu = torch.nn.LeakyReLU()
 
     def forward(self, x):
-        # TODO: Implement DAN forward pass
+        # Done: Implement DAN forward pass
         x = torch.mean(x, dim=1)
         x = self.layer1(x)
         x = self.relu(x)
@@ -21,30 +21,30 @@ class DAN(torch.nn.Module):
 
 
 class RNN(torch.nn.Module):
-    def __init__(self, input_size, hidden_size, output_size, num_layers=1):
-        # TODO: Declare RNN model architecture
+    def __init__(self, input_size, hidden_size, output_size, num_layers=1, bidirectional=False):
+        # Done: Declare RNN model architecture
         super(RNN, self).__init__()
-        self.rnn = torch.nn.RNN(input_size, hidden_size, num_layers, batch_first=True)
-        self.layer_fc = torch.nn.Linear(hidden_size, output_size)
+        self.rnn = torch.nn.RNN(input_size, hidden_size, num_layers, batch_first=True, bidirectional=bidirectional)
+        self.layer_fc = torch.nn.Linear(hidden_size * (2 if bidirectional else 1), output_size)
 
     def forward(self, x):
         # TODO: Implement RNN forward pass
-        _, h_n = self.rnn(x)
-        x = h_n[-1, :, :]
+        x, _ = self.rnn(x)
+        x = x[:, -1 :]
         x = self.fc(x)
         return x
 
 
 class LSTM(torch.nn.Module):
     def __init__(self, input_size, hidden_size, output_size, num_layers=1, bidirectional=False):
-        # TODO: Declare LSTM model architecture
+        # Done: Declare LSTM model architecture
         super(LSTM, self).__init__()
         self.lstm = torch.nn.LSTM(input_size, hidden_size, num_layers, batch_first=True)
         self.layer_fc = torch.nn.Linear(hidden_size * (2 if bidirectional else 1), output_size)
 
 
     def forward(self, x):
-        # TODO: Implement LSTM forward pass
+        # Done: Implement LSTM forward pass
         _, h_n, _ = self.lstm(x)
         x = h_n[-1, :, :]
         if self.lstm.bidirectional:
