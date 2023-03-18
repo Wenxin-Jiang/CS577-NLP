@@ -33,7 +33,7 @@ def words_to_embeddings(words, embedding_size, init_word_embs="scratch", glove_m
     if init_word_embs == "glove":
         glove_model = api.load("glove-wiki-gigaword-50")
         for word in words:
-            if word in glove_model:
+            if word in glove_model.index_to_key:
                 word_embeddings.append(glove_model[word])
             else:
                 print(f"{word} does not exist in glove_model!!! Appending zeros as input.")
