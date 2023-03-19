@@ -13,6 +13,8 @@ class WiCDataset(Dataset):
                                     names=["Target", "POS", "index1-2", "example1", "example2"])
         self.label = pd.read_csv(label_path, sep='\t', header=None,\
                                     names=["Label"])
+        self.inputs = [None] * len(self.data)
+
     def __len__(self):
         if len(self.data) == len(self.label):
             return len(self.data)
@@ -23,6 +25,8 @@ class WiCDataset(Dataset):
         return self.data.head()
     
     def __getitem__(self, idx):
+        input_value = self.inputs[idx]
+
         target = self.data.loc[idx, "Target"]
         POS = self.data.loc[idx, "POS"]
         index1, index2 = self.data.loc[idx, "index1-2"].split("-")
@@ -31,6 +35,10 @@ class WiCDataset(Dataset):
 
         label = self.label.loc[idx, "Label"]
         dic_data = {"label": label, "target": target, "POS": POS, "index1": index1, \
-                    "index2": index2, "context1": context1,\
-                        "context2": context2}
+                "index2": index2, "context1": context1,\
+                    "context2": context2, "input": input_value}
         return dic_data
+    
+    def update(self, idx, input_value):
+        self.inputs[idx] = input_value
+        return

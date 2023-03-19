@@ -23,25 +23,72 @@ change the last import statement below.
 '''
 
 import gensim.downloader as api
+from collections import defaultdict
+import torch.nn.functional as F
+from torch.nn.utils.rnn import pad_sequence
 
 from neural_archs import DAN, RNN, LSTM
 from utils import WiCDataset
 
 
-def words_to_embeddings(words, embedding_size, init_word_embs="scratch", glove_model=None):
+def pad_embeddings(tensor, max_length):
+    pad_size = max_length - tensor.shape[1]
+    padded_embeddings = F.pad(tensor, (0, 0, 0, pad_size, 0, 0))
+    return padded_embeddings
+
+
+def collate_fn(batch):
+    inputs = [item["input"] for item in batch]
+    labels = [item["label"] for item in batch]
+    # print(inputs[0].shape)
+
+    max_len1 = max([input[0].size(0) for input in inputs])
+    max_len2 = max([input[1].size(0) for input in inputs])
+
+    embeddings1_padded = [torch.cat([input[0], torch.zeros(max_len1 - input[0].size(0), input[0].size(1))], dim=0) for input in inputs]
+    embeddings2_padded = [torch.cat([input[1], torch.zeros(max_len2 - input[1].size(0), input[1].size(1))], dim=0) for input in inputs]
+
+    inputs_concat = [torch.cat([emb1, emb2], dim=0) for emb1, emb2 in zip(embeddings1_padded, embeddings2_padded)]
+
+    padded_inputs = pad_sequence(inputs_concat, batch_first=True)
+    for idx, label in enumerate(labels):
+        if label == "F":
+            labels[idx] = 0
+        elif label == "T":
+            labels[idx] = 1
+
+    labels_tensor = torch.tensor(labels, dtype=torch.float32)
+
+    return padded_inputs, labels_tensor
+
+
+def words_to_embeddings(words, embedding_size, embedding_dim=50, init_word_embs="scratch", glove_model=None):
     word_embeddings = []
-    if init_word_embs == "glove":
+    vocab_size = embedding_size
+
+    if init_word_embs == "scratch":
+        embeddings = torch.nn.Embedding(vocab_size, embedding_size)
+    elif init_word_embs == "glove":
         glove_model = api.load("glove-wiki-gigaword-50")
+        weights = torch.zeros((vocab_size, embedding_size))
         for word in words:
-            if word in glove_model.index_to_key:
-                word_embeddings.append(glove_model[word])
-            else:
-                print(f"{word} does not exist in glove_model!!! Appending zeros as input.")
-                word_embeddings.append(np.zeros(embedding_size)) # TODO: test if necessary
-        return np.stack(word_embeddings)
-    elif init_word_embs == "scratch":
+            weights[i] = torch.tensor(glove_model[word], dtype=torch.float32)
+        embeddings = torch.nn.Embedding.from_pretrained(weights, freeze=False)
+    else:
+        raise ValueError(f"{init_word_embs} is an invalid embedding method!")
+    return embeddings
+    # if init_word_embs == "glove":
+    #     glove_model = api.load("glove-wiki-gigaword-50")
+    #     for word in words:
+    #         if word in glove_model.index_to_key:
+    #             print(f"{word} exists in glove_model!!!.")
+    #             word_embeddings.append(glove_model[word])
+    #         else:
+    #             print(f"{word} does not exist in glove_model!!! Appending zeros as input.")
+    #             word_embeddings.append(np.zeros(embedding_size)) # TODO: test if necessary
+    #     return np.stack(word_embeddings)
+    # elif init_word_embs == "scratch":
         # TODO
-        pass
 
 
 if __name__ == "__main__":
@@ -60,10 +107,20 @@ if __name__ == "__main__":
         # TODO: Feed the GloVe embeddings to NN modules appropriately
         # for initializing the embeddings
         glove_embs = api.load("glove-wiki-gigaword-50")
-        embedding_size = glove_embs.vector_size
-        print(f"Glove Embedding size is {embedding_size}")
+        embedding_dim  = glove_embs.vector_size
+        vocab_size = len(glove_embs)
+        print(f"Glove Embedding size is {embedding_dim}")
 
-    input_size = embedding_size
+        word_to_idx = {word: idx for idx, word in enumerate(glove_embs.index_to_key)}
+        weights = torch.zeros((vocab_size, embedding_dim), dtype=torch.float32)
+        embedding = torch.nn.Embedding.from_pretrained(weights, freeze=False)
+    else:
+        word_to_idx = defaultdict(lambda: len(word_to_idx))
+        vocab_size = len(word_to_idx)
+        embedding_dim = 50
+        embedding = torch.nn.Embedding(vocab_size, embedding_dim)
+
+    input_size = embedding_dim
     hidden_size = 128
     output_size = 2
 
@@ -105,18 +162,51 @@ if __name__ == "__main__":
             target = dataset[i]["target"]
             context1 = dataset[i]["context1"]
             context2 = dataset[i]["context2"]      
-            input = context1.split() + context2.split()
-            dataset[i]["input"] = words_to_embeddings(input, embedding_size, \
-                                                      init_word_embs=args.init_word_embs)
-    
-    train_dataloader = torch.utils.data.DataLoader(train_set, batch_size=32, shuffle=True)
-    dev_dataloader = torch.utils.data.DataLoader(dev_set, batch_size=32, shuffle=True)
-    test_dataloader = torch.utils.data.DataLoader(test_set, batch_size=32, shuffle=True)
+            
+            tokens1 = context1.split()
+            tokens2 = context2.split()
+            indices1, indices2 =  [], []
+
+            for word in tokens1:
+                if word not in word_to_idx:
+                    word_to_idx[word] = len(word_to_idx)
+                    new_embedding = torch.rand(1, embedding_dim)
+                    new_weights = torch.cat((embedding.weight.data, new_embedding))
+                    embedding = torch.nn.Embedding.from_pretrained(new_weights, freeze=False)
+                indices1.append(word_to_idx[word])
+            
+            for word in tokens2:
+                if word not in word_to_idx:
+                    new_embedding = torch.rand(1, embedding_dim)
+                    new_weights = torch.cat((embedding.weight.data, new_embedding))
+                    embedding = torch.nn.Embedding.from_pretrained(new_weights, freeze=False)
+                indices2.append(word_to_idx[word])
+
+            embeddings1 = embedding(torch.tensor(indices1)).unsqueeze(0)
+            embeddings2 = embedding(torch.tensor(indices2)).unsqueeze(0)
+            # print(embeddings1.shape, embeddings2.shape)
+            # print(embeddings1, embeddings2)
+            # pad shorter embedding to match each other.
+            max_length = max(embeddings1.shape[1], embeddings2.shape[1])
+            # print(max_length)
+            embeddings1 = pad_embeddings(embeddings1, max_length)
+            embeddings2 = pad_embeddings(embeddings2, max_length)
+
+            # input = (embeddings1, embeddings2) #TODO: Do I need to concat here?
+            # print(embeddings1.shape, embeddings2.shape)
+            input = torch.cat((embeddings1, embeddings2), dim=0)
+            dataset.update(i, input)
+            # print(input.shape)
+        print(f"Sequences in {dataset} have been initialized!! Len({dataset}) is {len(dataset)}")
+
+    train_dataloader = torch.utils.data.DataLoader(train_set, batch_size=32, shuffle=True, collate_fn=collate_fn)
+    dev_dataloader = torch.utils.data.DataLoader(dev_set, batch_size=32, shuffle=True, collate_fn=collate_fn)
+    test_dataloader = torch.utils.data.DataLoader(test_set, batch_size=32, shuffle=True, collate_fn=collate_fn)
 
 
     # TODO: Training and validation loop here
-    num_epochs = 10
-    lr = 0.001
+    num_epochs = 50
+    lr = 0.01
 
     loss_CE = torch.nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=lr)
@@ -127,14 +217,18 @@ if __name__ == "__main__":
         train_correct = 0
 
         for batch in train_dataloader:
-            inputs = batch["input"].to(torch_device)
-            targets = batch["target"].to(torch_device)
+            inputs, targets = batch
 
+            inputs = inputs.to(torch_device)
+            targets = targets.to(torch_device)
+            
             optimizer.zero_grad()
             outputs = model(inputs)
-            loss = loss_CE(outputs, targets)
-
-            loss.backward()
+            
+            # convert outputs to one-hot vectors
+            # preds = torch.argmax(outputs, dim=1)
+            loss = loss_CE(outputs, targets.long())
+            loss.backward(retain_graph=True)
             optimizer.step()
 
             train_loss += loss.item()
@@ -151,30 +245,41 @@ if __name__ == "__main__":
 
         with torch.no_grad():
             for batch in dev_dataloader: #TODO: check if dev==val
-                inputs = batch["input"].to(torch_device)
-                targets = batch["target"].to(torch_device)
+                inputs, targets = batch
+
+                inputs = inputs.to(torch_device)
+                targets = targets.to(torch_device)
 
                 outputs = model(inputs)
-                loss = loss_CE(outputs, targets)
+                # convert outputs to one-hot vectors
+                # preds = torch.argmax(outputs, dim=1)
+                loss = loss_CE(outputs, targets.long())
 
                 val_loss += loss.item()
                 preds = torch.argmax(outputs, dim=1)
                 val_correct += (preds == targets).sum().item()
 
         val_loss /= len(dev_dataloader)
-        val_acc = val_correct / len(dev_dataloader)
+        val_acc = val_correct / len(dev_set)
 
-        print(f"Epoch {epoch+1}/{num_epochs}, Train loss: {train_loss:.4f},\
-               Train accuracy: {train_acc:.4f},\nVal loss: {val_loss:.4f}, Val acc: {val_acc:.4f}")
+        print(f"Epoch {epoch+1}/{num_epochs}, Train loss: {train_loss:.4f}, Train accuracy: {train_acc:.4f}, Val loss: {val_loss:.4f}, Val acc: {val_acc:.4f}")
     # TODO: Testing loop
     # Write predictions (F or T) for each test example into test.pred.txt
     # One line per each example, in the same order as test.data.txt.
     model. eval()
+    test_correct = 0
     with open("test.pred.txt", "w") as pred_file:
         for batch in test_dataloader:
-            inputs = batch["input"].to(torch_device)
+            inputs, targets = batch
+            
+            inputs = inputs.to(torch_device)
+            targets = targets.to(torch_device)
+        
             outputs = model(inputs)
             preds = torch.argmax(outputs, dim=1)
+            test_correct += (preds == targets).sum().item()
             preds = ["T" if pred.item() == 1 else "F" for pred in preds]
             for pred in preds:
                 pred_file.write(f"{pred}\n")
+        test_acc = test_correct / len(test_set)
+        print(f"Test acc: {val_acc:.4f}")
