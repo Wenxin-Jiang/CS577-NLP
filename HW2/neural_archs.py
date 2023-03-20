@@ -36,7 +36,7 @@ class RNN(torch.nn.Module):
         # TODO: Implement RNN forward pass
         x, _ = self.rnn(x)
         x = x[:, -1 :]
-        x = self.fc(x)
+        x = self.layer_fc(x)
         return x
 
 
