@@ -8,15 +8,20 @@ class DAN(torch.nn.Module):
         # Done: Declare DAN architecture
         super(DAN, self).__init__()
         self.layer1 = torch.nn.Linear(input_size, hidden_size)
-        self.layer2 = torch.nn.Linear(hidden_size, output_size)
+        self.layer2 = torch.nn.Linear(hidden_size, hidden_size//2)
+        self.layer3 = torch.nn.Linear(hidden_size//2, output_size)
         self.relu = torch.nn.LeakyReLU()
 
     def forward(self, x):
         # Done: Implement DAN forward pass
+        # print(x.shape)
         x = torch.mean(x, dim=1)
+        # print(x.shape)
         x = self.layer1(x)
         x = self.relu(x)
         x = self.layer2(x)
+        x = self.relu(x)
+        x = self.layer3(x)
         return x
 
 

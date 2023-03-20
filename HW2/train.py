@@ -12,8 +12,10 @@ import torch
 torch.set_default_tensor_type(torch.FloatTensor)
 torch.use_deterministic_algorithms(True)
 torch.manual_seed(577)
+# torch_device = torch.device("cuda")
+# TODO: Remove for submission
+torch.backends.cudnn.deterministic = False
 torch_device = torch.device("cpu")
-
 '''
 NOTE: Do not change any of the statements above regarding random/numpy/pytorch.
 You can import other built-in libraries (e.g. collections) or pre-specified external libraries
@@ -26,6 +28,8 @@ import gensim.downloader as api
 from collections import defaultdict
 import torch.nn.functional as F
 from torch.nn.utils.rnn import pad_sequence
+
+import matplotlib.pyplot as plt #TODO: Command out in submission
 
 from neural_archs import DAN, RNN, LSTM
 from utils import WiCDataset
@@ -121,7 +125,7 @@ if __name__ == "__main__":
         embedding = torch.nn.Embedding(vocab_size, embedding_dim)
 
     input_size = embedding_dim
-    hidden_size = 128
+    hidden_size = 64
     output_size = 2
 
     # TODO: Freely modify the inputs to the declaration of each module below
@@ -177,6 +181,7 @@ if __name__ == "__main__":
             
             for word in tokens2:
                 if word not in word_to_idx:
+                    word_to_idx[word] = len(word_to_idx)
                     new_embedding = torch.rand(1, embedding_dim)
                     new_weights = torch.cat((embedding.weight.data, new_embedding))
                     embedding = torch.nn.Embedding.from_pretrained(new_weights, freeze=False)
@@ -199,18 +204,23 @@ if __name__ == "__main__":
             # print(input.shape)
         print(f"Sequences in {dataset} have been initialized!! Len({dataset}) is {len(dataset)}")
 
-    train_dataloader = torch.utils.data.DataLoader(train_set, batch_size=32, shuffle=True, collate_fn=collate_fn)
-    dev_dataloader = torch.utils.data.DataLoader(dev_set, batch_size=32, shuffle=True, collate_fn=collate_fn)
-    test_dataloader = torch.utils.data.DataLoader(test_set, batch_size=32, shuffle=True, collate_fn=collate_fn)
+    train_dataloader = torch.utils.data.DataLoader(train_set, batch_size=4, shuffle=True, collate_fn=collate_fn)
+    dev_dataloader = torch.utils.data.DataLoader(dev_set, batch_size=4, shuffle=True, collate_fn=collate_fn)
+    test_dataloader = torch.utils.data.DataLoader(test_set, batch_size=4, shuffle=True, collate_fn=collate_fn)
 
 
     # TODO: Training and validation loop here
-    num_epochs = 50
-    lr = 0.01
+    num_epochs = 200
+    lr = 0.0001
+
+    train_losses = []
+    train_accs = []
+    val_losses = []
+    val_accs = []
 
     loss_CE = torch.nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=lr)
-
+    print(f"Starting training on {torch_device}, num_epochs: {num_epochs}, lr: {lr}...")
     for epoch in range(num_epochs):
         model.train()
         train_loss = 0
@@ -236,7 +246,9 @@ if __name__ == "__main__":
             train_correct += (preds == targets).sum().item()
         
         train_loss /= len(train_dataloader)
+        train_losses.append(train_loss)
         train_acc = train_correct / len(train_set)
+        train_accs.append(train_acc)
 
         # Validation
         model.eval()
@@ -261,7 +273,8 @@ if __name__ == "__main__":
 
         val_loss /= len(dev_dataloader)
         val_acc = val_correct / len(dev_set)
-
+        val_losses.append(val_loss)
+        val_accs.append(val_acc)
         print(f"Epoch {epoch+1}/{num_epochs}, Train loss: {train_loss:.4f}, Train accuracy: {train_acc:.4f}, Val loss: {val_loss:.4f}, Val acc: {val_acc:.4f}")
     # TODO: Testing loop
     # Write predictions (F or T) for each test example into test.pred.txt
@@ -283,3 +296,21 @@ if __name__ == "__main__":
                 pred_file.write(f"{pred}\n")
         test_acc = test_correct / len(test_set)
         print(f"Test acc: {val_acc:.4f}")
+    
+    plt.plot(np.arange(len(train_losses)), train_losses, label="Train")
+    plt.plot(np.arange(len(val_losses)), val_losses, label="Val")
+    plt.title(f"{args.neural_arch}_{args.init_word_embs}: hidden{hidden_size}, epoch={num_epochs}, lr={lr}, test_acc={test_acc}")
+    plt.xlabel("Iterations")
+    plt.ylabel("Loss")
+    plt.legend()
+    plt.savefig(f"{args.neural_arch}_{args.init_word_embs}_Loss_hidden{hidden_size}_epoch{num_epochs}_lr{lr}_testAcc{test_acc}.jpg")
+    plt.close()
+
+    plt.plot(np.arange(len(train_accs)), train_accs, label="Train")
+    plt.plot(np.arange(len(val_accs)), val_accs, label="Val")
+    plt.title(f"{args.neural_arch}_{args.init_word_embs}: hidden{hidden_size}, epoch={num_epochs}, lr={lr}, test_acc={test_acc*100:.2f}%")
+    plt.xlabel("Iterations")
+    plt.ylabel("Accuracy")
+    plt.legend()
+    plt.savefig(f"{args.neural_arch}_{args.init_word_embs}_Acc_hidden{hidden_size}_epoch{num_epochs}_lr{lr}_testAcc{test_acc*100:.2f}%.jpg")
+    plt.close()
