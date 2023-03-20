@@ -35,8 +35,11 @@ class RNN(torch.nn.Module):
     def forward(self, x):
         # TODO: Implement RNN forward pass
         x, _ = self.rnn(x)
+        # print(x.shape)
         x = x[:, -1 :]
+        # print(x.shape)
         x = self.layer_fc(x)
+        # print(x.shape)
         return x
 
 
@@ -50,7 +53,7 @@ class LSTM(torch.nn.Module):
 
     def forward(self, x):
         # Done: Implement LSTM forward pass
-        _, h_n, _ = self.lstm(x)
+        _, (h_n, _) = self.lstm(x)
         x = h_n[-1, :, :]
         if self.lstm.bidirectional:
             x = torch.cat(

@@ -237,6 +237,8 @@ if __name__ == "__main__":
             
             # convert outputs to one-hot vectors
             # preds = torch.argmax(outputs, dim=1)
+            # outputs.reshape(4, 2)
+            # print(outputs.shape)
             loss = loss_CE(outputs, targets.long())
             loss.backward(retain_graph=True)
             optimizer.step()
