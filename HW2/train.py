@@ -125,7 +125,7 @@ if __name__ == "__main__":
         embedding = torch.nn.Embedding(vocab_size, embedding_dim)
 
     input_size = embedding_dim
-    hidden_size = 64
+    hidden_size = 128
     output_size = 2
 
     # TODO: Freely modify the inputs to the declaration of each module below
@@ -204,46 +204,50 @@ if __name__ == "__main__":
             # print(input.shape)
         print(f"Sequences in {dataset} have been initialized!! Len({dataset}) is {len(dataset)}")
 
-    train_dataloader = torch.utils.data.DataLoader(train_set, batch_size=4, shuffle=True, collate_fn=collate_fn)
-    dev_dataloader = torch.utils.data.DataLoader(dev_set, batch_size=4, shuffle=True, collate_fn=collate_fn)
-    test_dataloader = torch.utils.data.DataLoader(test_set, batch_size=4, shuffle=True, collate_fn=collate_fn)
+    train_dataloader = torch.utils.data.DataLoader(train_set, batch_size=8, shuffle=True, collate_fn=collate_fn)
+    dev_dataloader = torch.utils.data.DataLoader(dev_set, batch_size=8, shuffle=True, collate_fn=collate_fn)
+    test_dataloader = torch.utils.data.DataLoader(test_set, batch_size=8, shuffle=True, collate_fn=collate_fn)
 
 
     # TODO: Training and validation loop here
     num_epochs = 200
-    lr = 0.0001
+    lr = 1e-4
 
     train_losses = []
     train_accs = []
     val_losses = []
     val_accs = []
 
-    loss_CE = torch.nn.CrossEntropyLoss()
+    criterion_train = torch.nn.CrossEntropyLoss()
+    criterion_val = torch.nn.CrossEntropyLoss()
+
     optimizer = torch.optim.Adam(model.parameters(), lr=lr)
     print(f"Starting training on {torch_device}, num_epochs: {num_epochs}, lr: {lr}...")
     for epoch in range(num_epochs):
         model.train()
         train_loss = 0
         train_correct = 0
-
+        
         for batch in train_dataloader:
             inputs, targets = batch
-
+            optimizer.zero_grad()
             inputs = inputs.to(torch_device)
             targets = targets.to(torch_device)
             
-            optimizer.zero_grad()
+            inputs = inputs.detach()
             outputs = model(inputs)
             
             # convert outputs to one-hot vectors
             # preds = torch.argmax(outputs, dim=1)
             # outputs.reshape(4, 2)
             # print(outputs.shape)
-            loss = loss_CE(outputs, targets.long())
-            loss.backward(retain_graph=True)
+            loss_train = criterion_train(outputs, targets.long())
+            # loss.backward(retain_graph=True)
+            
+            loss_train.backward()
             optimizer.step()
 
-            train_loss += loss.item()
+            train_loss += loss_train.item()
             preds = torch.argmax(outputs, dim=1)
             train_correct += (preds == targets).sum().item()
         
@@ -260,17 +264,21 @@ if __name__ == "__main__":
         with torch.no_grad():
             for batch in dev_dataloader: #TODO: check if dev==val
                 inputs, targets = batch
+                
 
                 inputs = inputs.to(torch_device)
                 targets = targets.to(torch_device)
 
+                inputs = inputs.detach()
+
                 outputs = model(inputs)
                 # convert outputs to one-hot vectors
                 # preds = torch.argmax(outputs, dim=1)
-                loss = loss_CE(outputs, targets.long())
+                loss_val = criterion_val(outputs, targets.long())
 
-                val_loss += loss.item()
+                val_loss += loss_val.item()
                 preds = torch.argmax(outputs, dim=1)
+                # print(preds.shape, targets.shape)
                 val_correct += (preds == targets).sum().item()
 
         val_loss /= len(dev_dataloader)
@@ -301,11 +309,10 @@ if __name__ == "__main__":
     
     plt.plot(np.arange(len(train_losses)), train_losses, label="Train")
     plt.plot(np.arange(len(val_losses)), val_losses, label="Val")
-    plt.title(f"{args.neural_arch}_{args.init_word_embs}: hidden{hidden_size}, epoch={num_epochs}, lr={lr}, test_acc={test_acc}")
     plt.xlabel("Iterations")
     plt.ylabel("Loss")
     plt.legend()
-    plt.savefig(f"{args.neural_arch}_{args.init_word_embs}_Loss_hidden{hidden_size}_epoch{num_epochs}_lr{lr}_testAcc{test_acc}.jpg")
+    plt.savefig(f"{args.neural_arch}_{args.init_word_embs}_Loss_hidden{hidden_size}_epoch{num_epochs}_lr{lr}_testAcc{test_acc*100:.2f}.jpg")
     plt.close()
 
     plt.plot(np.arange(len(train_accs)), train_accs, label="Train")
