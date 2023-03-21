@@ -4,12 +4,12 @@ import torch
 # NOTE: In addition to __init__() and forward(), feel free to add
 # other functions or attributes you might need.
 class DAN(torch.nn.Module):
-    def __init__(self, input_size, hidden_size, output_size):
+    def __init__(self, input_size, hidden_size, output_size, dropout_rate=0.5):
         # Done: Declare DAN architecture
         super(DAN, self).__init__()
         self.layer1 = torch.nn.Linear(input_size, hidden_size)
-        self.layer2 = torch.nn.Linear(hidden_size, hidden_size//2)
-        self.layer3 = torch.nn.Linear(hidden_size//2, output_size)
+        self.dropout = torch.nn.Dropout(dropout_rate)
+        self.layer2 = torch.nn.Linear(hidden_size, output_size)
         self.relu = torch.nn.LeakyReLU()
 
     def forward(self, x):
@@ -19,18 +19,20 @@ class DAN(torch.nn.Module):
         # print(x.shape)
         x = self.layer1(x)
         x = self.relu(x)
+        x = self.dropout(x)
         x = self.layer2(x)
-        x = self.relu(x)
-        x = self.layer3(x)
+        # x = self.relu(x)
+        # x = self.layer3(x)
         return x
 
 
 class RNN(torch.nn.Module):
-    def __init__(self, input_size, hidden_size, output_size, num_layers=1, bidirectional=False):
+    def __init__(self, input_size, hidden_size, output_size, num_layers=1, dropout_rate=0.5, bidirectional=False):
         # Done: Declare RNN model architecture
         super(RNN, self).__init__()
         self.rnn = torch.nn.RNN(input_size, hidden_size, num_layers, batch_first=True, bidirectional=bidirectional)
         self.layer_fc = torch.nn.Linear(hidden_size * (2 if bidirectional else 1), output_size)
+        self.dropout = torch.nn.Dropout(dropout_rate)
 
     def forward(self, x):
         # TODO: Implement RNN forward pass
@@ -38,17 +40,19 @@ class RNN(torch.nn.Module):
         # print(x.shape)
         x = x[:, -1, :]
         # print(x.shape)
+        x = self.dropout(x)
         x = self.layer_fc(x)
         # print(x.shape)
         return x
 
 
 class LSTM(torch.nn.Module):
-    def __init__(self, input_size, hidden_size, output_size, num_layers=1, bidirectional=False):
+    def __init__(self, input_size, hidden_size, output_size, num_layers=1, dropout_rate=0.5, bidirectional=False):
         # Done: Declare LSTM model architecture
         super(LSTM, self).__init__()
         self.lstm = torch.nn.LSTM(input_size, hidden_size, num_layers, batch_first=True)
         self.layer_fc = torch.nn.Linear(hidden_size * (2 if bidirectional else 1), output_size)
+        self.dropout = torch.nn.Dropout(dropout_rate)
 
 
     def forward(self, x):
@@ -62,5 +66,6 @@ class LSTM(torch.nn.Module):
             )
         else:
             x = h_n[-1, :, :]
+        x = self.dropout(x)
         x = self.layer_fc(x)
         return x
