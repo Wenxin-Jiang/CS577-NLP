@@ -123,7 +123,7 @@ if __name__ == "__main__":
         embedding = torch.nn.Embedding(vocab_size, embedding_dim)
 
     input_size = embedding_dim
-    hidden_size = 128
+    hidden_size = 64
     output_size = 2
 
     # TODO: Freely modify the inputs to the declaration of each module below
@@ -208,7 +208,7 @@ if __name__ == "__main__":
 
 
     # TODO: Training and validation loop here
-    num_epochs = 200
+    num_epochs = 500
     lr = 1e-4
     log_test_curve = False #TODO: need this to plot the test performance curve!!
 
