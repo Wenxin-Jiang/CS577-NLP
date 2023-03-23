@@ -12,9 +12,7 @@ import torch
 torch.set_default_tensor_type(torch.FloatTensor)
 torch.use_deterministic_algorithms(True)
 torch.manual_seed(577)
-# torch_device = torch.device("cuda")
-# TODO: Remove for submission
-torch.backends.cudnn.deterministic = False
+
 torch_device = torch.device("cpu")
 '''
 NOTE: Do not change any of the statements above regarding random/numpy/pytorch.
@@ -121,11 +119,11 @@ if __name__ == "__main__":
     else:
         word_to_idx = defaultdict(lambda: len(word_to_idx))
         vocab_size = len(word_to_idx)
-        embedding_dim = 50
+        embedding_dim = 300
         embedding = torch.nn.Embedding(vocab_size, embedding_dim)
 
     input_size = embedding_dim
-    hidden_size = 50
+    hidden_size = 128
     output_size = 2
 
     # TODO: Freely modify the inputs to the declaration of each module below
@@ -211,17 +209,30 @@ if __name__ == "__main__":
 
     # TODO: Training and validation loop here
     num_epochs = 200
-    lr = 1e-5
+    lr = 1e-4
 
     train_losses = []
     train_accs = []
     val_losses = []
     val_accs = []
 
+    if log_test_curve == True:
+        test_losses = []
+        test_accs = []
+
     criterion_train = torch.nn.CrossEntropyLoss()
     criterion_val = torch.nn.CrossEntropyLoss()
 
-    optimizer = torch.optim.Adam(model.parameters(), lr=lr)
+    optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=1e-5)
+
+    # TODO: Add lr scheduler and see how it works
+    # # Add this after initializing the optimizer
+    # scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', factor=0.5, patience=5)
+
+    # # Update the learning rate scheduler in the training loop after the validation loss is calculated
+    # scheduler.step(val_loss)
+
+
     print(f"Starting training on {torch_device}, num_epochs: {num_epochs}, lr: {lr}...")
     for epoch in range(num_epochs):
         model.train()
@@ -285,7 +296,41 @@ if __name__ == "__main__":
         val_acc = val_correct / len(dev_set)
         val_losses.append(val_loss)
         val_accs.append(val_acc)
+
+        if log_test_curve == True:
+            # Test loop
+            model.eval()
+            test_loss = 0
+            test_correct = 0
+
+            with torch.no_grad():
+                for batch in test_dataloader: #TODO: check if dev==val
+                    inputs, targets = batch
+                    
+
+                    inputs = inputs.to(torch_device)
+                    targets = targets.to(torch_device)
+
+                    inputs = inputs.detach()
+
+                    outputs = model(inputs)
+                    # convert outputs to one-hot vectors
+                    # preds = torch.argmax(outputs, dim=1)
+                    loss_test = criterion_val(outputs, targets.long())
+
+                    test_loss += loss_test.item()
+                    preds = torch.argmax(outputs, dim=1)
+                    # print(preds.shape, targets.shape)
+                    test_correct += (preds == targets).sum().item()
+
+            test_loss /= len(test_dataloader)
+            test_acc = test_correct / len(test_set)
+            test_losses.append(test_loss)
+            test_accs.append(test_acc)
         print(f"Epoch {epoch+1}/{num_epochs}, Train loss: {train_loss:.4f}, Train accuracy: {train_acc:.4f}, Val loss: {val_loss:.4f}, Val acc: {val_acc:.4f}")
+    
+    
+    
     # TODO: Testing loop
     # Write predictions (F or T) for each test example into test.pred.txt
     # One line per each example, in the same order as test.data.txt.
@@ -305,10 +350,12 @@ if __name__ == "__main__":
             for pred in preds:
                 pred_file.write(f"{pred}\n")
         test_acc = test_correct / len(test_set)
-        print(f"Test acc: {val_acc:.4f}")
+        print(f"Test acc: {test_acc:.4f}")
     
     plt.plot(np.arange(len(train_losses)), train_losses, label="Train")
     plt.plot(np.arange(len(val_losses)), val_losses, label="Val")
+    if log_test_curve == True:
+        plt.plot(np.arange(len(test_losses)), test_losses, label="Test")
     plt.xlabel("Iterations")
     plt.ylabel("Loss")
     plt.legend()
@@ -317,6 +364,8 @@ if __name__ == "__main__":
 
     plt.plot(np.arange(len(train_accs)), train_accs, label="Train")
     plt.plot(np.arange(len(val_accs)), val_accs, label="Val")
+    if log_test_curve == True:
+        plt.plot(np.arange(len(test_losses)), test_losses, label="Test")
     plt.title(f"{args.neural_arch}_{args.init_word_embs}: hidden{hidden_size}, epoch={num_epochs}, lr={lr}, test_acc={test_acc*100:.2f}%")
     plt.xlabel("Iterations")
     plt.ylabel("Accuracy")
