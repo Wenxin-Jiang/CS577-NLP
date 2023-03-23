@@ -47,7 +47,7 @@ class LSTM(torch.nn.Module):
     def __init__(self, input_size, hidden_size, output_size, num_layers=1, bidirectional=False):
         # Done: Declare LSTM model architecture
         super(LSTM, self).__init__()
-        self.lstm = torch.nn.LSTM(input_size, hidden_size, num_layers, batch_first=True)
+        self.lstm = torch.nn.LSTM(input_size, hidden_size, num_layers, batch_first=True, bidirectional=bidirectional)
         self.layer_fc = torch.nn.Linear(hidden_size * (2 if bidirectional else 1), output_size)
 
 
