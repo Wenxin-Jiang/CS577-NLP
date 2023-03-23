@@ -209,8 +209,8 @@ if __name__ == "__main__":
 
 
     # TODO: Training and validation loop here
-    num_epochs = 500
-    lr = 1e-5
+    num_epochs = 200
+    lr = 1e-6
     log_test_curve = False
 
     train_losses = []
