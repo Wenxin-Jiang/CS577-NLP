@@ -123,20 +123,20 @@ if __name__ == "__main__":
         embedding = torch.nn.Embedding(vocab_size, embedding_dim)
 
     input_size = embedding_dim
-    hidden_size = 128
+    hidden_size = 32
     output_size = 2
 
     # TODO: Freely modify the inputs to the declaration of each module below
     if args.neural_arch == "dan":
-        model = DAN(input_size, hidden_size, output_size).to(torch_device)
+        model = DAN(input_size, hidden_size, output_size, dropout_rate=0.6).to(torch_device)
     elif args.neural_arch == "rnn":
         # if args.rnn_bidirect:
-        model = RNN(input_size, hidden_size, output_size, num_layers=1, bidirectional=args.rnn_bidirect).to(torch_device)
+        model = RNN(input_size, hidden_size, output_size, num_layers=1, dropout_rate=0.6, bidirectional=args.rnn_bidirect).to(torch_device)
         # else:
         #     model = RNN().to(torch_device)
     elif args.neural_arch == "lstm":
         # if args.rnn_bidirect:
-        model = LSTM(input_size, hidden_size, output_size, num_layers=1, bidirectional=args.rnn_bidirect).to(torch_device)
+        model = LSTM(input_size, hidden_size, output_size, num_layers=1, dropout_rate=0.6, bidirectional=args.rnn_bidirect).to(torch_device)
         # else:
         #     model = LSTM().to(torch_device)
 
@@ -208,8 +208,9 @@ if __name__ == "__main__":
 
 
     # TODO: Training and validation loop here
-    num_epochs = 200
-    lr = 1e-4
+    num_epochs = 500
+    lr = 1e-5
+    log_test_curve = False
 
     train_losses = []
     train_accs = []
@@ -233,7 +234,7 @@ if __name__ == "__main__":
     # scheduler.step(val_loss)
 
 
-    print(f"Starting training on {torch_device}, num_epochs: {num_epochs}, lr: {lr}...")
+    print(f"Starting training on {torch_device}, hidden_size: {hidden_size}, num_epochs: {num_epochs}, lr: {lr}...")
     for epoch in range(num_epochs):
         model.train()
         train_loss = 0
