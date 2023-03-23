@@ -208,7 +208,7 @@ if __name__ == "__main__":
 
 
     # TODO: Training and validation loop here
-    num_epochs = 500
+    num_epochs = 200
     lr = 1e-4
     log_test_curve = False #TODO: need this to plot the test performance curve!!
 
