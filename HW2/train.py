@@ -112,6 +112,7 @@ if __name__ == "__main__":
         embedding_dim  = glove_embs.vector_size
         vocab_size = len(glove_embs)
         print(f"Glove Embedding size is {embedding_dim}")
+        # unknown words just use zeros
 
         word_to_idx = {word: idx for idx, word in enumerate(glove_embs.index_to_key)}
         weights = torch.zeros((vocab_size, embedding_dim), dtype=torch.float32)
@@ -123,7 +124,7 @@ if __name__ == "__main__":
         embedding = torch.nn.Embedding(vocab_size, embedding_dim)
 
     input_size = embedding_dim
-    hidden_size = 32
+    hidden_size = 10
     output_size = 2
 
     # TODO: Freely modify the inputs to the declaration of each module below
@@ -209,7 +210,7 @@ if __name__ == "__main__":
 
     # TODO: Training and validation loop here
     num_epochs = 500
-    lr = 1e-6
+    lr = 1e-5
     log_test_curve = False
 
     train_losses = []

@@ -58,7 +58,6 @@ class LSTM(torch.nn.Module):
     def forward(self, x):
         # Done: Implement LSTM forward pass
         _, (h_n, _) = self.lstm(x)
-        x = h_n[-1, :, :]
         if self.lstm.bidirectional:
             x = torch.cat(
                 (h_n[-2, :, :], h_n[-1, :, :]),
@@ -66,6 +65,7 @@ class LSTM(torch.nn.Module):
             )
         else:
             x = h_n[-1, :, :]
+        # h_n.shape: (D * Num_layers, N, H_out)
         x = self.dropout(x)
         x = self.layer_fc(x)
         return x
