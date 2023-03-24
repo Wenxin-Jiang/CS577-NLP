@@ -27,7 +27,7 @@ class DAN(torch.nn.Module):
 
 
 class RNN(torch.nn.Module):
-    def __init__(self, input_size, hidden_size, output_size, num_layers=1, dropout_rate=0.5, bidirectional=False):
+    def __init__(self, input_size, hidden_size, output_size, num_layers=1, dropout_rate=0.6, bidirectional=False):
         # Done: Declare RNN model architecture
         super(RNN, self).__init__()
         self.rnn = torch.nn.RNN(input_size, hidden_size, num_layers, batch_first=True, bidirectional=bidirectional)
@@ -47,7 +47,7 @@ class RNN(torch.nn.Module):
 
 
 class LSTM(torch.nn.Module):
-    def __init__(self, input_size, hidden_size, output_size, num_layers=1, dropout_rate=0.5, bidirectional=False):
+    def __init__(self, input_size, hidden_size, output_size, num_layers=1, dropout_rate=0.6, bidirectional=False):
         # Done: Declare LSTM model architecture
         super(LSTM, self).__init__()
         self.lstm = torch.nn.LSTM(input_size, hidden_size, num_layers, batch_first=True, bidirectional=bidirectional)

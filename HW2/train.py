@@ -96,7 +96,7 @@ def words_to_embeddings(words, embedding_size, embedding_dim=50, init_word_embs=
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
-
+    #  export KMP_DUPLICATE_LIB_OK=TRUE
     # TODO: change the `default' attribute in the following 3 lines with the choice
     # that achieved the best performance for your case
     parser.add_argument('--neural_arch', choices=['dan', 'rnn', 'lstm'], default='dan', type=str)
@@ -209,8 +209,8 @@ if __name__ == "__main__":
 
 
     # TODO: Training and validation loop here
-    num_epochs = 200
-    lr = 1e-6
+    num_epochs = 300
+    lr = 1e-5
     log_test_curve = False
 
     train_losses = []
