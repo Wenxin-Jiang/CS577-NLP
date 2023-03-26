@@ -1,9 +1,9 @@
+import torch
 from torch.utils.data import Dataset
-import pandas as pd
-
-
 import torch.nn.functional as F
 from torch.nn.utils.rnn import pad_sequence
+
+import pandas as pd
 from nltk.corpus import wordnet
 # https://pytorch.org/tutorials/beginner/data_loading_tutorial.html
 class WiCDataset(Dataset):
