@@ -1,0 +1,10 @@
+#!/bin/bash
+# FILENAME:  training.sub
+
+module load ngc/default
+module load gcc/9.3.0
+module load anaconda
+module load use.own
+module load conda-env/cs577hw2-py3.8.5
+
+python train.py
