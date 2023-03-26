@@ -24,73 +24,15 @@ change the last import statement below.
 
 import gensim.downloader as api
 from collections import defaultdict
-import torch.nn.functional as F
-from torch.nn.utils.rnn import pad_sequence
 
 import matplotlib.pyplot as plt #TODO: Command out in submission
 
 from neural_archs import DAN, RNN, LSTM
-from utils import WiCDataset
+from utils import WiCDataset, pad_embeddings, collate_fn, map_pos 
 
-
-def pad_embeddings(tensor, max_length):
-    pad_size = max_length - tensor.shape[1]
-    padded_embeddings = F.pad(tensor, (0, 0, 0, pad_size, 0, 0))
-    return padded_embeddings
-
-
-def collate_fn(batch):
-    inputs = [item["input"] for item in batch]
-    labels = [item["label"] for item in batch]
-    # print(inputs[0].shape)
-
-    max_len1 = max([input[0].size(0) for input in inputs])
-    max_len2 = max([input[1].size(0) for input in inputs])
-
-    embeddings1_padded = [torch.cat([input[0], torch.zeros(max_len1 - input[0].size(0), input[0].size(1))], dim=0) for input in inputs]
-    embeddings2_padded = [torch.cat([input[1], torch.zeros(max_len2 - input[1].size(0), input[1].size(1))], dim=0) for input in inputs]
-
-    inputs_concat = [torch.cat([emb1, emb2], dim=0) for emb1, emb2 in zip(embeddings1_padded, embeddings2_padded)]
-
-    padded_inputs = pad_sequence(inputs_concat, batch_first=True)
-    for idx, label in enumerate(labels):
-        if label == "F":
-            labels[idx] = 0
-        elif label == "T":
-            labels[idx] = 1
-
-    labels_tensor = torch.tensor(labels, dtype=torch.float32)
-
-    return padded_inputs, labels_tensor
-
-
-def words_to_embeddings(words, embedding_size, embedding_dim=50, init_word_embs="scratch", glove_model=None):
-    word_embeddings = []
-    vocab_size = embedding_size
-
-    if init_word_embs == "scratch":
-        embeddings = torch.nn.Embedding(vocab_size, embedding_size)
-    elif init_word_embs == "glove":
-        glove_model = api.load("glove-wiki-gigaword-50")
-        weights = torch.zeros((vocab_size, embedding_size))
-        for word in words:
-            weights[i] = torch.tensor(glove_model[word], dtype=torch.float32)
-        embeddings = torch.nn.Embedding.from_pretrained(weights, freeze=False)
-    else:
-        raise ValueError(f"{init_word_embs} is an invalid embedding method!")
-    return embeddings
-    # if init_word_embs == "glove":
-    #     glove_model = api.load("glove-wiki-gigaword-50")
-    #     for word in words:
-    #         if word in glove_model.index_to_key:
-    #             print(f"{word} exists in glove_model!!!.")
-    #             word_embeddings.append(glove_model[word])
-    #         else:
-    #             print(f"{word} does not exist in glove_model!!! Appending zeros as input.")
-    #             word_embeddings.append(np.zeros(embedding_size)) # TODO: test if necessary
-    #     return np.stack(word_embeddings)
-    # elif init_word_embs == "scratch":
-        # TODO
+import nltk
+from nltk.corpus import wordnet
+from nltk.stem import WordNetLemmatizer
 
 
 if __name__ == "__main__":
@@ -105,6 +47,8 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
+    nltk.download("omw-1.4")
+    nltk.download("wordnet")
     if args.init_word_embs == "glove":
         # TODO: Feed the GloVe embeddings to NN modules appropriately
         # for initializing the embeddings
@@ -117,12 +61,19 @@ if __name__ == "__main__":
         word_to_idx = {word: idx for idx, word in enumerate(glove_embs.index_to_key)}
         weights = torch.zeros((vocab_size, embedding_dim), dtype=torch.float32)
         embedding = torch.nn.Embedding.from_pretrained(weights, freeze=False)
+
     else:
         word_to_idx = defaultdict(lambda: len(word_to_idx))
         vocab_size = len(word_to_idx)
+        lemma_embedding_dim = 300
         embedding_dim = 300
         embedding = torch.nn.Embedding(vocab_size, embedding_dim)
-
+    
+    
+    lemma_embedding_dim = 50 if args.init_word_embs=="glove" else 300
+    lemma_to_idx = defaultdict(lambda: len(lemma_to_idx))
+    lemma_embedding = torch.nn.Embedding(len(lemma_to_idx), lemma_embedding_dim)
+    
     input_size = embedding_dim
     hidden_size = 10
     output_size = 2
@@ -160,12 +111,17 @@ if __name__ == "__main__":
     dev_set = WiCDataset(dev_data_path, dev_label_path)
     test_set = WiCDataset(test_data_path, test_label_path)
 
+    lemmatizer = WordNetLemmatizer()
     for dataset in [train_set, dev_set, test_set]:
         for i in range(len(dataset)):
             target = dataset[i]["target"]
             context1 = dataset[i]["context1"]
             context2 = dataset[i]["context2"]      
             
+            pos = dataset[i]["POS"]
+            wordnet_pos = map_pos(pos)
+            lemma = lemmatizer.lemmatize(target, pos=wordnet_pos)
+
             tokens1 = context1.split()
             tokens2 = context2.split()
             indices1, indices2 =  [], []
@@ -196,6 +152,21 @@ if __name__ == "__main__":
             embeddings1 = pad_embeddings(embeddings1, max_length)
             embeddings2 = pad_embeddings(embeddings2, max_length)
 
+            if lemma not in lemma_to_idx:
+                lemma_to_idx[lemma] = len(lemma_to_idx)
+                new_embedding = torch.rand(1, lemma_embedding_dim)
+                new_weights = torch.cat((lemma_embedding.weight.data, new_embedding))
+                lemma_embedding = torch.nn.Embedding.from_pretrained(new_weights, freeze=False)
+            
+            lemma_idx = lemma_to_idx[lemma]
+            # print("Embedding layer size:", lemma_embedding.weight.size())
+            # print("Lemma_idx size:", lemma_idx)
+            # print("Lemma_idx values:", lemma_idx)
+            lemma_embedding_tensor = lemma_embedding(torch.tensor(lemma_idx)).unsqueeze(0).unsqueeze(1)
+            # print(lemma_embedding)
+
+            embeddings1 = torch.cat((embeddings1, lemma_embedding_tensor), dim=1)
+            embeddings2 = torch.cat((embeddings2, lemma_embedding_tensor), dim=1)
             # input = (embeddings1, embeddings2) #TODO: Do I need to concat here?
             # print(embeddings1.shape, embeddings2.shape)
             input = torch.cat((embeddings1, embeddings2), dim=0)
@@ -203,15 +174,15 @@ if __name__ == "__main__":
             # print(input.shape)
         print(f"Sequences in {dataset} have been initialized!! Len({dataset}) is {len(dataset)}")
 
-    train_dataloader = torch.utils.data.DataLoader(train_set, batch_size=8, shuffle=True, collate_fn=collate_fn)
-    dev_dataloader = torch.utils.data.DataLoader(dev_set, batch_size=8, shuffle=True, collate_fn=collate_fn)
-    test_dataloader = torch.utils.data.DataLoader(test_set, batch_size=8, shuffle=True, collate_fn=collate_fn)
+    train_dataloader = torch.utils.data.DataLoader(train_set, batch_size=32, shuffle=True, collate_fn=collate_fn)
+    dev_dataloader = torch.utils.data.DataLoader(dev_set, batch_size=32, shuffle=True, collate_fn=collate_fn)
+    test_dataloader = torch.utils.data.DataLoader(test_set, batch_size=32, shuffle=True, collate_fn=collate_fn)
 
 
     # TODO: Training and validation loop here
-    num_epochs = 300
+    num_epochs = 500
     lr = 1e-5
-    log_test_curve = False
+    log_test_curve = True
 
     train_losses = []
     train_accs = []
@@ -354,23 +325,25 @@ if __name__ == "__main__":
         test_acc = test_correct / len(test_set)
         print(f"Test acc: {test_acc:.4f}")
     
+    fileName_bi = "_bi" if args.rnn_bidirect else None
     plt.plot(np.arange(len(train_losses)), train_losses, label="Train")
     plt.plot(np.arange(len(val_losses)), val_losses, label="Val")
     if log_test_curve == True:
         plt.plot(np.arange(len(test_losses)), test_losses, label="Test")
+    plt.title(f"{args.neural_arch}_{args.init_word_embs}: hidden{hidden_size}, epoch={num_epochs}, lr={lr}, test_acc={test_acc*100:.2f}%")
     plt.xlabel("Iterations")
     plt.ylabel("Loss")
     plt.legend()
-    plt.savefig(f"{args.neural_arch}_{args.init_word_embs}_Loss_hidden{hidden_size}_epoch{num_epochs}_lr{lr}_testAcc{test_acc*100:.2f}.jpg")
+    plt.savefig(f"{args.neural_arch}_{args.init_word_embs}_Loss{fileName_bi}_hidden{hidden_size}_epoch{num_epochs}_lr{lr}_testAcc{test_acc*100:.2f}.jpg")
     plt.close()
 
     plt.plot(np.arange(len(train_accs)), train_accs, label="Train")
     plt.plot(np.arange(len(val_accs)), val_accs, label="Val")
     if log_test_curve == True:
-        plt.plot(np.arange(len(test_losses)), test_losses, label="Test")
+        plt.plot(np.arange(len(test_accs)), test_accs, label="Test")
     plt.title(f"{args.neural_arch}_{args.init_word_embs}: hidden{hidden_size}, epoch={num_epochs}, lr={lr}, test_acc={test_acc*100:.2f}%")
     plt.xlabel("Iterations")
     plt.ylabel("Accuracy")
     plt.legend()
-    plt.savefig(f"{args.neural_arch}_{args.init_word_embs}_Acc_hidden{hidden_size}_epoch{num_epochs}_lr{lr}_testAcc{test_acc*100:.2f}%.jpg")
+    plt.savefig(f"{args.neural_arch}_{args.init_word_embs}_Acc{fileName_bi}_hidden{hidden_size}_epoch{num_epochs}_lr{lr}_testAcc{test_acc*100:.2f}%.jpg")
     plt.close()
