@@ -25,7 +25,7 @@ change the last import statement below.
 import gensim.downloader as api
 from collections import defaultdict
 
-import matplotlib.pyplot as plt #TODO: Command out in submission
+# import matplotlib.pyplot as plt #TODO: Command out in submission
 
 from neural_archs import DAN, RNN, LSTM
 from utils import WiCDataset, pad_embeddings, collate_fn, map_pos 
@@ -99,13 +99,21 @@ if __name__ == "__main__":
     # https://pytorch.org/tutorials/beginner/data_loading_tutorial.html
     # and implement a PyTorch Dataset class for the WiC dataset in
     # utils.py
-    train_data_path = "./WiC_dataset/train/train.data.txt"
-    dev_data_path = "./WiC_dataset/dev/dev.data.txt"
-    test_data_path = "./WiC_dataset/test/test.data.txt"
+    # train_data_path = "./WiC_dataset/train/train.data.txt"
+    # dev_data_path = "./WiC_dataset/dev/dev.data.txt"
+    # test_data_path = "./WiC_dataset/test/test.data.txt"
     
-    train_label_path = "./WiC_dataset/train/train.gold.txt"
-    dev_label_path = "./WiC_dataset/dev/dev.gold.txt"
-    test_label_path = "./WiC_dataset/test/test.gold.txt"
+    # train_label_path = "./WiC_dataset/train/train.gold.txt"
+    # dev_label_path = "./WiC_dataset/dev/dev.gold.txt"
+    # test_label_path = "./WiC_dataset/test/test.gold.txt"
+
+    train_data_path = "/homes/cs577/WiC_dataset/train/train.data.txt"
+    dev_data_path = "/homes/cs577/WiC_dataset/dev/dev.data.txt"
+    test_data_path = "/homes/cs577/WiC_dataset/test/test.data.txt"
+    
+    train_label_path = "/homes/cs577/WiC_dataset/train/train.gold.txt"
+    dev_label_path = "/homes/cs577/WiC_dataset/dev/dev.gold.txt"
+    test_label_path = "/homes/cs577/WiC_dataset/test/test.gold.txt"
 
     train_set = WiCDataset(train_data_path, train_label_path)
     dev_set = WiCDataset(dev_data_path, dev_label_path)
@@ -325,25 +333,25 @@ if __name__ == "__main__":
         test_acc = test_correct / len(test_set)
         print(f"Test acc: {test_acc:.4f}")
     
-    fileName_bi = "_bi" if args.rnn_bidirect else None
-    plt.plot(np.arange(len(train_losses)), train_losses, label="Train")
-    plt.plot(np.arange(len(val_losses)), val_losses, label="Val")
-    if log_test_curve == True:
-        plt.plot(np.arange(len(test_losses)), test_losses, label="Test")
-    plt.title(f"{args.neural_arch}_{args.init_word_embs}: hidden{hidden_size}, epoch={num_epochs}, lr={lr}, test_acc={test_acc*100:.2f}%")
-    plt.xlabel("Iterations")
-    plt.ylabel("Loss")
-    plt.legend()
-    plt.savefig(f"{args.neural_arch}_{args.init_word_embs}_Loss{fileName_bi}_hidden{hidden_size}_epoch{num_epochs}_lr{lr}_testAcc{test_acc*100:.2f}.jpg")
-    plt.close()
+    # fileName_bi = "_bi" if args.rnn_bidirect else None
+    # plt.plot(np.arange(len(train_losses)), train_losses, label="Train")
+    # plt.plot(np.arange(len(val_losses)), val_losses, label="Val")
+    # if log_test_curve == True:
+    #     plt.plot(np.arange(len(test_losses)), test_losses, label="Test")
+    # plt.title(f"{args.neural_arch}_{args.init_word_embs}: hidden{hidden_size}, epoch={num_epochs}, lr={lr}, test_acc={test_acc*100:.2f}%")
+    # plt.xlabel("Iterations")
+    # plt.ylabel("Loss")
+    # plt.legend()
+    # plt.savefig(f"{args.neural_arch}_{args.init_word_embs}_Loss{fileName_bi}_hidden{hidden_size}_epoch{num_epochs}_lr{lr}_testAcc{test_acc*100:.2f}.jpg")
+    # plt.close()
 
-    plt.plot(np.arange(len(train_accs)), train_accs, label="Train")
-    plt.plot(np.arange(len(val_accs)), val_accs, label="Val")
-    if log_test_curve == True:
-        plt.plot(np.arange(len(test_accs)), test_accs, label="Test")
-    plt.title(f"{args.neural_arch}_{args.init_word_embs}: hidden{hidden_size}, epoch={num_epochs}, lr={lr}, test_acc={test_acc*100:.2f}%")
-    plt.xlabel("Iterations")
-    plt.ylabel("Accuracy")
-    plt.legend()
-    plt.savefig(f"{args.neural_arch}_{args.init_word_embs}_Acc{fileName_bi}_hidden{hidden_size}_epoch{num_epochs}_lr{lr}_testAcc{test_acc*100:.2f}%.jpg")
-    plt.close()
+    # plt.plot(np.arange(len(train_accs)), train_accs, label="Train")
+    # plt.plot(np.arange(len(val_accs)), val_accs, label="Val")
+    # if log_test_curve == True:
+    #     plt.plot(np.arange(len(test_accs)), test_accs, label="Test")
+    # plt.title(f"{args.neural_arch}_{args.init_word_embs}: hidden{hidden_size}, epoch={num_epochs}, lr={lr}, test_acc={test_acc*100:.2f}%")
+    # plt.xlabel("Iterations")
+    # plt.ylabel("Accuracy")
+    # plt.legend()
+    # plt.savefig(f"{args.neural_arch}_{args.init_word_embs}_Acc{fileName_bi}_hidden{hidden_size}_epoch{num_epochs}_lr{lr}_testAcc{test_acc*100:.2f}%.jpg")
+    # plt.close()
