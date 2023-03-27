@@ -41,8 +41,8 @@ if __name__ == "__main__":
     #  export KMP_DUPLICATE_LIB_OK=TRUE
     # TODO: change the `default' attribute in the following 3 lines with the choice
     # that achieved the best performance for your case
-    parser.add_argument('--neural_arch', choices=['dan', 'rnn', 'lstm'], default='dan', type=str)
-    parser.add_argument('--rnn_bidirect', default=False, action='store_true')
+    parser.add_argument('--neural_arch', choices=['dan', 'rnn', 'lstm'], default='lstm', type=str)
+    parser.add_argument('--rnn_bidirect', default=True, action='store_true')
     parser.add_argument('--init_word_embs', choices=['scratch', 'glove'], default='scratch', type=str)
 
     args = parser.parse_args()
@@ -180,7 +180,7 @@ if __name__ == "__main__":
 
 
     # TODO: Training and validation loop here
-    num_epochs = 500
+    num_epochs = 200
     lr = 1e-5
     log_test_curve = True
 
