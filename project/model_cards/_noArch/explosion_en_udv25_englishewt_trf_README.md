@@ -1,0 +1,108 @@
+---
+tags:
+- spacy
+- token-classification
+language:
+- en
+license: cc-by-sa-4.0
+model-index:
+- name: en_udv25_englishewt_trf
+  results:
+  - task:
+      name: TAG
+      type: token-classification
+    metrics:
+    - name: TAG (XPOS) Accuracy
+      type: accuracy
+      value: 0.9636175051
+  - task:
+      name: POS
+      type: token-classification
+    metrics:
+    - name: POS (UPOS) Accuracy
+      type: accuracy
+      value: 0.9693826668
+  - task:
+      name: MORPH
+      type: token-classification
+    metrics:
+    - name: Morph (UFeats) Accuracy
+      type: accuracy
+      value: 0.9690635285
+  - task:
+      name: LEMMA
+      type: token-classification
+    metrics:
+    - name: Lemma Accuracy
+      type: accuracy
+      value: 0.9735945316
+  - task:
+      name: UNLABELED_DEPENDENCIES
+      type: token-classification
+    metrics:
+    - name: Unlabeled Attachment Score (UAS)
+      type: f_score
+      value: 0.9190022676
+  - task:
+      name: LABELED_DEPENDENCIES
+      type: token-classification
+    metrics:
+    - name: Labeled Attachment Score (LAS)
+      type: f_score
+      value: 0.8942035228
+  - task:
+      name: SENTS
+      type: token-classification
+    metrics:
+    - name: Sentences F-Score
+      type: f_score
+      value: 0.906218656
+---
+UD v2.5 benchmarking pipeline for UD_English-EWT
+
+| Feature | Description |
+| --- | --- |
+| **Name** | `en_udv25_englishewt_trf` |
+| **Version** | `0.0.1` |
+| **spaCy** | `>=3.2.1,<3.3.0` |
+| **Default Pipeline** | `experimental_char_ner_tokenizer`, `transformer`, `tagger`, `morphologizer`, `parser`, `experimental_edit_tree_lemmatizer` |
+| **Components** | `experimental_char_ner_tokenizer`, `transformer`, `senter`, `tagger`, `morphologizer`, `parser`, `experimental_edit_tree_lemmatizer` |
+| **Vectors** | 0 keys, 0 unique vectors (0 dimensions) |
+| **Sources** | [Universal Dependencies v2.5](https://lindat.mff.cuni.cz/repository/xmlui/handle/11234/1-3105) (Zeman, Daniel; et al.) |
+| **License** | `CC BY-SA 4.0` |
+| **Author** | [Explosion](https://explosion.ai) |
+
+### Label Scheme
+
+<details>
+
+<summary>View label scheme (1760 labels for 6 components)</summary>
+
+| Component | Labels |
+| --- | --- |
+| **`experimental_char_ner_tokenizer`** | `TOKEN` |
+| **`senter`** | `I`, `S` |
+| **`tagger`** | `$`, `''`, `,`, `-LRB-`, `-RRB-`, `.`, `:`, `ADD`, `AFX`, `CC`, `CD`, `DT`, `EX`, `FW`, `GW`, `HYPH`, `IN`, `JJ`, `JJR`, `JJS`, `LS`, `MD`, `NFP`, `NN`, `NNP`, `NNPS`, `NNS`, `PDT`, `POS`, `PRP`, `PRP$`, `RB`, `RBR`, `RBS`, `RP`, `SYM`, `TO`, `UH`, `VB`, `VBD`, `VBG`, `VBN`, `VBP`, `VBZ`, `WDT`, `WP`, `WP$`, `WRB`, `XX`, ```` |
+| **`morphologizer`** | `Number=Sing\|POS=PROPN`, `POS=PUNCT`, `Degree=Pos\|POS=ADJ`, `Number=Plur\|POS=NOUN`, `Mood=Ind\|POS=VERB\|Tense=Past\|VerbForm=Fin`, `Definite=Def\|POS=DET\|PronType=Art`, `Number=Sing\|POS=NOUN`, `POS=ADP`, `Number=Sing\|POS=DET\|PronType=Dem`, `Definite=Ind\|POS=DET\|PronType=Art`, `POS=AUX\|VerbForm=Fin`, `POS=AUX\|VerbForm=Inf`, `POS=VERB\|VerbForm=Ger`, `Case=Acc\|Number=Plur\|POS=PRON\|Person=1\|PronType=Prs`, `POS=PART`, `POS=VERB\|VerbForm=Inf`, `POS=SCONJ`, `Case=Nom\|Number=Plur\|POS=PRON\|Person=3\|PronType=Prs`, `Mood=Ind\|POS=AUX\|Tense=Past\|VerbForm=Fin`, `POS=VERB\|Tense=Past\|VerbForm=Part`, `NumType=Card\|POS=NUM`, `Case=Acc\|Number=Plur\|POS=PRON\|Person=3\|PronType=Prs`, `POS=AUX\|VerbForm=Ger`, `POS=VERB\|Tense=Past\|VerbForm=Part\|Voice=Pass`, `Mood=Ind\|Number=Sing\|POS=AUX\|Person=3\|Tense=Pres\|VerbForm=Fin`, `POS=ADV`, `Number=Sing\|POS=PRON\|PronType=Dem`, `Number=Plur\|POS=PROPN`, `Degree=Pos\|NumType=Ord\|POS=ADJ`, `Mood=Ind\|Number=Sing\|POS=AUX\|Person=3\|Tense=Past\|VerbForm=Fin`, `Case=Nom\|POS=PRON\|Person=2\|PronType=Prs`, `Mood=Ind\|POS=VERB\|Tense=Pres\|VerbForm=Fin`, `Case=Nom\|Gender=Masc\|Number=Sing\|POS=PRON\|Person=3\|PronType=Prs`, `POS=VERB\|Tense=Pres\|VerbForm=Part`, `Gender=Masc\|Number=Sing\|POS=PRON\|Person=3\|Poss=Yes\|PronType=Prs`, `POS=CCONJ`, `Case=Nom\|Number=Sing\|POS=PRON\|Person=1\|PronType=Prs`, `Mood=Ind\|POS=AUX\|Tense=Pres\|VerbForm=Fin`, `Case=Nom\|Gender=Neut\|Number=Sing\|POS=PRON\|Person=3\|PronType=Prs`, `Mood=Ind\|Number=Sing\|POS=VERB\|Person=3\|Tense=Pres\|VerbForm=Fin`, `Case=Acc\|Number=Sing\|POS=PRON\|Person=1\|PronType=Prs`, `POS=PRON\|PronType=Rel`, `Case=Acc\|Gender=Masc\|Number=Sing\|POS=PRON\|Person=3\|PronType=Prs`, `POS=PRON`, `Number=Plur\|POS=PRON\|Person=3\|Poss=Yes\|PronType=Prs`, `POS=AUX\|Tense=Past\|VerbForm=Part`, `POS=DET`, `Number=Sing\|POS=PRON\|Person=1\|Poss=Yes\|PronType=Prs`, `Degree=Pos\|POS=ADV`, `Degree=Cmp\|POS=ADV`, `Number=Sing\|POS=PRON`, `Degree=Cmp\|POS=ADJ`, `Case=Nom\|Gender=Fem\|Number=Sing\|POS=PRON\|Person=3\|PronType=Prs`, `POS=ADV\|PronType=Dem`, `POS=ADV\|PronType=Int`, `Number=Plur\|POS=PRON\|Person=1\|Poss=Yes\|PronType=Prs`, `Case=Nom\|Number=Plur\|POS=PRON\|Person=1\|PronType=Prs`, `Case=Acc\|Gender=Neut\|Number=Sing\|POS=PRON\|Person=3\|PronType=Prs`, `Number=Plur\|POS=PRON\|PronType=Dem`, `Mood=Imp\|POS=VERB\|VerbForm=Fin`, `Degree=Sup\|POS=ADJ`, `POS=PRON\|PronType=Int`, `NumType=Mult\|POS=ADV`, `Case=Acc\|Gender=Masc\|Number=Sing\|POS=PRON\|Person=3\|PronType=Prs\|Reflex=Yes`, `POS=DET\|PronType=Int`, `POS=PRON\|Person=2\|Poss=Yes\|PronType=Prs`, `Mood=Ind\|Number=Sing\|POS=VERB\|Person=3\|Tense=Past\|VerbForm=Fin`, `Number=Plur\|POS=DET\|PronType=Dem`, `POS=PRON\|Poss=Yes\|PronType=Int`, `Case=Acc\|POS=PRON\|Person=2\|PronType=Prs`, `POS=X`, `POS=PRON\|PronType=Dem`, `Number=Sing\|POS=PROPN\|Typo=Yes`, `POS=ADV\|PronType=Rel`, `Gender=Neut\|Number=Sing\|POS=PRON\|Person=3\|Poss=Yes\|PronType=Prs`, `Degree=Sup\|POS=ADV`, `POS=INTJ`, `Gender=Masc\|Number=Sing\|POS=PRON\|Person=3\|PronType=Prs`, `Case=Acc\|Number=Plur\|POS=PRON\|Person=3\|PronType=Prs\|Reflex=Yes`, `Case=Acc\|Gender=Neut\|Number=Sing\|POS=PRON\|Person=3\|PronType=Prs\|Reflex=Yes`, `Foreign=Yes\|POS=X`, `POS=SYM`, `Number=Sing\|POS=ADJ`, `Mood=Ind\|Number=Sing\|POS=AUX\|Person=1\|Tense=Pres\|VerbForm=Fin`, `Mood=Ind\|Number=Sing\|POS=AUX\|Person=1\|Tense=Past\|VerbForm=Fin`, `Mood=Imp\|POS=AUX\|VerbForm=Fin`, `Case=Acc\|Number=Sing\|POS=PRON\|Person=2\|PronType=Prs\|Reflex=Yes`, `Case=Acc\|Gender=Fem\|Number=Sing\|POS=PRON\|Person=3\|PronType=Prs`, `Gender=Fem\|Number=Sing\|POS=PRON\|Person=3\|Poss=Yes\|PronType=Prs`, `Number=Plur\|POS=PRON\|Person=3\|PronType=Prs`, `Mood=Ind\|Number=Sing\|POS=VERB\|Person=1\|Tense=Pres\|VerbForm=Fin`, `Abbr=Yes\|POS=CCONJ`, `POS=SCONJ\|Typo=Yes`, `Case=Acc\|Gender=Fem\|Number=Sing\|POS=PRON\|Person=3\|PronType=Prs\|Reflex=Yes`, `Gender=Neut\|Number=Sing\|POS=PRON\|Person=3\|PronType=Prs`, `Number=Sing\|POS=SYM`, `POS=DET\|Typo=Yes`, `Degree=Pos\|POS=PROPN`, `Abbr=Yes\|POS=ADP`, `POS=ADP\|Typo=Yes`, `Number=Sing\|POS=PRON\|Person=1\|PronType=Prs`, `Case=Acc\|Number=Plur\|POS=PRON\|Person=2\|PronType=Prs\|Reflex=Yes`, `POS=PRON\|Person=2\|Poss=Yes\|PronType=Prs\|Typo=Yes`, `Abbr=Yes\|POS=VERB\|Tense=Pres\|VerbForm=Part`, `Abbr=Yes\|POS=PART`, `POS=AUX\|Typo=Yes\|VerbForm=Fin`, `Degree=Pos\|POS=ADJ\|Typo=Yes`, `POS=VERB\|Tense=Past\|Typo=Yes\|VerbForm=Part\|Voice=Pass`, `Number=Sing\|POS=NOUN\|Typo=Yes`, `Number=Sing\|POS=PRON\|Person=2\|PronType=Prs`, `Case=Acc\|Number=Sing\|POS=PRON\|Person=1\|PronType=Prs\|Reflex=Yes`, `Abbr=Yes\|Number=Sing\|POS=NOUN`, `Degree=Pos\|POS=NOUN`, `POS=CCONJ\|Typo=Yes`, `Number=Sing\|POS=X`, `Abbr=Yes\|POS=SCONJ`, `Case=Acc\|Number=Plur\|POS=PRON\|Person=1\|PronType=Prs\|Reflex=Yes`, `Mood=Ind\|Number=Sing\|POS=VERB\|Tense=Past\|VerbForm=Fin`, `Mood=Ind\|POS=AUX\|Tense=Pres\|Typo=Yes\|VerbForm=Fin`, `POS=ADV\|Typo=Yes`, `Mood=Ind\|Number=Sing\|POS=AUX\|Tense=Past\|VerbForm=Fin`, `Mood=Ind\|Number=Sing\|POS=VERB\|Person=1\|Tense=Past\|VerbForm=Fin`, `Number=Sing\|POS=NUM`, `POS=PRON\|Poss=Yes\|PronType=Rel`, `Abbr=Yes\|Mood=Ind\|POS=VERB\|Tense=Pres\|VerbForm=Fin`, `Abbr=Yes\|POS=INTJ`, `Abbr=Yes\|POS=VERB\|VerbForm=Inf`, `Abbr=Yes\|Number=Sing\|POS=PRON`, `Abbr=Yes\|POS=PRON\|Person=2\|Poss=Yes\|PronType=Prs`, `Abbr=Yes\|POS=PRON\|PronType=Int`, `Abbr=Yes\|POS=AUX\|VerbForm=Fin`, `Abbr=Yes\|POS=ADV`, `Abbr=Yes\|Number=Plur\|POS=NOUN`, `Abbr=Yes\|Mood=Ind\|POS=AUX\|Tense=Pres\|Typo=Yes\|VerbForm=Fin`, `POS=ADJ`, `Number=Plur\|POS=NOUN\|Typo=Yes`, `POS=DET\|PronType=Rel\|Typo=Yes`, `POS=PART\|Typo=Yes`, `Abbr=Yes\|POS=DET`, `POS=DET\|PronType=Dem`, `Case=Nom\|Number=Plur\|POS=PRON\|Person=3\|PronType=Prs\|Typo=Yes`, `Degree=Pos\|NumType=Ord\|POS=ADV`, `POS=NOUN`, `Number=Plur\|POS=PRON\|Person=1\|Poss=Yes\|PronType=Prs\|Typo=Yes`, `POS=PRON\|Typo=Yes`, `Number=Plur\|POS=VERB`, `POS=VERB\|Typo=Yes\|VerbForm=Inf`, `Mood=Ind\|POS=VERB\|Tense=Past\|Typo=Yes\|VerbForm=Fin`, `Mood=Imp\|POS=AUX\|VerbForm=Inf`, `Abbr=Yes\|Mood=Imp\|POS=VERB\|VerbForm=Fin`, `Abbr=Yes\|Case=Nom\|POS=PRON\|Person=2\|PronType=Prs`, `POS=VERB\|Tense=Past\|Typo=Yes\|VerbForm=Part`, `Mood=Ind\|POS=AUX\|Tense=Past\|Typo=Yes\|VerbForm=Fin`, `Mood=Ind\|POS=VERB\|Tense=Pres\|Typo=Yes\|VerbForm=Fin`, `Number=Plur\|POS=PRON\|Person=1\|PronType=Prs`, `POS=VERB\|Typo=Yes\|VerbForm=Ger`, `Mood=Ind\|Number=Sing\|POS=VERB\|Person=3\|Tense=Pres\|Typo=Yes\|VerbForm=Fin`, `Abbr=Yes\|POS=PRON`, `Abbr=Yes\|Number=Plur\|POS=NOUN\|Typo=Yes`, `Case=Nom\|Gender=Neut\|Number=Sing\|POS=PRON\|Person=3\|PronType=Prs\|Typo=Yes`, `Abbr=Yes\|Case=Acc\|Number=Plur\|POS=PRON\|Person=3\|PronType=Prs`, `Gender=Fem\|Number=Sing\|POS=PRON\|Person=3\|PronType=Prs` |
+| **`parser`** | `ROOT`, `acl`, `acl:relcl`, `advcl`, `advmod`, `amod`, `appos`, `aux`, `aux:pass`, `case`, `cc`, `cc:preconj`, `ccomp`, `compound`, `compound:prt`, `conj`, `cop`, `csubj`, `dep`, `det`, `det:predet`, `discourse`, `expl`, `fixed`, `flat`, `flat:foreign`, `goeswith`, `iobj`, `list`, `mark`, `nmod`, `nmod:npmod`, `nmod:poss`, `nmod:tmod`, `nsubj`, `nsubj:pass`, `nummod`, `obj`, `obl`, `obl:npmod`, `obl:tmod`, `orphan`, `parataxis`, `punct`, `reparandum`, `vocative`, `xcomp` |
+| **`experimental_edit_tree_lemmatizer`** | `0`, `2`, `4`, `6`, `8`, `10`, `12`, `13`, `15`, `17`, `19`, `21`, `23`, `26`, `28`, `29`, `30`, `32`, `34`, `36`, `39`, `42`, `43`, `45`, `47`, `49`, `51`, `53`, `55`, `57`, `59`, `61`, `62`, `64`, `67`, `69`, `71`, `73`, `75`, `77`, `79`, `81`, `83`, `85`, `87`, `1`, `89`, `90`, `92`, `94`, `95`, `97`, `99`, `101`, `105`, `106`, `108`, `110`, `111`, `112`, `113`, `115`, `117`, `119`, `121`, `122`, `124`, `125`, `126`, `127`, `128`, `129`, `130`, `132`, `133`, `136`, `137`, `138`, `139`, `142`, `143`, `145`, `150`, `153`, `156`, `157`, `159`, `162`, `163`, `164`, `167`, `169`, `171`, `174`, `176`, `177`, `179`, `182`, `184`, `187`, `189`, `191`, `193`, `194`, `197`, `198`, `201`, `203`, `204`, `208`, `210`, `211`, `213`, `214`, `215`, `217`, `220`, `221`, `224`, `225`, `227`, `229`, `231`, `233`, `235`, `236`, `239`, `241`, `242`, `244`, `246`, `247`, `248`, `249`, `250`, `251`, `252`, `254`, `256`, `258`, `259`, `261`, `263`, `264`, `265`, `266`, `269`, `270`, `272`, `273`, `274`, `276`, `277`, `278`, `281`, `283`, `72`, `285`, `287`, `288`, `291`, `292`, `293`, `296`, `297`, `298`, `299`, `300`, `301`, `302`, `303`, `304`, `305`, `306`, `307`, `308`, `309`, `310`, `311`, `315`, `316`, `317`, `318`, `319`, `320`, `322`, `88`, `324`, `327`, `328`, `332`, `336`, `337`, `338`, `340`, `341`, `342`, `343`, `344`, `347`, `349`, `350`, `351`, `352`, `353`, `354`, `356`, `357`, `358`, `360`, `361`, `362`, `363`, `364`, `365`, `366`, `367`, `369`, `373`, `375`, `376`, `377`, `378`, `379`, `144`, `381`, `383`, `384`, `386`, `387`, `389`, `390`, `393`, `394`, `396`, `397`, `398`, `399`, `402`, `405`, `407`, `408`, `410`, `411`, `412`, `413`, `414`, `416`, `418`, `419`, `421`, `422`, `423`, `424`, `426`, `428`, `429`, `430`, `432`, `434`, `436`, `437`, `438`, `441`, `442`, `443`, `444`, `445`, `446`, `447`, `260`, `448`, `452`, `453`, `454`, `455`, `456`, `457`, `458`, `460`, `461`, `462`, `463`, `464`, `465`, `466`, `467`, `409`, `468`, `469`, `470`, `471`, `472`, `473`, `476`, `477`, `481`, `484`, `486`, `487`, `488`, `491`, `492`, `493`, `494`, `495`, `496`, `497`, `498`, `499`, `500`, `503`, `504`, `506`, `507`, `508`, `509`, `511`, `512`, `513`, `514`, `515`, `516`, `517`, `518`, `519`, `107`, `520`, `521`, `522`, `523`, `524`, `525`, `526`, `527`, `528`, `529`, `531`, `533`, `534`, `537`, `538`, `542`, `543`, `544`, `545`, `546`, `547`, `548`, `549`, `550`, `553`, `554`, `557`, `558`, `560`, `561`, `564`, `565`, `566`, `567`, `568`, `569`, `570`, `571`, `572`, `573`, `574`, `575`, `576`, `577`, `578`, `579`, `580`, `581`, `582`, `583`, `584`, `586`, `587`, `588`, `589`, `590`, `591`, `592`, `594`, `595`, `76`, `596`, `597`, `598`, `600`, `601`, `602`, `149`, `603`, `604`, `605`, `606`, `607`, `608`, `609`, `490`, `610`, `611`, `96`, `255`, `614`, `617`, `619`, `620`, `621`, `622`, `623`, `624`, `626`, `627`, `628`, `630`, `632`, `633`, `635`, `638`, `639`, `640`, `641`, `644`, `647`, `650`, `654`, `657`, `659`, `173`, `661`, `662`, `663`, `664`, `668`, `669`, `670`, `671`, `673`, `676`, `677`, `678`, `680`, `682`, `158`, `91`, `683`, `684`, `685`, `686`, `687`, `688`, `689`, `690`, `691`, `692`, `693`, `695`, `697`, `699`, `700`, `701`, `183`, `702`, `703`, `704`, `706`, `707`, `709`, `711`, `713`, `485`, `714`, `716`, `717`, `718`, `719`, `720`, `721`, `722`, `723`, `724`, `726`, `727`, `728`, `729`, `730`, `731`, `732`, `733`, `734`, `735`, `736`, `737`, `738`, `739`, `741`, `742`, `744`, `745`, `746`, `748`, `749`, `752`, `753`, `754`, `755`, `756`, `757`, `759`, `760`, `762`, `763`, `764`, `765`, `768`, `769`, `772`, `774`, `775`, `776`, `777`, `781`, `782`, `783`, `784`, `785`, `786`, `787`, `788`, `789`, `78`, `791`, `794`, `795`, `796`, `798`, `800`, `801`, `802`, `803`, `804`, `805`, `806`, `807`, `808`, `809`, `810`, `811`, `812`, `813`, `814`, `815`, `816`, `817`, `818`, `819`, `820`, `822`, `823`, `824`, `825`, `826`, `827`, `828`, `829`, `830`, `131`, `831`, `631`, `832`, `833`, `834`, `838`, `839`, `841`, `842`, `843`, `844`, `845`, `846`, `847`, `849`, `792`, `850`, `851`, `852`, `853`, `856`, `857`, `858`, `859`, `860`, `861`, `862`, `864`, `865`, `715`, `866`, `867`, `868`, `869`, `870`, `871`, `872`, `873`, `877`, `878`, `879`, `881`, `882`, `883`, `885`, `886`, `887`, `888`, `848`, `889`, `890`, `891`, `892`, `893`, `894`, `895`, `896`, `900`, `901`, `902`, `903`, `905`, `907`, `908`, `911`, `912`, `913`, `914`, `918`, `919`, `920`, `923`, `924`, `925`, `926`, `927`, `928`, `929`, `930`, `931`, `932`, `933`, `52`, `934`, `935`, `937`, `939`, `941`, `943`, `944`, `945`, `946`, `947`, `950`, `951`, `952`, `954`, `955`, `956`, `957`, `961`, `962`, `963`, `964`, `965`, `966`, `967`, `968`, `969`, `970`, `971`, `972`, `973`, `974`, `975`, `976`, `977`, `374`, `978`, `979`, `980`, `982`, `983`, `986`, `987`, `988`, `989`, `990`, `991`, `992`, `993`, `994`, `995`, `996`, `998`, `1000`, `1001`, `1002`, `1003`, `1004`, `1005`, `1006`, `1007`, `1008`, `1009`, `1012`, `1016`, `1020`, `1021`, `1023`, `1024`, `1025`, `1031`, `1032`, `1033`, `1034`, `1035`, `1036`, `1037`, `1038`, `1039`, `1041`, `1042`, `1043`, `1044`, `1045`, `1046`, `1047`, `1048`, `1049`, `1050`, `1051`, `1052`, `1053`, `1054`, `1055`, `1056`, `1057`, `1058`, `1059`, `1060`, `1061`, `1062`, `1063`, `1064`, `1065`, `642`, `1066`, `1067`, `1068`, `1069`, `1071`, `1072`, `1073`, `1074`, `1079`, `1080`, `1081`, `1082`, `1083`, `1085`, `1087`, `1088`, `1089`, `1090`, `559`, `1092`, `1093`, `1094`, `1096`, `1097`, `1098`, `1101`, `1102`, `1103`, `1104`, `1105`, `1106`, `1107`, `1109`, `1110`, `1112`, `1113`, `1114`, `1115`, `1116`, `1117`, `1118`, `1119`, `1122`, `1123`, `1124`, `1126`, `1127`, `1128`, `1129`, `1130`, `1132`, `1134`, `1137`, `1138`, `1140`, `1141`, `1142`, `1143`, `1144`, `1145`, `1146`, `1147`, `1150`, `1152`, `1161`, `1162`, `1163`, `1164`, `1165`, `1169`, `1170`, `1172`, `1173`, `1174`, `1175`, `1176`, `1177`, `1178`, `1181`, `1182`, `1183`, `1186`, `1187`, `1188`, `1190`, `1191`, `1192`, `1111`, `1193`, `1194`, `1195`, `1196`, `1198`, `1200`, `1201`, `1202`, `1203`, `1204`, `1208`, `1211`, `1213`, `1215`, `1216`, `1217`, `1218`, `1219`, `1221`, `1222`, `1223`, `1224`, `1225`, `1226`, `1227`, `1230`, `1231`, `1232`, `1234`, `1235`, `1249`, `1250`, `1252`, `1253`, `1254`, `1255`, `1257`, `1258`, `1260`, `1262`, `1263`, `1264`, `1265`, `1266`, `1267`, `1269`, `1272`, `7`, `1274`, `1276`, `1277`, `1278`, `1280`, `1282`, `1283`, `1284`, `1285`, `1286`, `1287`, `1289`, `1290`, `1291`, `1293`, `1295`, `1298`, `1302`, `1303`, `1311`, `1312`, `1313`, `1314`, `1316`, `1318`, `1317`, `1320`, `1322`, `1323`, `192`, `1324`, `1326`, `1327`, `234`, `1329`, `1330`, `1331`, `1332`, `747`, `1333`, `1334`, `1335`, `1336`, `1337`, `1339`, `1340`, `1341`, `1342`, `1344`, `1346`, `1350`, `1351`, `1352`, `1355`, `1357`, `1358`, `1360`, `1361`, `1362`, `1363`, `1364`, `1365`, `1367`, `1369`, `1370`, `1371`, `1372`, `1373`, `1374`, `1375`, `1376`, `1378`, `1380`, `1382`, `1384`, `1385`, `1386`, `1389`, `1390`, `1391`, `1392`, `1393`, `1394`, `1395`, `1396`, `1397`, `1399`, `1401`, `1402`, `1403`, `1404`, `1405`, `1406`, `1407`, `1408`, `1409`, `1410`, `1411`, `1412`, `1413`, `1414`, `1416`, `1418`, `1419`, `1420`, `1421`, `1422`, `188`, `1423`, `1424`, `1425`, `1426`, `1428`, `1429`, `1430`, `1431`, `1432`, `1433`, `1434`, `1435`, `148`, `1436`, `1439`, `1440`, `1441`, `1442`, `1443`, `1444`, `1445`, `1446`, `1447`, `1448`, `1449`, `1450`, `1451`, `1452`, `1453`, `1454`, `1455`, `1456`, `1457`, `1458`, `1459`, `1460`, `1461`, `1462`, `1463`, `1464`, `1466`, `1467`, `1468`, `1469`, `1470`, `1471`, `1472`, `1474`, `1475`, `1478`, `1481`, `1484`, `1486`, `1488`, `1489`, `1473`, `1490`, `1492`, `1493`, `1494`, `1495`, `1496`, `1497`, `1498`, `1499`, `1500`, `1501`, `1502`, `1503`, `1504`, `1505`, `44`, `1506`, `1511`, `1513`, `1515`, `1517`, `1518`, `1522`, `1523`, `1525`, `1528`, `1530`, `1531`, `1532`, `1534`, `1536`, `1537`, `1538`, `1539`, `1540`, `1541`, `1543`, `1546`, `1547`, `1548`, `1549`, `1551`, `1552`, `1555`, `1556`, `1557`, `1558`, `1559`, `1560`, `1561`, `1562`, `1563`, `1564`, `1565`, `1566`, `1567`, `1568`, `1569`, `1570`, `1571`, `1572`, `1573`, `1574`, `1575`, `1576`, `1577`, `1578`, `1579`, `1580`, `1581`, `1582`, `1583`, `1584`, `1585`, `1586`, `1588`, `1590`, `1591`, `1592`, `1594`, `1597`, `1598`, `1599`, `1601`, `168`, `1602`, `1603`, `1605`, `1607`, `1608`, `1611`, `1612`, `1613`, `1614`, `1615`, `1616`, `1617`, `1618`, `1619`, `1620`, `1621`, `1622`, `1623`, `1624`, `1625`, `1626`, `1627`, `1628`, `1629`, `1630`, `1632`, `1554`, `1633`, `1634`, `1635`, `1636`, `1637`, `1638`, `1639`, `1642`, `1647`, `1648`, `1649`, `1651`, `1653`, `1654`, `1655`, `1657`, `1658`, `1659`, `1660`, `1661`, `1662`, `1663`, `1664`, `1665`, `1666`, `1667`, `1668`, `1669`, `1670`, `1671`, `1672`, `1673`, `1674`, `1675`, `1676`, `1677`, `1678`, `1679`, `1680`, `1681`, `1682`, `1683`, `1684`, `1685`, `1686`, `1687`, `1688`, `1689`, `1690`, `1691`, `1692`, `1693`, `1694`, `1695`, `1696`, `1697`, `1698`, `1699`, `1700`, `1701`, `1702`, `1704`, `1705`, `1706`, `1707`, `1708`, `1709`, `1710`, `1711`, `1712`, `1713`, `1714`, `1715`, `1716`, `1717`, `1718`, `1719`, `1720`, `1721`, `1722`, `1723`, `1724`, `1725`, `1726`, `1727`, `1730`, `1732`, `1734`, `1735`, `1736`, `1737`, `1738`, `1740`, `1742`, `1743`, `1744`, `1745`, `1746`, `1747`, `1748`, `1749`, `1750`, `1751`, `1754`, `1755`, `1756`, `1758`, `1760`, `1761`, `1762`, `1763`, `1766`, `1767`, `1768`, `1769`, `1770`, `1772`, `1775`, `1778`, `1779`, `1784`, `1787`, `1788`, `1789`, `1790`, `1791`, `1793`, `1795`, `1796`, `1798`, `1800`, `1804`, `1805`, `1806`, `1807`, `1808`, `1809`, `1810`, `1811`, `1812`, `1813`, `1814`, `1815`, `1816`, `1818`, `1821`, `1822`, `1823`, `1824`, `1825`, `1826`, `1827`, `1828`, `1831`, `1832`, `1833`, `1834`, `1835`, `1836`, `1837`, `1838`, `1839`, `1840`, `1841`, `1842`, `1843`, `1844`, `1846`, `1847`, `1848`, `1849`, `1850`, `1851`, `1852`, `1853`, `1855`, `1857`, `1858`, `1859`, `1860`, `1861`, `1862`, `1863`, `1866`, `1867`, `1868`, `1869`, `1872`, `1873`, `1876`, `1877`, `1878`, `1879`, `1880`, `1881`, `1883`, `1884`, `1886`, `1887`, `1888`, `1893`, `1752`, `1896`, `1897`, `1899`, `1900`, `1901`, `1906`, `1907`, `1908`, `1910`, `1911`, `1912`, `1913`, `1916`, `1917`, `1918`, `1919`, `1920`, `1922`, `1923`, `1925`, `1926`, `1927`, `1928`, `1929`, `1930`, `1931`, `1932`, `1933`, `1120`, `1934`, `1935`, `1936`, `1937`, `1938`, `1939`, `1940`, `1941`, `1942`, `1943`, `1944`, `1945`, `1946`, `1947`, `1948`, `1949`, `1950`, `1951`, `1952`, `1953`, `1954`, `1955`, `1956`, `1957`, `1958`, `1959`, `1961`, `1962`, `1963`, `1964`, `1965`, `1966`, `1967`, `1968`, `1969`, `1970`, `1971`, `1972`, `1973`, `1974`, `1975`, `1976`, `1977`, `1978`, `1979`, `1982`, `1985`, `1987`, `1988`, `1989`, `1990`, `1992`, `1994`, `1995`, `1996`, `1997`, `1998`, `1999`, `2000`, `2003`, `2006`, `152`, `2007`, `2009`, `2010`, `2011`, `2012`, `2013`, `2014`, `2015`, `2016`, `2017`, `2019`, `2020`, `2021`, `2022`, `2023`, `2024`, `2025`, `2026`, `2029`, `2030`, `2031`, `2032`, `2033`, `2034`, `2035`, `2037`, `2038`, `2039`, `2040`, `2041`, `2042`, `2043`, `2044`, `2045`, `2047` |
+
+</details>
+
+### Accuracy
+
+| Type | Score |
+| --- | --- |
+| `TOKEN_F` | 99.15 |
+| `TOKEN_P` | 99.18 |
+| `TOKEN_R` | 99.11 |
+| `TOKEN_ACC` | 99.83 |
+| `SENTS_F` | 90.62 |
+| `SENTS_P` | 90.99 |
+| `SENTS_R` | 90.26 |
+| `TAG_ACC` | 96.36 |
+| `POS_ACC` | 96.94 |
+| `MORPH_ACC` | 96.91 |
+| `DEP_UAS` | 91.90 |
+| `DEP_LAS` | 89.42 |
+| `LEMMA_ACC` | 97.36 |

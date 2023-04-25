@@ -1,0 +1,4 @@
+- All credit goes to https://huggingface.co/philippelaban/keep_it_simple.
+- This is a copy of their repository for future training purposes. 
+- It is supposed to simplify text.
+- Their model card gives instructions on how to use it.

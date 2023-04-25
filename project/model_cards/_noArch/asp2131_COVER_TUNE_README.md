@@ -1,0 +1,16 @@
+---
+license: creativeml-openrail-m
+tags:
+- text-to-image
+- stable-diffusion
+---
+### {INSTANCE_NAME} Dreambooth model trained by asp2131 with [buildspace's DreamBooth](https://colab.research.google.com/github/buildspace/diffusers/blob/main/examples/dreambooth/DreamBooth_Stable_Diffusion.ipynb) notebook
+
+Build your own using the [AI Avatar project](https://buildspace.so/builds/ai-avatar)! 
+
+To get started head over to the [project dashboard](https://buildspace.so/p/build-ai-avatars). 
+
+Sample pictures of this concept:
+
+  ![0](https://huggingface.co/asp2131/instance-name/resolve/main/sample_images/408293751_A_3d_render_of_a_chibi_wizard_.png)
+      

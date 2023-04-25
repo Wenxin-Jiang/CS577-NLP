@@ -1,0 +1,283 @@
+---
+library_name: sklearn
+tags:
+- sklearn
+- skops
+- tabular-classification
+widget:
+  structuredData:
+    attribute_0:
+    - material_7
+    - material_7
+    - material_7
+    attribute_1:
+    - material_6
+    - material_5
+    - material_6
+    attribute_2:
+    - 6
+    - 6
+    - 6
+    attribute_3:
+    - 9
+    - 6
+    - 9
+    loading:
+    - 101.52
+    - 91.34
+    - 167.03
+    measurement_0:
+    - 9
+    - 10
+    - 11
+    measurement_1:
+    - 11
+    - 11
+    - 5
+    measurement_10:
+    - 14.926
+    - 15.162
+    - 16.398
+    measurement_11:
+    - 20.394
+    - 19.46
+    - 20.613
+    measurement_12:
+    - 11.829
+    - 9.114
+    - 11.007
+    measurement_13:
+    - 16.195
+    - 16.024
+    - 16.061
+    measurement_14:
+    - 16.517
+    - 17.132
+    - 15.18
+    measurement_15:
+    - 13.826
+    - 12.257
+    - 15.758
+    measurement_16:
+    - 14.206
+    - 15.094
+    - .nan
+    measurement_17:
+    - 723.712
+    - 896.835
+    - 893.454
+    measurement_2:
+    - 2
+    - 10
+    - 6
+    measurement_3:
+    - 17.492
+    - 18.114
+    - 18.42
+    measurement_4:
+    - 13.962
+    - 10.185
+    - 13.565
+    measurement_5:
+    - 15.716
+    - 18.06
+    - 16.916
+    measurement_6:
+    - 17.104
+    - 18.283
+    - 17.917
+    measurement_7:
+    - 12.377
+    - 10.957
+    - 10.394
+    measurement_8:
+    - 19.221
+    - 20.638
+    - 19.805
+    measurement_9:
+    - 11.613
+    - 11.804
+    - 12.012
+    product_code:
+    - E
+    - D
+    - E
+---
+
+# Model description
+
+This is a DecisionTreeClassifier model built for Kaggle Tabular Playground Series August 2022, trained on supersoaker production failures dataset.
+
+## Intended uses & limitations
+
+This model is not ready to be used in production.
+
+## Training Procedure
+
+### Hyperparameters
+
+The model is trained with below hyperparameters.
+
+<details>
+<summary> Click to expand </summary>
+
+| Hyperparameter                                                  | Value                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+|-----------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| memory                                                          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| steps                                                           | [('transformation', ColumnTransformer(transformers=[('loading_missing_value_imputer',
+                                 SimpleImputer(), ['loading']),
+                                ('numerical_missing_value_imputer',
+                                 SimpleImputer(),
+                                 ['loading', 'measurement_3', 'measurement_4',
+                                  'measurement_5', 'measurement_6',
+                                  'measurement_7', 'measurement_8',
+                                  'measurement_9', 'measurement_10',
+                                  'measurement_11', 'measurement_12',
+                                  'measurement_13', 'measurement_14',
+                                  'measurement_15', 'measurement_16',
+                                  'measurement_17']),
+                                ('attribute_0_encoder', OneHotEncoder(),
+                                 ['attribute_0']),
+                                ('attribute_1_encoder', OneHotEncoder(),
+                                 ['attribute_1']),
+                                ('product_code_encoder', OneHotEncoder(),
+                                 ['product_code'])])), ('model', DecisionTreeClassifier(max_depth=4))]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| verbose                                                         | False                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| transformation                                                  | ColumnTransformer(transformers=[('loading_missing_value_imputer',
+                                 SimpleImputer(), ['loading']),
+                                ('numerical_missing_value_imputer',
+                                 SimpleImputer(),
+                                 ['loading', 'measurement_3', 'measurement_4',
+                                  'measurement_5', 'measurement_6',
+                                  'measurement_7', 'measurement_8',
+                                  'measurement_9', 'measurement_10',
+                                  'measurement_11', 'measurement_12',
+                                  'measurement_13', 'measurement_14',
+                                  'measurement_15', 'measurement_16',
+                                  'measurement_17']),
+                                ('attribute_0_encoder', OneHotEncoder(),
+                                 ['attribute_0']),
+                                ('attribute_1_encoder', OneHotEncoder(),
+                                 ['attribute_1']),
+                                ('product_code_encoder', OneHotEncoder(),
+                                 ['product_code'])])                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| model                                                           | DecisionTreeClassifier(max_depth=4)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| transformation__n_jobs                                          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| transformation__remainder                                       | drop                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| transformation__sparse_threshold                                | 0.3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| transformation__transformer_weights                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| transformation__transformers                                    | [('loading_missing_value_imputer', SimpleImputer(), ['loading']), ('numerical_missing_value_imputer', SimpleImputer(), ['loading', 'measurement_3', 'measurement_4', 'measurement_5', 'measurement_6', 'measurement_7', 'measurement_8', 'measurement_9', 'measurement_10', 'measurement_11', 'measurement_12', 'measurement_13', 'measurement_14', 'measurement_15', 'measurement_16', 'measurement_17']), ('attribute_0_encoder', OneHotEncoder(), ['attribute_0']), ('attribute_1_encoder', OneHotEncoder(), ['attribute_1']), ('product_code_encoder', OneHotEncoder(), ['product_code'])] |
+| transformation__verbose                                         | False                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| transformation__verbose_feature_names_out                       | True                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| transformation__loading_missing_value_imputer                   | SimpleImputer()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| transformation__numerical_missing_value_imputer                 | SimpleImputer()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| transformation__attribute_0_encoder                             | OneHotEncoder()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| transformation__attribute_1_encoder                             | OneHotEncoder()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| transformation__product_code_encoder                            | OneHotEncoder()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| transformation__loading_missing_value_imputer__add_indicator    | False                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| transformation__loading_missing_value_imputer__copy             | True                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| transformation__loading_missing_value_imputer__fill_value       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| transformation__loading_missing_value_imputer__missing_values   | nan                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| transformation__loading_missing_value_imputer__strategy         | mean                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| transformation__loading_missing_value_imputer__verbose          | 0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| transformation__numerical_missing_value_imputer__add_indicator  | False                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| transformation__numerical_missing_value_imputer__copy           | True                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| transformation__numerical_missing_value_imputer__fill_value     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| transformation__numerical_missing_value_imputer__missing_values | nan                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| transformation__numerical_missing_value_imputer__strategy       | mean                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| transformation__numerical_missing_value_imputer__verbose        | 0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| transformation__attribute_0_encoder__categories                 | auto                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| transformation__attribute_0_encoder__drop                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| transformation__attribute_0_encoder__dtype                      | <class 'numpy.float64'>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| transformation__attribute_0_encoder__handle_unknown             | error                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| transformation__attribute_0_encoder__sparse                     | True                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| transformation__attribute_1_encoder__categories                 | auto                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| transformation__attribute_1_encoder__drop                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| transformation__attribute_1_encoder__dtype                      | <class 'numpy.float64'>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| transformation__attribute_1_encoder__handle_unknown             | error                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| transformation__attribute_1_encoder__sparse                     | True                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| transformation__product_code_encoder__categories                | auto                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| transformation__product_code_encoder__drop                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| transformation__product_code_encoder__dtype                     | <class 'numpy.float64'>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| transformation__product_code_encoder__handle_unknown            | error                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| transformation__product_code_encoder__sparse                    | True                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| model__ccp_alpha                                                | 0.0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| model__class_weight                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| model__criterion                                                | gini                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| model__max_depth                                                | 4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| model__max_features                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| model__max_leaf_nodes                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| model__min_impurity_decrease                                    | 0.0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| model__min_samples_leaf                                         | 1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| model__min_samples_split                                        | 2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| model__min_weight_fraction_leaf                                 | 0.0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| model__random_state                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| model__splitter                                                 | best                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+
+</details>
+
+### Model Plot
+
+The model plot is below.
+
+<style>#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 {color: black;background-color: white;}#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 pre{padding: 0;}#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 div.sk-toggleable {background-color: white;}#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 div.sk-estimator:hover {background-color: #d4ebff;}#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 2em;bottom: 0;left: 50%;}#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;}#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 div.sk-item {z-index: 1;}#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;}#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 div.sk-parallel::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 2em;bottom: 0;left: 50%;}#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 div.sk-parallel-item {display: flex;flex-direction: column;position: relative;background-color: white;}#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 div.sk-parallel-item:only-child::after {width: 0;}#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;position: relative;}#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 div.sk-label label {font-family: monospace;font-weight: bold;background-color: white;display: inline-block;line-height: 1.2em;}#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 div.sk-label-container {position: relative;z-index: 2;text-align: center;}#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86 div.sk-text-repr-fallback {display: none;}</style><div id="sk-b5518c10-fd7e-49af-b124-60d3dd3d0f86" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Pipeline(steps=[(&#x27;transformation&#x27;,ColumnTransformer(transformers=[(&#x27;loading_missing_value_imputer&#x27;,SimpleImputer(),[&#x27;loading&#x27;]),(&#x27;numerical_missing_value_imputer&#x27;,SimpleImputer(),[&#x27;loading&#x27;, &#x27;measurement_3&#x27;,&#x27;measurement_4&#x27;,&#x27;measurement_5&#x27;,&#x27;measurement_6&#x27;,&#x27;measurement_7&#x27;,&#x27;measurement_8&#x27;,&#x27;measurement_9&#x27;,&#x27;measurement_10&#x27;,&#x27;measurement_11&#x27;,&#x27;measurement_12&#x27;,&#x27;measurement_13&#x27;,&#x27;measurement_14&#x27;,&#x27;measurement_15&#x27;,&#x27;measurement_16&#x27;,&#x27;measurement_17&#x27;]),(&#x27;attribute_0_encoder&#x27;,OneHotEncoder(),[&#x27;attribute_0&#x27;]),(&#x27;attribute_1_encoder&#x27;,OneHotEncoder(),[&#x27;attribute_1&#x27;]),(&#x27;product_code_encoder&#x27;,OneHotEncoder(),[&#x27;product_code&#x27;])])),(&#x27;model&#x27;, DecisionTreeClassifier(max_depth=4))])</pre><b>Please rerun this cell to show the HTML repr or trust the notebook.</b></div><div class="sk-container" hidden><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="48fbfeb0-e954-46f7-9a36-8dfe86284fca" type="checkbox" ><label for="48fbfeb0-e954-46f7-9a36-8dfe86284fca" class="sk-toggleable__label sk-toggleable__label-arrow">Pipeline</label><div class="sk-toggleable__content"><pre>Pipeline(steps=[(&#x27;transformation&#x27;,ColumnTransformer(transformers=[(&#x27;loading_missing_value_imputer&#x27;,SimpleImputer(),[&#x27;loading&#x27;]),(&#x27;numerical_missing_value_imputer&#x27;,SimpleImputer(),[&#x27;loading&#x27;, &#x27;measurement_3&#x27;,&#x27;measurement_4&#x27;,&#x27;measurement_5&#x27;,&#x27;measurement_6&#x27;,&#x27;measurement_7&#x27;,&#x27;measurement_8&#x27;,&#x27;measurement_9&#x27;,&#x27;measurement_10&#x27;,&#x27;measurement_11&#x27;,&#x27;measurement_12&#x27;,&#x27;measurement_13&#x27;,&#x27;measurement_14&#x27;,&#x27;measurement_15&#x27;,&#x27;measurement_16&#x27;,&#x27;measurement_17&#x27;]),(&#x27;attribute_0_encoder&#x27;,OneHotEncoder(),[&#x27;attribute_0&#x27;]),(&#x27;attribute_1_encoder&#x27;,OneHotEncoder(),[&#x27;attribute_1&#x27;]),(&#x27;product_code_encoder&#x27;,OneHotEncoder(),[&#x27;product_code&#x27;])])),(&#x27;model&#x27;, DecisionTreeClassifier(max_depth=4))])</pre></div></div></div><div class="sk-serial"><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="157828b7-30d1-4b5b-b25e-971143379fff" type="checkbox" ><label for="157828b7-30d1-4b5b-b25e-971143379fff" class="sk-toggleable__label sk-toggleable__label-arrow">transformation: ColumnTransformer</label><div class="sk-toggleable__content"><pre>ColumnTransformer(transformers=[(&#x27;loading_missing_value_imputer&#x27;,SimpleImputer(), [&#x27;loading&#x27;]),(&#x27;numerical_missing_value_imputer&#x27;,SimpleImputer(),[&#x27;loading&#x27;, &#x27;measurement_3&#x27;, &#x27;measurement_4&#x27;,&#x27;measurement_5&#x27;, &#x27;measurement_6&#x27;,&#x27;measurement_7&#x27;, &#x27;measurement_8&#x27;,&#x27;measurement_9&#x27;, &#x27;measurement_10&#x27;,&#x27;measurement_11&#x27;, &#x27;measurement_12&#x27;,&#x27;measurement_13&#x27;, &#x27;measurement_14&#x27;,&#x27;measurement_15&#x27;, &#x27;measurement_16&#x27;,&#x27;measurement_17&#x27;]),(&#x27;attribute_0_encoder&#x27;, OneHotEncoder(),[&#x27;attribute_0&#x27;]),(&#x27;attribute_1_encoder&#x27;, OneHotEncoder(),[&#x27;attribute_1&#x27;]),(&#x27;product_code_encoder&#x27;, OneHotEncoder(),[&#x27;product_code&#x27;])])</pre></div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="3bde7e44-3687-4b99-a3b7-b4e87023ec85" type="checkbox" ><label for="3bde7e44-3687-4b99-a3b7-b4e87023ec85" class="sk-toggleable__label sk-toggleable__label-arrow">loading_missing_value_imputer</label><div class="sk-toggleable__content"><pre>[&#x27;loading&#x27;]</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="ef9279cb-7d77-4ef1-aafe-26e433e2a615" type="checkbox" ><label for="ef9279cb-7d77-4ef1-aafe-26e433e2a615" class="sk-toggleable__label sk-toggleable__label-arrow">SimpleImputer</label><div class="sk-toggleable__content"><pre>SimpleImputer()</pre></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="b079e8d7-f789-4622-ad66-197193ef0061" type="checkbox" ><label for="b079e8d7-f789-4622-ad66-197193ef0061" class="sk-toggleable__label sk-toggleable__label-arrow">numerical_missing_value_imputer</label><div class="sk-toggleable__content"><pre>[&#x27;loading&#x27;, &#x27;measurement_3&#x27;, &#x27;measurement_4&#x27;, &#x27;measurement_5&#x27;, &#x27;measurement_6&#x27;, &#x27;measurement_7&#x27;, &#x27;measurement_8&#x27;, &#x27;measurement_9&#x27;, &#x27;measurement_10&#x27;, &#x27;measurement_11&#x27;, &#x27;measurement_12&#x27;, &#x27;measurement_13&#x27;, &#x27;measurement_14&#x27;, &#x27;measurement_15&#x27;, &#x27;measurement_16&#x27;, &#x27;measurement_17&#x27;]</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="969f6026-8077-468a-b332-8ceb69bac4e9" type="checkbox" ><label for="969f6026-8077-468a-b332-8ceb69bac4e9" class="sk-toggleable__label sk-toggleable__label-arrow">SimpleImputer</label><div class="sk-toggleable__content"><pre>SimpleImputer()</pre></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="5bb6cc8f-c971-47b8-a1bc-fe8053602d5c" type="checkbox" ><label for="5bb6cc8f-c971-47b8-a1bc-fe8053602d5c" class="sk-toggleable__label sk-toggleable__label-arrow">attribute_0_encoder</label><div class="sk-toggleable__content"><pre>[&#x27;attribute_0&#x27;]</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="8a841657-38e1-41bb-b8f9-5ad2cc25f7d3" type="checkbox" ><label for="8a841657-38e1-41bb-b8f9-5ad2cc25f7d3" class="sk-toggleable__label sk-toggleable__label-arrow">OneHotEncoder</label><div class="sk-toggleable__content"><pre>OneHotEncoder()</pre></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="be08add7-98fc-40b5-a259-d462d738780a" type="checkbox" ><label for="be08add7-98fc-40b5-a259-d462d738780a" class="sk-toggleable__label sk-toggleable__label-arrow">attribute_1_encoder</label><div class="sk-toggleable__content"><pre>[&#x27;attribute_1&#x27;]</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="cf07a6c2-b92e-40b1-9862-2c1ca3baab47" type="checkbox" ><label for="cf07a6c2-b92e-40b1-9862-2c1ca3baab47" class="sk-toggleable__label sk-toggleable__label-arrow">OneHotEncoder</label><div class="sk-toggleable__content"><pre>OneHotEncoder()</pre></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="244735dc-f1e1-458c-a1c6-60ef847b9cae" type="checkbox" ><label for="244735dc-f1e1-458c-a1c6-60ef847b9cae" class="sk-toggleable__label sk-toggleable__label-arrow">product_code_encoder</label><div class="sk-toggleable__content"><pre>[&#x27;product_code&#x27;]</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="2f1a1c41-e1c4-40ce-afd9-9658030b3423" type="checkbox" ><label for="2f1a1c41-e1c4-40ce-afd9-9658030b3423" class="sk-toggleable__label sk-toggleable__label-arrow">OneHotEncoder</label><div class="sk-toggleable__content"><pre>OneHotEncoder()</pre></div></div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="25044b48-b814-45f9-a75b-9ee472bdc79c" type="checkbox" ><label for="25044b48-b814-45f9-a75b-9ee472bdc79c" class="sk-toggleable__label sk-toggleable__label-arrow">DecisionTreeClassifier</label><div class="sk-toggleable__content"><pre>DecisionTreeClassifier(max_depth=4)</pre></div></div></div></div></div></div></div>
+
+## Evaluation Results
+
+You can find the details about evaluation process and the evaluation results.
+
+
+
+| Metric   |    Value |
+|----------|----------|
+| accuracy | 0.791961 |
+| f1 score | 0.791961 |
+
+# How to Get Started with the Model
+
+Use the code below to get started with the model.
+
+<details>
+<summary> Click to expand </summary>
+
+```python
+import pickle 
+with open(decision-tree-playground-kaggle/model.pkl, 'rb') as file: 
+    clf = pickle.load(file)
+```
+
+</details>
+
+
+
+
+# Model Card Authors
+
+This model card is written by following authors:
+
+huggingface
+
+# Model Card Contact
+
+You can contact the model card authors through following channels:
+[More Information Needed]
+
+# Citation
+
+Below you can find information related to citation.
+
+**BibTeX:**
+```
+[More Information Needed]
+```
+
+
+# Additional Content
+
+## Tree Plot
+
+![Tree Plot](tree.png)
+
+## Confusion Matrix
+
+![Confusion Matrix](confusion_matrix.png)

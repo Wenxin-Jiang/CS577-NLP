@@ -1,0 +1,50 @@
+---
+tags:
+- autotrain
+- text-classification
+language:
+- unk
+widget:
+- text: "I love AutoTrain 🤗"
+datasets:
+- Ahmed-Abousetta/autotrain-data-abunawaf-interaction
+co2_eq_emissions:
+  emissions: 0.8147216061910044
+---
+
+# Model Trained Using AutoTrain
+
+- Problem type: Binary Classification
+- Model ID: 1859963566
+- CO2 Emissions (in grams): 0.8147
+
+## Validation Metrics
+
+- Loss: 0.257
+- Accuracy: 0.906
+- Precision: 0.924
+- Recall: 0.941
+- AUC: 0.949
+- F1: 0.933
+
+## Usage
+
+You can use cURL to access this model:
+
+```
+$ curl -X POST -H "Authorization: Bearer YOUR_API_KEY" -H "Content-Type: application/json" -d '{"inputs": "I love AutoTrain"}' https://api-inference.huggingface.co/models/Ahmed-Abousetta/autotrain-abunawaf-interaction-1859963566
+```
+
+Or Python API:
+
+```
+from transformers import AutoModelForSequenceClassification, AutoTokenizer
+
+model = AutoModelForSequenceClassification.from_pretrained("Ahmed-Abousetta/autotrain-abunawaf-interaction-1859963566", use_auth_token=True)
+
+tokenizer = AutoTokenizer.from_pretrained("Ahmed-Abousetta/autotrain-abunawaf-interaction-1859963566", use_auth_token=True)
+
+inputs = tokenizer("I love AutoTrain", return_tensors="pt")
+
+outputs = model(**inputs)
+```

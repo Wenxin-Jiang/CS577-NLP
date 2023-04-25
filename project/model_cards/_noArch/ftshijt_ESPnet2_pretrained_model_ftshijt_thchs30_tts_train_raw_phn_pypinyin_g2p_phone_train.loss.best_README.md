@@ -1,0 +1,399 @@
+---
+tags:
+- espnet
+- audio
+- text-to-speech
+language: zh
+datasets:
+- thchs30
+license: cc-by-4.0
+inference: false
+---
+
+
+This model was trained by ftshijt using thchs30/tts1 recipe in <a href="https://github.com/espnet/espnet/">espnet</a>.
+<p>&nbsp;</p>
+<ul>
+<li><strong>Python API</strong><pre><code class="language-python">See https://github.com/espnet/espnet_model_zoo</code></pre></li>
+<li><strong>Evaluate in the recipe</strong><pre>
+<code class="language-bash">Please see ESPNet for how to use pre-trained model
+</pre></li>
+<li><strong>Config</strong><pre><code>config: conf/train.yaml
+print_config: false
+log_level: INFO
+dry_run: false
+iterator_type: sequence
+output_dir: exp/tts_train_raw_phn_pypinyin_g2p_phone
+ngpu: 1
+seed: 0
+num_workers: 1
+num_att_plot: 3
+dist_backend: nccl
+dist_init_method: env://
+dist_world_size: null
+dist_rank: null
+local_rank: 0
+dist_master_addr: null
+dist_master_port: null
+dist_launcher: null
+multiprocessing_distributed: false
+unused_parameters: false
+sharded_ddp: false
+cudnn_enabled: true
+cudnn_benchmark: false
+cudnn_deterministic: true
+collect_stats: false
+write_collected_feats: false
+max_epoch: 500
+patience: null
+val_scheduler_criterion:
+- valid
+- loss
+early_stopping_criterion:
+- valid
+- loss
+- min
+best_model_criterion:
+-   - valid
+    - loss
+    - min
+-   - train
+    - loss
+    - min
+keep_nbest_models: 5
+grad_clip: 1.0
+grad_clip_type: 2.0
+grad_noise: false
+accum_grad: 1
+no_forward_run: false
+resume: true
+train_dtype: float32
+use_amp: false
+log_interval: null
+use_tensorboard: true
+use_wandb: false
+wandb_project: null
+wandb_id: null
+wandb_entity: null
+wandb_name: null
+wandb_model_log_interval: -1
+detect_anomaly: false
+pretrain_path: null
+init_param: []
+ignore_init_mismatch: false
+freeze_param: []
+num_iters_per_epoch: 500
+batch_size: 20
+valid_batch_size: null
+batch_bins: 3750000
+valid_batch_bins: null
+train_shape_file:
+- exp/tts_stats_raw_phn_pypinyin_g2p_phone/train/text_shape.phn
+- exp/tts_stats_raw_phn_pypinyin_g2p_phone/train/speech_shape
+valid_shape_file:
+- exp/tts_stats_raw_phn_pypinyin_g2p_phone/valid/text_shape.phn
+- exp/tts_stats_raw_phn_pypinyin_g2p_phone/valid/speech_shape
+batch_type: numel
+valid_batch_type: null
+fold_length:
+- 150
+- 204800
+sort_in_batch: descending
+sort_batch: descending
+multiple_iterator: false
+chunk_length: 500
+chunk_shift_ratio: 0.5
+num_cache_chunks: 1024
+train_data_path_and_name_and_type:
+-   - dump/raw/train/text
+    - text
+    - text
+-   - dump/raw/train/wav.scp
+    - speech
+    - sound
+-   - dump/xvector/train/xvector.scp
+    - spembs
+    - kaldi_ark
+valid_data_path_and_name_and_type:
+-   - dump/raw/dev/text
+    - text
+    - text
+-   - dump/raw/dev/wav.scp
+    - speech
+    - sound
+-   - dump/xvector/dev/xvector.scp
+    - spembs
+    - kaldi_ark
+allow_variable_data_keys: false
+max_cache_size: 0.0
+max_cache_fd: 32
+valid_max_cache_size: null
+optim: adam
+optim_conf:
+    lr: 0.001
+    eps: 1.0e-06
+    weight_decay: 0.0
+scheduler: null
+scheduler_conf: {}
+token_list:
+- <blank>
+- <unk>
+- ''
+- d
+- sh
+- j
+- zh
+- l
+- i4
+- x
+- b
+- g
+- h
+- e
+- q
+- t
+- m
+- ch
+- i1
+- z
+- u4
+- i2
+- i3
+- n
+- f
+- s
+- r
+- k
+- c
+- p
+- ai4
+- e4
+- a1
+- an4
+- ian4
+- ing2
+- u3
+- ian2
+- ong1
+- e2
+- in1
+- eng2
+- ui4
+- ao4
+- u2
+- iao4
+- üan2
+- en2
+- an1
+- u1
+- ai2
+- ao3
+- ing4
+- eng1
+- iou3
+- ü4
+- uo4
+- üe4
+- ong2
+- ian1
+- ing1
+- uo3
+- ie4
+- ang1
+- uei4
+- ang4
+- an2
+- a4
+- ou4
+- ei4
+- uai4
+- ie3
+- ang3
+- ong4
+- ai3
+- ü2
+- uo2
+- an3
+- ang2
+- ou3
+- er2
+- ou1
+- uo1
+- en1
+- ia1
+- ü3
+- uan1
+- in2
+- iong4
+- ian3
+- iang3
+- a3
+- iang2
+- ia4
+- ü1
+- uan4
+- iao3
+- iang4
+- uen2
+- iang1
+- uan3
+- ai1
+- ie2
+- ei3
+- uan2
+- uang2
+- in4
+- üe2
+- ao1
+- eng3
+- iu4
+- iao1
+- er4
+- iu2
+- in3
+- un1
+- uang1
+- eng4
+- a2
+- uang3
+- en3
+- uang4
+- ong3
+- ing3
+- e3
+- ei2
+- ou2
+- ao2
+- i
+- ün4
+- uei2
+- ua4
+- iou4
+- ui1
+- ua1
+- en4
+- ün2
+- iao2
+- ie1
+- iou2
+- iu3
+- ün1
+- üan4
+- en
+- ei1
+- o2
+- un4
+- ui3
+- iu1
+- üan3
+- e1
+- v3
+- ua2
+- ia2
+- ui2
+- un2
+- o4
+- un3
+- er3
+- ia3
+- iong1
+- uei3
+- o1
+- üe1
+- üan1
+- iong3
+- v4
+- iong2
+- uen4
+- uai2
+- uei1
+- iou1
+- a
+- ua3
+- uen1
+- o3
+- ueng1
+- uai1
+- uen3
+- üe3
+- ou
+- uai3
+- ve4
+- er
+- ün3
+- o
+- ua
+- ia
+- ' l ='
+- <sos/eos>
+odim: null
+model_conf: {}
+use_preprocessor: true
+token_type: phn
+bpemodel: null
+non_linguistic_symbols: null
+cleaner: null
+g2p: pypinyin_g2p_phone
+feats_extract: fbank
+feats_extract_conf:
+    n_fft: 1024
+    hop_length: 256
+    win_length: null
+    fs: 16000
+    fmin: 80
+    fmax: 7600
+    n_mels: 80
+normalize: global_mvn
+normalize_conf:
+    stats_file: exp/tts_stats_raw_phn_pypinyin_g2p_phone/train/feats_stats.npz
+tts: tacotron2
+tts_conf:
+    embed_dim: 512
+    elayers: 1
+    eunits: 512
+    econv_layers: 3
+    econv_chans: 512
+    econv_filts: 5
+    atype: location
+    adim: 512
+    aconv_chans: 32
+    aconv_filts: 15
+    cumulate_att_w: true
+    dlayers: 2
+    dunits: 1024
+    prenet_layers: 2
+    prenet_units: 256
+    postnet_layers: 5
+    postnet_chans: 512
+    postnet_filts: 5
+    output_activation: null
+    use_batch_norm: true
+    use_concate: true
+    use_residual: false
+    spk_embed_dim: 512
+    spk_embed_integration_type: add
+    use_gst: true
+    gst_heads: 4
+    gst_tokens: 16
+    dropout_rate: 0.5
+    zoneout_rate: 0.1
+    reduction_factor: 1
+    use_masking: true
+    bce_pos_weight: 10.0
+    use_guided_attn_loss: true
+    guided_attn_loss_sigma: 0.4
+    guided_attn_loss_lambda: 1.0
+pitch_extract: null
+pitch_extract_conf: {}
+pitch_normalize: null
+pitch_normalize_conf: {}
+energy_extract: null
+energy_extract_conf: {}
+energy_normalize: null
+energy_normalize_conf: {}
+required:
+- output_dir
+- token_list
+version: 0.10.2a1
+distributed: false</code></pre></li>
+</ul>

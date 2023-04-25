@@ -1,0 +1,36 @@
+---
+tags:
+- Taxi-v3
+- q-learning
+- reinforcement-learning
+- custom-implementation
+model-index:
+- name: q-FrozenLake-v1-noSlippery1
+  results:
+  - metrics:
+    - type: mean_reward
+      value: 7.56 +/- 2.71
+      name: mean_reward
+    task:
+      type: reinforcement-learning
+      name: reinforcement-learning
+    dataset:
+      name: Taxi-v3
+      type: Taxi-v3
+---
+
+  # **Q-Learning** Agent playing **FrozenLake-v1**
+  This is a trained model of a **Q-Learning** agent playing **FrozenLake-v1** .
+  
+  ## Usage
+  ```python
+  
+  pickle_model = load_from_hub(repo_id="osanseviero/q-FrozenLake-v1-noSlippery1", filename="q-learning.pkl")
+
+  # Don't forget to check if you need to add additional attributes (is_slippery etc)
+  env = gym.make(model["env_id"])
+
+  evaluate_agent(env, model["max_steps"], model["n_eval_episodes"], model["qtable"], model["eval_seed"])
+  
+  ```
+  

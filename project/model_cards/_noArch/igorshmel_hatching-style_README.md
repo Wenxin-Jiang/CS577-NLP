@@ -1,0 +1,16 @@
+---
+license: creativeml-openrail-m
+tags:
+- text-to-image
+- stable-diffusion
+---
+### hatching_style Dreambooth model trained by igorshmel with [TheLastBen's fast-DreamBooth](https://colab.research.google.com/github/TheLastBen/fast-stable-diffusion/blob/main/fast-DreamBooth.ipynb) notebook
+
+
+Test the concept via A1111 Colab [fast-Colab-A1111](https://colab.research.google.com/github/TheLastBen/fast-stable-diffusion/blob/main/fast_stable_diffusion_AUTOMATIC1111.ipynb)
+Or you can run your new concept via `diffusers` [Colab Notebook for Inference](https://colab.research.google.com/github/huggingface/notebooks/blob/main/diffusers/sd_dreambooth_inference.ipynb)
+
+Sample pictures of this concept:
+
+  ![0](https://huggingface.co/igorshmel/hatching-style/resolve/main/sample_images/00099-3614750351-hatching_styl.JE52d9nz.png.part)
+      
