@@ -259,7 +259,7 @@ if __name__ == "__main__":
     eval_loader = DataLoader(tokenized_dataset_val, batch_size=batch_size, shuffle=True)
     test_loader = DataLoader(tokenized_dataset_test, batch_size=batch_size, shuffle=True)
     lr = 2e-6
-    num_epochs = 2
+    num_epochs = 10
     optimizer = AdamW(model.parameters(), lr=lr)
 
     train_losses = []
@@ -414,8 +414,13 @@ if __name__ == "__main__":
                 end_index = len(input_ids_list) - 1
             input_text = positions_to_text(input_ids[:, j], tokenizer, 1, end_index)
 
-            predicted_text = positions_to_text(input_ids[:, j], tokenizer, test_predictions[i * test_loader.batch_size + j][0], test_predictions[i * test_loader.batch_size + j][1])
-            true_text = positions_to_text(input_ids[:, j], tokenizer, test_true_labels[i * test_loader.batch_size + j][0], test_true_labels[i * test_loader.batch_size + j][1])
+            # predicted_text = positions_to_text(input_ids[:, j], tokenizer, test_predictions[i * test_loader.batch_size + j][0], test_predictions[i * test_loader.batch_size + j][1])
+            index = min(i * test_loader.batch_size + j, len(test_predictions) - 1)
+            predicted_text = positions_to_text(input_ids[:, j], tokenizer, test_predictions[index][0], test_predictions[index][1])
+
+            # true_text = positions_to_text(input_ids[:, j], tokenizer, test_true_labels[i * test_loader.batch_size + j][0], test_true_labels[i * test_loader.batch_size + j][1])
+            index = min(i * test_loader.batch_size + j, len(test_true_labels) - 1)
+            true_text = positions_to_text(input_ids[:, j], tokenizer, test_true_labels[index][0], test_true_labels[index][1])
 
             input_texts.append(input_text)
             predicted_texts.append(predicted_text)
@@ -433,6 +438,10 @@ if __name__ == "__main__":
     iterations_val = range(1, len(val_losses) + 1)
     iterations_test = range(1, len(test_losses) + 1)
 
+    iterations_train_acc = range(1, len(train_accuracies) + 1)
+    iterations_val_acc = range(1, len(val_accuracies) + 1)
+    iterations_test_acc = range(1, len(test_accuracies) + 1)
+
     plt.plot(iterations_train, train_losses, 'b', label='Training loss')
     
     plt.title(f'Training  Loss, lr={lr}')
@@ -440,19 +449,67 @@ if __name__ == "__main__":
     plt.ylabel('Loss')
 
     # Save the plot to a file
-    plt.savefig(f'loss_plot_QA_{lr}_train.png')
+    plt.savefig(f'loss_plot_QA_{num_epochs}_{lr}_train.png')
     plt.show()
     plt.close()
 
     plt.plot(iterations_val, val_losses, 'r', label='Validation loss')
-    plt.plot(iterations_test, test_losses, 'r', label='Validation loss')
-    plt.title(f'Validation and Test  Loss, lr={lr}')
+    
+    plt.title(f'Validation  Loss, lr={lr}')
     plt.xlabel('Iterations')
     plt.ylabel('Loss')
+    # plt.legend()
 
     # Save the plot to a file
-    plt.savefig(f'loss_plot_QA_{lr}_val+test.png')
+    plt.savefig(f'loss_plot_QA_{num_epochs}_{lr}_val.png')
     plt.show()
     plt.close()
 
+    plt.plot(iterations_test, test_losses, 'r', label='Test loss')
+    
+    plt.title(f'Test  Loss, lr={lr}')
+    plt.xlabel('Iterations')
+    plt.ylabel('Loss')
+    # plt.legend()
+
+    # Save the plot to a file
+    plt.savefig(f'loss_plot_QA_{num_epochs}_{lr}_test.png')
+    plt.show()
+    plt.close()
+
+    plt.plot(iterations_train_acc, train_accuracies, 'r', label='Train loss')
+    
+    plt.title(f'Train  Acc, lr={lr}')
+    plt.xlabel('Iterations')
+    plt.ylabel('Accuracy')
+    # plt.legend()
+
+    # Save the plot to a file
+    plt.savefig(f'Acc_plot_QA_{num_epochs}_{lr}_train.png')
+    plt.show()
+    plt.close()
+
+    plt.plot(iterations_val_acc, val_accuracies, 'r', label='Val Acc')
+    
+    plt.title(f'Val  Acc, lr={lr}, epoch={num_epochs}')
+    plt.xlabel('Iterations')
+    plt.ylabel('Accuracy')
+    # plt.legend()
+
+    # Save the plot to a file
+    plt.savefig(f'Acc_plot_QA_{num_epochs}_{lr}_val.png')
+    plt.show()
+    plt.close()
+
+    plt.plot(iterations_test_acc, test_accuracies, 'r', label='Test Acc')
+    
+    plt.title(f'Test  Acc, lr={lr}, epoch={num_epochs}')
+    plt.xlabel('Iterations')
+    plt.ylabel('Accraucy')
+    # plt.legend()
+
+    # Save the plot to a file
+    plt.savefig(f'Acc_plot_QA_{num_epochs}_{lr}_test.png')
+    plt.show()
+    plt.close()
     # TODO: More evaluations 
