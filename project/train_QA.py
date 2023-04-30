@@ -124,42 +124,39 @@ def compute_accuracy(predictions, start_positions, end_positions):
     accuracy = correct / total
     return accuracy
 
-def evaluate(model, loader):
+
+def evaluate(model, dataloader):
     model.eval()
     predictions = []
     true_labels = []
-    correct = 0
-    total = 0
+    accuracy = 0
 
     with torch.no_grad():
-        for batch in loader:
-            input_ids = torch.stack(batch['input_ids']).transpose(0, 1)
-            attention_mask = torch.stack(batch['attention_mask']).transpose(0, 1)
-            start_positions = batch['start_positions'].view(-1)
-            end_positions = batch['end_positions'].view(-1)
+        for batch in dataloader:
+            input_ids = batch["input_ids"].to(device)
+            attention_mask = batch["attention_mask"].to(device)
+            start_logits, end_logits = model(input_ids, attention_mask=attention_mask).values()
 
-            input_ids = input_ids.to(device)
-            attention_mask = attention_mask.to(device)
-            start_positions = start_positions.to(device)
-            end_positions = end_positions.to(device)
+            # Use the max value from the start and end logits as the prediction
+            start_index = torch.argmax(start_logits, dim=1)
+            end_index = torch.argmax(end_logits, dim=1)
+            predicted_indices = [(start, end) for start, end in zip(start_index, end_index)]
 
-            outputs = model(input_ids, attention_mask=attention_mask)
-            start_logits, end_logits = outputs["start_logits"], outputs["end_logits"]
+            for i, predicted_index in enumerate(predicted_indices):
+                input_id = input_ids[i]
+                predicted_answer = tokenizer.decode(input_id[predicted_index[0]:predicted_index[1]+1])
 
+                true_answer = batch["answer"][i]
+                true_answer = true_answer.strip()
 
-            # logger.debug(f"start_logits: {start_logits}")
-            # logger.debug(f"end_logits: {end_logits}")
+                predictions.append(predicted_answer)
+                true_labels.append(true_answer)
 
-            start_preds = torch.argmax(start_logits, dim=1)
-            end_preds = torch.argmax(end_logits, dim=1)
+                if predicted_answer.lower() == true_answer.lower():
+                    accuracy += 1
 
-            predictions.extend(zip(start_preds.tolist(), end_preds.tolist()))
-            true_labels.extend(zip(start_positions.tolist(), end_positions.tolist()))
+    accuracy /= len(dataloader.dataset)
 
-            correct += ((start_preds == start_positions) & (end_preds == end_positions)).sum().item()
-            total += len(start_positions)
-
-    accuracy = correct / total
     return predictions, true_labels, accuracy
 
 
@@ -196,6 +193,17 @@ def positions_to_text(input_ids, tokenizer, start_position, end_position):
     text = tokenizer.convert_tokens_to_string(tokenizer.convert_ids_to_tokens(tokens))
     return text
 
+
+
+def predict_answer(model, tokenizer, question, context):
+    inputs = tokenizer.encode_plus(question, context, return_tensors='pt', max_length=512, truncation=True)
+    input_ids = inputs["input_ids"].tolist()[0]
+    outputs = model(**inputs)
+    start_scores, end_scores = outputs.start_logits, outputs.end_logits
+    answer_start = torch.argmax(start_scores)
+    answer_end = torch.argmax(end_scores)
+    answer = tokenizer.convert_tokens_to_string(tokenizer.convert_ids_to_tokens(input_ids[answer_start:answer_end + 1]))
+    return answer
 
 
 if __name__ == "__main__":
@@ -259,7 +267,7 @@ if __name__ == "__main__":
     eval_loader = DataLoader(tokenized_dataset_val, batch_size=batch_size, shuffle=True)
     test_loader = DataLoader(tokenized_dataset_test, batch_size=batch_size, shuffle=True)
     lr = 2e-6
-    num_epochs = 10
+    num_epochs = 1
     optimizer = AdamW(model.parameters(), lr=lr)
 
     train_losses = []
@@ -276,11 +284,13 @@ if __name__ == "__main__":
         model.train()
         train_loss = 0
         for i, batch in enumerate(train_loader):
+            #     loggerenumerate(train_loader):
+            # if i == 0.debug(batch.keys())
             input_ids = torch.stack(batch['input_ids']).transpose(0, 1)
             attention_mask = torch.stack(batch['attention_mask']).transpose(0, 1)
             start_positions = batch['start_positions'].view(-1)
             end_positions = batch['end_positions'].view(-1)
-            if i == 0:
+            if epoch == 0 and i == 0:
                 logger.critical(f"Using device: {device}")
                 # logger.debug(f"input_ids: {input_ids.shape}, start_positions: {start_positions.shape}, end_positions: {end_positions.shape}")
             input_ids = input_ids.to(device)
@@ -317,6 +327,8 @@ if __name__ == "__main__":
                 outputs = model(input_ids, attention_mask=attention_mask, start_positions=start_positions, end_positions=end_positions)
                 loss = outputs.loss
                 eval_loss += loss.item()
+                start_predictions = torch.argmax(outputs.start_logits, dim=1)
+                end_predictions = torch.argmax(outputs.end_logits, dim=1)
 
         avg_eval_loss = eval_loss / len(eval_loader)
 
@@ -372,10 +384,20 @@ if __name__ == "__main__":
         train_predictions, train_true_labels, train_accuracy = evaluate(model, train_loader)
         val_predictions, val_true_labels, val_accuracy = evaluate(model, eval_loader)
         test_predictions, test_true_labels, test_accuracy = evaluate(model, test_loader)
+        
 
         logger.info(f"Train accuracy: {train_accuracy:.4f}")
         logger.info(f"Val accuracy: {val_accuracy:.4f}")
         logger.info(f"Test accuracy: {test_accuracy:.4f}")
+
+        logger.debug(f"train_predicted_answers: {train_predictions}")
+        logger.debug(f"train_true_answers: {train_true_labels}")
+
+        logger.debug(f"val_predicted_answers: {val_predictions}")
+        logger.debug(f"val_true_answers: {val_true_labels}")
+
+        logger.debug(f"test_predicted_answers: {test_predictions}")
+        logger.debug(f"test_true_answers: {test_true_labels}")
         train_accuracies.append(train_accuracy)
         val_accuracies.append(val_accuracy)
         test_accuracies.append(test_accuracy)
@@ -401,37 +423,64 @@ if __name__ == "__main__":
     input_texts = []  # Store the original input texts
     predicted_texts = []
     true_texts = []
-
+    predicted_answers = []
+    true_answers = []
+    
     for i, batch in enumerate(test_loader):
         input_ids = torch.stack(batch['input_ids']).transpose(0, 1)
-        
-        for j in range(input_ids.size(1)):
-            # input_text = positions_to_text(input_ids[:, j], tokenizer, 1, input_ids[:, j].tolist().index(tokenizer.sep_token_id) - 1)
-            input_ids_list = input_ids[:, j].tolist()
-            if tokenizer.sep_token_id in input_ids_list:
-                end_index = input_ids_list.index(tokenizer.sep_token_id) - 1
-            else:
-                end_index = len(input_ids_list) - 1
-            input_text = positions_to_text(input_ids[:, j], tokenizer, 1, end_index)
+        attention_mask = torch.stack(batch['attention_mask']).transpose(0, 1)
+        start_positions = batch['start_positions'].view(-1)
+        end_positions = batch['end_positions'].view(-1)
 
-            # predicted_text = positions_to_text(input_ids[:, j], tokenizer, test_predictions[i * test_loader.batch_size + j][0], test_predictions[i * test_loader.batch_size + j][1])
-            index = min(i * test_loader.batch_size + j, len(test_predictions) - 1)
-            predicted_text = positions_to_text(input_ids[:, j], tokenizer, test_predictions[index][0], test_predictions[index][1])
+        input_ids = input_ids.to(device)
+        attention_mask = attention_mask.to(device)
+        start_positions = start_positions.to(device)
+        end_positions = end_positions.to(device)
 
-            # true_text = positions_to_text(input_ids[:, j], tokenizer, test_true_labels[i * test_loader.batch_size + j][0], test_true_labels[i * test_loader.batch_size + j][1])
-            index = min(i * test_loader.batch_size + j, len(test_true_labels) - 1)
-            true_text = positions_to_text(input_ids[:, j], tokenizer, test_true_labels[index][0], test_true_labels[index][1])
+        with torch.no_grad():
+            outputs = model(input_ids, attention_mask=attention_mask, start_positions=start_positions, end_positions=end_positions)
+            loss = outputs.loss
+            test_loss += loss.item()
+            val_losses.append(loss.item())
+            
+            start_predictions = torch.argmax(outputs.start_logits, dim=1)
+            end_predictions = torch.argmax(outputs.end_logits, dim=1)
 
-            input_texts.append(input_text)
-            predicted_texts.append(predicted_text)
-            true_texts.append(true_text)
+            for idx in range(len(start_positions)):
+                input_ids_example = input_ids[idx]
+                # logger.debug(f"input_ids_example: {input_ids_example}")
+                
+                # Find the position of the first SEP token
+                sep_positions = (input_ids_example == tokenizer.sep_token_id).nonzero(as_tuple=True)[0]
+                sep_position = sep_positions[0].item()
 
-    with open("text_predictions.csv", "w", newline='', encoding='utf-8') as csvfile:
+                # Decode the question text from input_ids
+                question = tokenizer.decode(input_ids_example[:sep_position], skip_special_tokens=True)
+
+                predicted_start = start_predictions[idx].item()
+                predicted_end = end_predictions[idx].item()
+                true_start = start_positions[idx].item()
+                true_end = end_positions[idx].item()
+
+                # Get the predicted answer text
+                predicted_answer = tokenizer.decode(input_ids_example[sep_position + 1 + predicted_start:sep_position + 1 + predicted_end + 1].tolist(), skip_special_tokens=True)
+
+                # Get the true answer text
+                true_answer = tokenizer.decode(input_ids_example[sep_position + 1 + true_start:sep_position + 1 + true_end + 1].tolist(), skip_special_tokens=True)
+
+                predicted_answers.append(predicted_answer)
+                true_answers.append(true_answer)
+                logger.debug(f"Predicted answer: {predicted_answer}")
+                logger.debug(f"True answer: {true_answer}")
+
+
+    # Save the true and predicted answers to a CSV file
+    with open("answers.csv", "w", newline='', encoding='utf-8') as csvfile:
         csv_writer = csv.writer(csvfile)
-        csv_writer.writerow(["input_text", "predicted_text", "true_text"])
+        csv_writer.writerow(["predicted_answer", "true_answer"])
 
-        for input_text, predicted_text, true_text in zip(input_texts, predicted_texts, true_texts):
-            csv_writer.writerow([input_text, predicted_text, true_text])
+        for predicted_answer, true_answer in zip(predicted_answers, true_answers):
+            csv_writer.writerow([predicted_answer, true_answer])
 
     # Plot the training loss per iteration, and validation and test loss per epoch
     iterations_train = range(1, len(train_losses) + 1)
