@@ -85,95 +85,164 @@ class MyQAModel(nn.Module):
             return total_loss
         else:
             return start_logits, end_logits
-# Extract questions, contexts, and answers
-def process_dataset(split_dataset, split):
-    examples = []
 
-    for i in range(len(split_dataset)):
-        paragraphs = split_dataset[i]["paragraphs"]
-        for paragraph in paragraphs:
-            qas = paragraph["qas"]
-            context = paragraph["context"]
-            original_context = context
-            context = clean_context(context)
-            for qa in qas:
-                question = qa["question"]
-                answer_text = qa["answers"][0]["text"]
-                answer_start = qa["answers"][0]["answer_start"]
-                answer_end = answer_start + len(answer_text)
-                new_answer_start, new_answer_end = update_answer_positions(context, answer_start, answer_end, original_context)
-                examples.append({"question": question, "context": context, "answer_text": answer_text, "start_positions": new_answer_start, "end_positions": new_answer_end, "original_context": original_context})
-    tokenized_examples = {"input_ids": [], "attention_mask": [], "token_type_ids": [], "start_positions": [], "end_positions": [], "answer_input_ids": []}
-    for example in examples:
-        encoded_example = tokenizer.encode_plus(example["question"], example["context"], max_length=512, padding="max_length", truncation=True, return_tensors="pt")
-        tokenized_examples["input_ids"].append(encoded_example["input_ids"][0])
-        tokenized_examples["attention_mask"].append(encoded_example["attention_mask"][0])
-        tokenized_examples["token_type_ids"].append(encoded_example["token_type_ids"][0])
-        tokenized_examples["start_positions"].append(torch.tensor(example["start_positions"]).unsqueeze(0))
-        tokenized_examples["end_positions"].append(torch.tensor(example["end_positions"]).unsqueeze(0))
-        answer_input_ids = tokenizer.encode(example["answer_text"], add_special_tokens=False, return_tensors="pt")
-        # logger.debug(answer_input_ids.shape[1])
-        answer_input_ids = torch.cat([answer_input_ids[0], torch.zeros((16 - answer_input_ids.shape[1]), dtype=torch.long)], dim=0)
-        tokenized_examples["answer_input_ids"].append(answer_input_ids)
-    for k in tokenized_examples:
-        if k not in ["answer_start", "answer_end"]:
-            tokenized_examples[k] = torch.stack(tokenized_examples[k])
-        else:
-            tokenized_examples[k] = torch.cat(tokenized_examples[k], dim=0)
-    return tokenized_examples
+def preprocess_data(tokenizer, question, context, max_length):
+    inputs = tokenizer.encode_plus(question, context, add_special_tokens=True, max_length=max_length, padding='max_length', truncation=True)
+    input_ids, token_type_ids, attention_mask = inputs["input_ids"], inputs["token_type_ids"], inputs["attention_mask"]
+    
+    return {
+        'input_ids': torch.tensor(input_ids, dtype=torch.long),
+        'token_type_ids': torch.tensor(token_type_ids, dtype=torch.long),
+        'attention_mask': torch.tensor(attention_mask, dtype=torch.long)
+    }
 
 
-def evaluate(model, dataloader):
+def compute_exact_match(true_labels, pred_labels):
+    total = len(true_labels)
+    correct = sum([true == pred for true, pred in zip(true_labels, pred_labels)])
+    exact_match = correct / total
+    return exact_match
+
+def compute_f1_score(true_labels, pred_labels):
+    f1_scores = [f1_score(true, pred) for true, pred in zip(true_labels, pred_labels)]
+    avg_f1_score = np.mean(f1_scores)
+    return avg_f1_score
+
+def f1_score(true, pred):
+    common = set(true).intersection(set(pred))
+    if not common:
+        return 0
+    precision = len(common) / len(pred)
+    recall = len(common) / len(true)
+    f1 = 2 * (precision * recall) / (precision + recall)
+    return f1
+
+
+def evaluate(model, data_loader):
     model.eval()
-    predictions = []
-    true_labels = []
-    total_exact_match = 0
-    total_f1_score = 0
-
+    all_start_logits = []
+    all_end_logits = []
+    all_start_positions = []
+    all_end_positions = []
+    
     with torch.no_grad():
-        for batch in dataloader:
+        for batch in data_loader:
             input_ids = torch.stack(batch['input_ids']).transpose(0, 1)
             attention_mask = torch.stack(batch['attention_mask']).transpose(0, 1)
             start_positions = torch.cat(batch['start_positions'], dim=0).view(-1)
             end_positions = torch.cat(batch['end_positions'], dim=0).view(-1)
-            answer_input_ids = torch.stack(batch['answer_input_ids']).transpose(0, 1)
 
             input_ids = input_ids.to(device)
             attention_mask = attention_mask.to(device)
-            start_positions = start_positions.to(device)
-            end_positions = end_positions.to(device)
-            answer_input_ids = answer_input_ids.to(device)
 
-            outputs = model(input_ids=input_ids, attention_mask=attention_mask, start_positions=start_positions, end_positions=end_positions)
+            start_logits, end_logits = model(input_ids, attention_mask=attention_mask)
 
-            start_logits, end_logits = outputs.start_logits, outputs.end_logits
-            start_indices = torch.argmax(start_logits, dim=1)
-            end_indices = torch.argmax(end_logits, dim=1)
+            all_start_logits.extend(start_logits.cpu().numpy())
+            all_end_logits.extend(end_logits.cpu().numpy())
+            all_start_positions.extend(start_positions.cpu().numpy())
+            all_end_positions.extend(end_positions.cpu().numpy())
 
-            for i, (start_index, end_index) in enumerate(zip(start_indices, end_indices)):
-                input_id = input_ids[i]
+    start_positions_preds = np.argmax(all_start_logits, axis=-1)
+    end_positions_preds = np.argmax(all_end_logits, axis=-1)
+    true_labels = list(zip(all_start_positions, all_end_positions))
+    pred_labels = list(zip(start_positions_preds, end_positions_preds))
 
-                sep_index = (input_id == tokenizer.sep_token_id).nonzero(as_tuple=True)[0][0]
-                start_index = max(start_index - sep_index - 1, 0)
-                end_index = max(end_index - sep_index - 1, 0)
+    exact_match = compute_exact_match(true_labels, pred_labels)
+    f1_score = compute_f1_score(true_labels, pred_labels)
 
-                predicted_answer = tokenizer.decode(input_id[sep_index + 1:][start_index:end_index + 1])
-                true_answer = tokenizer.decode(answer_input_ids[i])
+    return pred_labels, true_labels, exact_match, f1_score
 
-                exact_match = compute_exact(true_answer, predicted_answer)
-                f1_score = compute_f1(true_answer, predicted_answer)
 
-                predictions.append(predicted_answer)
-                true_labels.append(true_answer)
 
-                total_exact_match += exact_match
-                total_f1_score += f1_score
+# # Extract questions, contexts, and answers
+# def process_dataset(split_dataset, split):
+#     examples = []
 
-    num_samples = len(dataloader.dataset)
-    average_exact_match = total_exact_match / num_samples
-    average_f1_score = total_f1_score / num_samples
+#     for i in range(len(split_dataset)):
+#         paragraphs = split_dataset[i]["paragraphs"]
+#         for paragraph in paragraphs:
+#             qas = paragraph["qas"]
+#             context = paragraph["context"]
+#             original_context = context
+#             context = clean_context(context)
+#             for qa in qas:
+#                 question = qa["question"]
+#                 answer_text = qa["answers"][0]["text"]
+#                 answer_start = qa["answers"][0]["answer_start"]
+#                 answer_end = answer_start + len(answer_text)
+#                 new_answer_start, new_answer_end = update_answer_positions(context, answer_start, answer_end, original_context)
+#                 examples.append({"question": question, "context": context, "answer_text": answer_text, "start_positions": new_answer_start, "end_positions": new_answer_end, "original_context": original_context})
+#     tokenized_examples = {"input_ids": [], "attention_mask": [], "token_type_ids": [], "start_positions": [], "end_positions": [], "answer_input_ids": []}
+#     for example in examples:
+#         encoded_example = tokenizer.encode_plus(example["question"], example["context"], max_length=512, padding="max_length", truncation=True, return_tensors="pt")
+#         tokenized_examples["input_ids"].append(encoded_example["input_ids"][0])
+#         tokenized_examples["attention_mask"].append(encoded_example["attention_mask"][0])
+#         tokenized_examples["token_type_ids"].append(encoded_example["token_type_ids"][0])
+#         tokenized_examples["start_positions"].append(torch.tensor(example["start_positions"]).unsqueeze(0))
+#         tokenized_examples["end_positions"].append(torch.tensor(example["end_positions"]).unsqueeze(0))
+#         answer_input_ids = tokenizer.encode(example["answer_text"], add_special_tokens=False, return_tensors="pt")
+#         # logger.debug(answer_input_ids.shape[1])
+#         answer_input_ids = torch.cat([answer_input_ids[0], torch.zeros((16 - answer_input_ids.shape[1]), dtype=torch.long)], dim=0)
+#         tokenized_examples["answer_input_ids"].append(answer_input_ids)
+#     for k in tokenized_examples:
+#         if k not in ["answer_start", "answer_end"]:
+#             tokenized_examples[k] = torch.stack(tokenized_examples[k])
+#         else:
+#             tokenized_examples[k] = torch.cat(tokenized_examples[k], dim=0)
+#     return tokenized_examples
 
-    return predictions, true_labels, average_exact_match, average_f1_score
+
+# def evaluate(model, dataloader):
+#     model.eval()
+#     predictions = []
+#     true_labels = []
+#     total_exact_match = 0
+#     total_f1_score = 0
+
+#     with torch.no_grad():
+#         for batch in dataloader:
+#             input_ids = torch.stack(batch['input_ids']).transpose(0, 1)
+#             attention_mask = torch.stack(batch['attention_mask']).transpose(0, 1)
+#             start_positions = torch.cat(batch['start_positions'], dim=0).view(-1)
+#             end_positions = torch.cat(batch['end_positions'], dim=0).view(-1)
+#             answer_input_ids = torch.stack(batch['answer_input_ids']).transpose(0, 1)
+
+#             input_ids = input_ids.to(device)
+#             attention_mask = attention_mask.to(device)
+#             start_positions = start_positions.to(device)
+#             end_positions = end_positions.to(device)
+#             answer_input_ids = answer_input_ids.to(device)
+
+#             outputs = model(input_ids=input_ids, attention_mask=attention_mask, start_positions=start_positions, end_positions=end_positions)
+
+#             start_logits, end_logits = outputs.start_logits, outputs.end_logits
+#             start_indices = torch.argmax(start_logits, dim=1)
+#             end_indices = torch.argmax(end_logits, dim=1)
+
+#             for i, (start_index, end_index) in enumerate(zip(start_indices, end_indices)):
+#                 input_id = input_ids[i]
+
+#                 sep_index = (input_id == tokenizer.sep_token_id).nonzero(as_tuple=True)[0][0]
+#                 start_index = max(start_index - sep_index - 1, 0)
+#                 end_index = max(end_index - sep_index - 1, 0)
+
+#                 predicted_answer = tokenizer.decode(input_id[sep_index + 1:][start_index:end_index + 1])
+#                 true_answer = tokenizer.decode(answer_input_ids[i])
+
+#                 exact_match = compute_exact(true_answer, predicted_answer)
+#                 f1_score = compute_f1(true_answer, predicted_answer)
+
+#                 predictions.append(predicted_answer)
+#                 true_labels.append(true_answer)
+
+#                 total_exact_match += exact_match
+#                 total_f1_score += f1_score
+
+#     num_samples = len(dataloader.dataset)
+#     average_exact_match = total_exact_match / num_samples
+#     average_f1_score = total_f1_score / num_samples
+
+#     return predictions, true_labels, average_exact_match, average_f1_score
 
 
 
@@ -239,9 +308,9 @@ if __name__ == "__main__":
 
     
         
-    tokenized_train = process_dataset(train_dataset, "train")
-    tokenized_val = process_dataset(val_dataset, "val")
-    tokenized_test = process_dataset(test_dataset, "test")
+    tokenized_train = preprocess_data(train_dataset, "train",)
+    tokenized_val = preprocess_data(val_dataset, "val", 512)
+    tokenized_test = preprocess_data(test_dataset, "test", 512)
 
     # Convert dictionaries to Datasets
     tokenized_dataset_train = Dataset.from_dict(tokenized_train)
@@ -259,13 +328,13 @@ if __name__ == "__main__":
     eval_loader = DataLoader(tokenized_dataset_val, batch_size=batch_size, shuffle=True)
     test_loader = DataLoader(tokenized_dataset_test, batch_size=batch_size, shuffle=True)
     lr = 2e-5
-    num_epochs = 10
+    num_epochs = 1
     optimizer = AdamW(model.parameters(), lr=lr)
 
     train_losses = []
     val_losses = []
     test_losses = []
-    
+
     train_accuracies = []
     val_accuracies = []
     test_accuracies = []
@@ -347,23 +416,11 @@ if __name__ == "__main__":
                 loss = outputs.loss
                 test_loss += loss.item()
                 test_losses.append(loss.item())
-                start_predictions = torch.argmax(outputs.start_logits, dim=1)
-                end_predictions = torch.argmax(outputs.end_logits, dim=1)
 
-        avg_test_loss = eval_loss / len(eval_loader)
+        avg_test_loss = test_loss / len(test_loader)
 
         logger.critical(f"Epoch {epoch+1} - Train loss: {avg_train_loss:.4f} - Eval loss: {avg_eval_loss:.4f} - Test loss: {avg_test_loss:.4f}")
-        
-        exact_matches = []
-        f1_scores = []
-        train_exact_matches = []
-        train_f1_scores = []
-        val_exact_matches = []
-        val_f1_scores = []
-        test_exact_matches = []
-        test_f1_scores = []
 
-    
         train_preds, train_true_labels, train_exact_match, train_f1 = evaluate(model, train_loader)
         val_preds, val_true_labels, val_exact_match, val_f1 = evaluate(model, eval_loader)
         test_preds, test_true_labels, test_exact_match, test_f1 = evaluate(model, test_loader)
@@ -371,6 +428,7 @@ if __name__ == "__main__":
         logger.info(f"Train Exact Match: {train_exact_match:.4f}, Train F1 Score: {train_f1:.4f}")
         logger.info(f"Val Exact Match: {val_exact_match:.4f}, Val F1 Score: {val_f1:.4f}")
         logger.info(f"Test Exact Match: {test_exact_match:.4f}, Test F1 Score: {test_f1:.4f}")
+
 
         # logger.debug(f"train_predicted_indices: {train_preds}")
         # logger.debug(f"train_true_indices: {train_true_labels}")
@@ -434,9 +492,9 @@ if __name__ == "__main__":
                 for idx in range(len(start_positions)):
                     input_ids_example = input_ids[idx]
 
-                    # Find the position of the first SEP token
+                    # Find the position of the second SEP token
                     sep_positions = (input_ids_example == tokenizer.sep_token_id).nonzero(as_tuple=True)[0]
-                    sep_position = sep_positions[0].item()
+                    sep_position = sep_positions[1].item()
 
                     # Decode the question text from input_ids
                     question = tokenizer.decode(input_ids_example[:sep_position], skip_special_tokens=True)
@@ -447,13 +505,14 @@ if __name__ == "__main__":
                     true_end = end_positions[idx].item()
 
                     # Get the predicted answer text
-                    predicted_answer = tokenizer.decode(input_ids_example[sep_position + 1 + predicted_start:sep_position + 1 + predicted_end + 1].tolist(), skip_special_tokens=True)
+                    predicted_answer = tokenizer.decode(input_ids_example[sep_position + predicted_start:sep_position + predicted_end + 1].tolist(), skip_special_tokens=True)
 
                     # Get the true answer text
-                    true_answer = tokenizer.decode(input_ids_example[sep_position + 1 + true_start:sep_position + 1 + true_end + 1].tolist(), skip_special_tokens=True)
+                    true_answer = tokenizer.decode(input_ids_example[sep_position + true_start:sep_position + true_end + 1].tolist(), skip_special_tokens=True)
 
                     predicted_answers.append(predicted_answer)
                     true_answers.append(true_answer)
+
                     # logger.debug(f"[{dataset_name}] Predicted answer: {predicted_answer}")
                     # logger.debug(f"[{dataset_name}] True answer: {true_answer}")
 
