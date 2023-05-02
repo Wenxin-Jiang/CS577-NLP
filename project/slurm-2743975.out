@@ -1,0 +1,23 @@
+
+The following have been reloaded with a version change:
+  1) cuda/11.2.0 => cuda/11.7.0
+
+
+Lmod is automatically replacing "intel/17.0.1.132" with "gcc/6.3.0".
+
+
+Inactive Modules:
+  1) impi/2017.1.132
+
+Found cached dataset json (/home/jiang784/.cache/huggingface/datasets/json/default-91293dcae5847bfb/0.0.0/fe5dd6ea2639a6df622901539cb550cf8797e5a6b2dd7af1cf934bed8e233e6e)
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 185.52it/s]
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertForQuestionAnswering: ['cls.predictions.decoder.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing BertForQuestionAnswering from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForQuestionAnswering from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForQuestionAnswering were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['qa_outputs.bias', 'qa_outputs.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/home/jiang784/.conda/envs/cent7/2020.11-py38/PTM/lib/python3.10/site-packages/transformers/optimization.py:391: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+2023-04-29 00:26:25.965 | DEBUG    | __main__:<module>:145 - input_ids: torch.Size([4, 512]), start_positions: torch.Size([4]), end_positions: torch.Size([4])
+/var/spool/slurm/job2743975/slurm_script: line 9: 113902 Killed                  python train_QA.py > log_QA.txt
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=2743975.batch. Some of your processes may have been killed by the cgroup out-of-memory handler.

@@ -1,0 +1,1 @@
+FidicBERT is a pre-trained language model to analyze legal text. It is built by further training the Roberta language model in the legal domain, using an extensive legal and contract corpus and thereby fine-tuning for classifying and clustering contractual documents.

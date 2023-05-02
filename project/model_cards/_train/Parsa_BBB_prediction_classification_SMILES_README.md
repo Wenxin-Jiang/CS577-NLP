@@ -1,0 +1,2 @@
+A fine-tuned model based on'DeepChem/ChemBERTa-77M-MLM'for Blood brain barrier permeability prediction based on SMILES string. There are also BiLSTM models available as well as these two models in 'https://github.com/mephisto121/BBBNLP if you want to check them all and check the codes too. 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1jGYf3sq93yO4EbgVaEl3nlClrVatVaXS#scrollTo=AMEdQItmilAw)

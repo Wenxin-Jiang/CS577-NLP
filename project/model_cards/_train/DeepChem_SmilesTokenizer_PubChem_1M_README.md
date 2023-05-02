@@ -1,0 +1,1 @@
+RoBERTa model trained on 1M SMILES from PubChem 77M set in MoleculeNet. Uses Smiles-Tokenizer 

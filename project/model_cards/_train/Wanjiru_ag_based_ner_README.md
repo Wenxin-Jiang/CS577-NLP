@@ -1,0 +1,1 @@
+Fine tuned recobo/agriculture-bert-uncased for custom NER entities.

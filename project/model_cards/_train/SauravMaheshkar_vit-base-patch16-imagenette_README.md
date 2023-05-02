@@ -1,0 +1,1 @@
+Practice/Demo repository following the tutorial `run_image_classification_flax.py` script

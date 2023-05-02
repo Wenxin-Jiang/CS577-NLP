@@ -1,0 +1,1 @@
+This model is fine tuned for Patronizing and Condescending Language Classification task. Have fun.

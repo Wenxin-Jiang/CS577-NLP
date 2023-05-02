@@ -1,0 +1,2 @@
+ Toxicity LD50 prediction (regression model) based on <a href = "https://tdcommons.ai/single_pred_tasks/tox/"> Acute Toxicity LD50 </a> dataset. 
+ For now, for the purpose of prediction, download the model. In the future, an easy colab notebook will be available.

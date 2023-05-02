@@ -1,0 +1,1 @@
+GPT2 345M trained on 30 years of CentraBank's speeches

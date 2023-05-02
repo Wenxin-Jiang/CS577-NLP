@@ -1,0 +1,61 @@
+---
+tags:
+- generated_from_trainer
+metrics:
+- accuracy
+model-index:
+- name: sagemaker-bert-base-intent1018
+  results: []
+---
+
+<!-- This model card has been generated automatically according to the information the Trainer had access to. You
+should probably proofread and complete it, then remove this comment. -->
+
+# sagemaker-bert-base-intent1018
+
+This model is a fine-tuned version of [asafaya/bert-base-arabic](https://huggingface.co/asafaya/bert-base-arabic) on an unknown dataset.
+It achieves the following results on the evaluation set:
+- Loss: 4.0371
+- Accuracy: 0.0855
+
+## Model description
+
+More information needed
+
+## Intended uses & limitations
+
+More information needed
+
+## Training and evaluation data
+
+More information needed
+
+## Training procedure
+
+### Training hyperparameters
+
+The following hyperparameters were used during training:
+- learning_rate: 3e-05
+- train_batch_size: 32
+- eval_batch_size: 32
+- seed: 42
+- optimizer: Adam with betas=(0.9,0.999) and epsilon=1e-08
+- lr_scheduler_type: linear
+- lr_scheduler_warmup_steps: 500
+- num_epochs: 2
+- mixed_precision_training: Native AMP
+
+### Training results
+
+| Training Loss | Epoch | Step | Validation Loss | Accuracy |
+|:-------------:|:-----:|:----:|:---------------:|:--------:|
+| No log        | 1.0   | 44   | 4.2225          | 0.0192   |
+| No log        | 2.0   | 88   | 4.0371          | 0.0855   |
+
+
+### Framework versions
+
+- Transformers 4.12.3
+- Pytorch 1.9.1
+- Datasets 1.15.1
+- Tokenizers 0.10.3

@@ -1,0 +1,2 @@
+# BART_Finetuned_CNN_dailymail
+The following repo contains a [bart-base](https://huggingface.co/facebook/bart-base) model that was finetuned using the dataset [cnn_dailymail](https://huggingface.co/datasets/cnn_dailymail)

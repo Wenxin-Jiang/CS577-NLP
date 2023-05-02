@@ -1,0 +1,1 @@
+A pre-trained Roberta masked language model (MLM) trained on around 12K fake news dataset called LIAR. The perplexity of the original pre-trained Roberta model on the dataset is 5.957 and the perplexity of the adapted model is 3.918.

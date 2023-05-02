@@ -1,0 +1,1 @@
+在chinese-bert-wwm的基础上进行新闻语料库的增量预训练，token采用的是hfl/chinese-bert-wwm-ext

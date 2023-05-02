@@ -1,1 +1,0 @@
-This is a t5-base model trained on the multi_news dataset for abstraction summarization

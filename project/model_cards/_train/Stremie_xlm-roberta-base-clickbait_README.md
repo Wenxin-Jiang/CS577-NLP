@@ -1,0 +1,1 @@
+This model classifies whether a tweet is clickbait or not. It has been trained using [Webis-Clickbait-17](https://webis.de/data/webis-clickbait-17.html) dataset. Input is composed of 'postText'. Achieved ~0.7 F1-score on test data. 

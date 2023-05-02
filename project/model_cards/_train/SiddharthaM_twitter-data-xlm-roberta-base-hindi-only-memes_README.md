@@ -1,0 +1,70 @@
+---
+license: mit
+tags:
+- generated_from_trainer
+metrics:
+- accuracy
+- precision
+- recall
+- f1
+model-index:
+- name: twitter-data-xlm-roberta-base-hindi-only-memes
+  results: []
+---
+
+<!-- This model card has been generated automatically according to the information the Trainer had access to. You
+should probably proofread and complete it, then remove this comment. -->
+
+# twitter-data-xlm-roberta-base-hindi-only-memes
+
+This model is a fine-tuned version of [xlm-roberta-base](https://huggingface.co/xlm-roberta-base) on the None dataset.
+It achieves the following results on the evaluation set:
+- Loss: 0.4006
+- Accuracy: 0.9240
+- Precision: 0.9255
+- Recall: 0.9263
+- F1: 0.9259
+
+## Model description
+
+More information needed
+
+## Intended uses & limitations
+
+More information needed
+
+## Training and evaluation data
+
+More information needed
+
+## Training procedure
+
+### Training hyperparameters
+
+The following hyperparameters were used during training:
+- learning_rate: 5e-05
+- train_batch_size: 16
+- eval_batch_size: 16
+- seed: 42
+- optimizer: Adam with betas=(0.9,0.999) and epsilon=1e-08
+- lr_scheduler_type: linear
+- num_epochs: 6
+
+### Training results
+
+| Training Loss | Epoch | Step | Validation Loss | Accuracy | Precision | Recall | F1     |
+|:-------------:|:-----:|:----:|:---------------:|:--------:|:---------:|:------:|:------:|
+| 0.7485        | 1.0   | 511  | 0.4062          | 0.8381   | 0.8520    | 0.8422 | 0.8417 |
+| 0.4253        | 2.0   | 1022 | 0.3195          | 0.8822   | 0.8880    | 0.8853 | 0.8851 |
+| 0.2899        | 3.0   | 1533 | 0.2994          | 0.9031   | 0.9068    | 0.9060 | 0.9049 |
+| 0.2116        | 4.0   | 2044 | 0.3526          | 0.9163   | 0.9199    | 0.9185 | 0.9187 |
+| 0.1582        | 5.0   | 2555 | 0.4031          | 0.9163   | 0.9193    | 0.9186 | 0.9187 |
+| 0.103         | 6.0   | 3066 | 0.4006          | 0.9240   | 0.9255    | 0.9263 | 0.9259 |
+
+
+### Framework versions
+
+- Transformers 4.24.0
+- Pytorch 1.12.1+cu113
+- Datasets 2.6.1
+- Tokenizers 0.13.1

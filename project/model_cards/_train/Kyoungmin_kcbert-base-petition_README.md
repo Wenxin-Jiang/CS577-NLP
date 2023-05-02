@@ -1,0 +1,1 @@
+This is practice model for kcbert-base with Korean petition data!

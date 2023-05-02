@@ -1,0 +1,1 @@
+Hello there , this bot is trained on DialoGTP for an epoch of 45

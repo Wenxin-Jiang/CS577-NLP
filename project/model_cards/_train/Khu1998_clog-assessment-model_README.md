@@ -1,0 +1,1 @@
+# CLOG Assessment generator model

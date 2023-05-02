@@ -1,0 +1,1 @@
+This model is fined tuned for the Fake news classifier: Train a text classification model to detect fake news articles. Base on the Kaggle dataset(https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset).

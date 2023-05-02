@@ -1,0 +1,69 @@
+---
+license: mit
+tags:
+- generated_from_trainer
+metrics:
+- precision
+- recall
+- f1
+- accuracy
+model-index:
+- name: xlm-roberta-base-uk-base-ner
+  results: []
+---
+
+<!-- This model card has been generated automatically according to the information the Trainer had access to. You
+should probably proofread and complete it, then remove this comment. -->
+
+# xlm-roberta-base-uk-base-ner
+
+This model is a fine-tuned version of [xlm-roberta-base](https://huggingface.co/xlm-roberta-base) on an unknown dataset.
+It achieves the following results on the evaluation set:
+- Loss: 0.2510
+- Precision: 0.5951
+- Recall: 0.6256
+- F1: 0.6100
+- Accuracy: 0.9264
+
+## Model description
+
+More information needed
+
+## Intended uses & limitations
+
+More information needed
+
+## Training and evaluation data
+
+More information needed
+
+## Training procedure
+
+### Training hyperparameters
+
+The following hyperparameters were used during training:
+- learning_rate: 2e-05
+- train_batch_size: 32
+- eval_batch_size: 32
+- seed: 42
+- optimizer: Adam with betas=(0.9,0.999) and epsilon=1e-08
+- lr_scheduler_type: linear
+- num_epochs: 5
+
+### Training results
+
+| Training Loss | Epoch | Step | Validation Loss | Precision | Recall | F1     | Accuracy |
+|:-------------:|:-----:|:----:|:---------------:|:---------:|:------:|:------:|:--------:|
+| 0.7224        | 1.0   | 514  | 0.3856          | 0.4590    | 0.4581 | 0.4586 | 0.8996   |
+| 0.3616        | 2.0   | 1028 | 0.2893          | 0.5528    | 0.5533 | 0.5531 | 0.9190   |
+| 0.2783        | 3.0   | 1542 | 0.2652          | 0.5661    | 0.5965 | 0.5809 | 0.9227   |
+| 0.2362        | 4.0   | 2056 | 0.2531          | 0.5882    | 0.6256 | 0.6063 | 0.9263   |
+| 0.2124        | 5.0   | 2570 | 0.2510          | 0.5951    | 0.6256 | 0.6100 | 0.9264   |
+
+
+### Framework versions
+
+- Transformers 4.25.1
+- Pytorch 1.13.1+cu116
+- Datasets 2.8.0
+- Tokenizers 0.13.2

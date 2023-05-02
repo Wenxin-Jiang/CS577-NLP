@@ -1,0 +1,802 @@
+true_labels,pred_labels,pred_texts
+"(404, 406)","(404, 406)",text - generation
+"(401, 403)","(401, 403)",text - generation
+"(7, 36)","(7, 36)",adapterhub / bert - base - uncased - pf - scitail? - - - tags : - text - classification - bert
+"(26, 27)","(26, 27)",t5
+"(405, 407)","(405, 407)",text - generation
+"(96, 96)","(96, 96)",bert
+"(7, 36)","(7, 36)",adapterhub / bert - base - uncased - pf - trec? - - - tags : - text - classification - bert
+"(29, 62)","(58, 62)",automatic - speech - recognition
+"(64, 64)","(64, 64)",roberta
+"(4, 27)","(4, 27)",model task of helsinki - nlp / opus - mt - ru - fr? - - - tags : - translation
+"(65, 67)","(65, 67)",distilbert
+"(4, 36)","(4, 36)",model task of princeton - nlp / unsup - simcse - bert - large - uncased? - - - tags : - feature - extraction
+"(403, 405)","(403, 405)",text - generation
+"(39, 41)","(39, 41)",text - generation
+"(158, 158)","(158, 158)",roberta
+"(38, 40)","(38, 40)",text - classification
+"(4, 29)","(4, 29)",model task of rinz / dialogpt - small - harry - potterrr? - - - tags : - conversational
+"(402, 404)","(402, 404)",text - generation
+"(80, 84)","(80, 84)",text2text - generation
+"(4, 7)","(4, 7)",model task of adapt
+"(53, 53)","(53, 53)",bert
+"(404, 406)","(404, 406)",text - generation
+"(61, 61)","(61, 61)",roberta
+"(417, 419)","(417, 419)",text - generation
+"(116, 121)","(116, 121)",wav2vec2
+"(4, 6)","(4, 15)",model task of artelab / it5 - summarization
+"(92, 94)","(92, 94)",text - classification
+"(74, 76)","(74, 76)",wavlm
+"(66, 68)","(66, 68)",distilbert
+"(380, 385)","(380, 385)",wav2vec2
+"(89, 91)","(89, 91)",text - classification
+"(4, 14)","(4, 36)",model task of phongdtd / wavlm - vindata - demo - dist? - - - tags : - automatic - speech - recognition
+"(50, 50)","(50, 50)",bert
+"(56, 56)","(75, 56)",
+"(5, 46)","(5, 46)",task of flax - sentence - embeddings / multi - qa _ v1 - minilm - l6 - cls _ dot? - - - pipeline _ tag : sentence - similarity
+"(20, 47)","(20, 47)",##d? - - - language : pt datasets : wikipedia license : apache - 2. 0 - - - # distilbert
+"(4, 29)","(4, 29)",model task of aj - dude / dialogpt - small - harrypotter? - - - tags : - conversational
+"(4, 27)","(4, 27)",model task of helsinki - nlp / opus - mt - sg - es? - - - tags : - translation
+"(404, 406)","(404, 406)",text - generation
+"(63, 68)","(63, 68)",wav2vec2
+"(36, 36)","(7, 36)",adapterhub / bert - base - uncased - pf - comqa? - - - tags : - question - answering - bert
+"(50, 51)","(50, 51)",mbart
+"(118, 123)","(118, 123)",encoder - decoder
+"(59, 61)","(59, 61)",distilbert
+"(8, 29)","(27, 29)",token - classification
+"(4, 30)","(4, 30)",model task of aruden / dialogpt - medium - harrypotterall? - - - tags : - conversational
+"(4, 36)","(4, 36)",model task of adapterhub / bert - base - uncased - pf - duorc _ s? - - - tags : - question - answering
+"(38, 40)","(4, 40)",model task of ishan / bert - base - uncased - mnli? - - - language : en thumbnail : tags : - pytorch - text - classification
+"(444, 444)","(444, 444)",bert
+"(113, 114)","(113, 114)",mt5
+"(4, 33)","(4, 33)",model task of adapterhub / roberta - base - pf - conll2003? - - - tags : - token - classification
+"(62, 64)","(62, 64)",distilbert
+"(90, 92)","(90, 92)",text - classification
+"(4, 27)","(4, 27)",model task of helsinki - nlp / opus - mt - en - lu? - - - tags : - translation
+"(4, 35)","(4, 35)",model task of adapterhub / roberta - base - pf - fce _ error _ detection? - - - tags : - token - classification
+"(147, 149)","(58, 62)",distil - bert
+"(245, 245)","(245, 245)",bart
+"(65, 67)","(65, 67)",distilbert
+"(7, 37)","(7, 37)",adapterhub / bert - base - uncased - pf - boolq? - - - tags : - text - classification - bert
+"(8, 13)","(8, 13)",##zemraj / ballpark
+"(342, 342)","(342, 342)",clip
+"(98, 100)","(98, 100)",token - classification
+"(35, 35)","(35, 35)",roberta
+"(45, 49)","(45, 49)",automatic - speech - recognition
+"(4, 28)","(4, 28)",model task of helsinki - nlp / opus - mt - en - tiv? - - - tags : - translation
+"(4, 28)","(4, 28)",model task of helsinki - nlp / opus - mt - crs - fi? - - - tags : - translation
+"(15, 41)","(93, 41)",
+"(4, 7)","(4, 7)",model task of adapt
+"(17, 51)","(447, 51)",
+"(4, 7)","(4, 7)",model task of adapt
+"(399, 401)","(399, 401)",text - generation
+"(38, 38)","(7, 38)",adapterhub / bert - base - uncased - pf - duorc _ p? - - - tags : - question - answering - bert
+"(65, 67)","(65, 67)",distilbert
+"(7, 35)","(7, 35)",adapterhub / bert - base - uncased - pf - rte? - - - tags : - text - classification - bert
+"(65, 67)","(65, 67)",distilbert
+"(24, 55)","(54, 55)",mt5
+"(13, 36)","(33, 36)",image - segmentation
+"(472, 474)","(472, 474)",text - generation
+"(62, 64)","(62, 64)",distilbert
+"(381, 381)","(443, 381)",
+"(4, 27)","(4, 27)",model task of helsinki - nlp / opus - mt - he - de? - - - tags : - translation
+"(4, 31)","(4, 31)",model task of adapterhub / roberta - base - pf - cq? - - - tags : - question - answering
+"(4, 34)","(4, 34)",model task of adapterhub / bert - base - uncased - pf - newsqa? - - - tags : - question - answering
+"(29, 31)","(29, 31)",text - classification
+"(67, 72)","(67, 72)",wav2vec2
+"(4, 28)","(4, 28)",model task of helsinki - nlp / opus - mt - en - pon? - - - tags : - translation
+"(4, 30)","(4, 30)",model task of ironman123 / dialogpt - small - harrypotter? - - - tags : - conversational
+"(64, 67)","(64, 67)",xlm - roberta
+"(68, 73)","(68, 73)",wav2vec2
+"(164, 167)","(164, 167)",gpt _ neo
+"(404, 406)","(404, 406)",text - generation
+"(20, 47)","(20, 47)",##d? - - - language : ru datasets : wikipedia license : apache - 2. 0 - - - # distilbert
+"(352, 354)","(352, 354)",roformer
+"(39, 43)","(39, 43)",automatic - speech - recognition
+"(61, 61)","(61, 61)",audio
+"(62, 62)","(62, 70)",bert - large - uncased - squad2
+"(5, 43)","(5, 43)",task of flax - sentence - embeddings / multi - qa _ v1 - mpnet - mean _ cos? - - - pipeline _ tag : sentence - similarity
+"(8, 33)","(8, 33)",- nlp / opus - mt - is - it? - - - language : - is - it tags : - translation
+"(4, 31)","(4, 31)",model task of ishraaqparvez / dialogpt - small - harrypotter? - - - tags : - conversational
+"(4, 31)","(4, 31)",model task of osanseviero / llama - alpaca - snake? - - - tags : - image - classification
+"(54, 54)","(181, 54)",
+"(53, 53)","(53, 53)",bert
+"(408, 410)","(408, 410)",text - generation
+"(4, 28)","(4, 28)",model task of helsinki - nlp / opus - mt - en - lue? - - - tags : - translation
+"(65, 67)","(65, 67)",distilbert
+"(470, 470)","(470, 470)",bert
+"(85, 87)","(85, 87)",text - classification
+"(159, 161)","(159, 161)",token - classification
+"(56, 56)","(56, 56)",bert
+"(8, 33)","(8, 33)",- nlp / opus - mt - ja - tr? - - - language : - ja - tr tags : - translation
+"(56, 58)","(56, 58)",distilbert
+"(4, 28)","(4, 28)",model task of helsinki - nlp / opus - mt - kwy - en? - - - tags : - translation
+"(4, 30)","(4, 30)",model task of rlagusrlagus123 / xtc4096? - - - tags : - conversational
+"(133, 135)","(54, 56)",wavlm
+"(105, 107)","(105, 107)",text - classification
+"(41, 45)","(41, 45)",automatic - speech - recognition
+"(143, 145)","(143, 145)",distilbert
+"(7, 8)","(33, 33)",roberta
+"(43, 43)","(43, 43)",audio
+"(101, 103)","(101, 103)",distilbert
+"(67, 69)","(67, 69)",distilbert
+"(80, 81)","(80, 81)",electra
+"(65, 69)","(65, 69)",automatic - speech - recognition
+"(65, 67)","(65, 67)",distilbert
+"(60, 65)","(60, 65)",wav2vec2
+"(4, 40)","(4, 40)",model task of adapterhub / bert - base - uncased - pf - pmb _ sem _ tagging? - - - tags : - token - classification
+"(363, 363)","(363, 363)",roberta
+"(93, 95)","(93, 95)",text - classification
+"(255, 256)","(255, 256)",t5
+"(4, 32)","(4, 32)",model task of darthrussel / dialogpt - small - rickandmorty? - - - tags : - conversational
+"(56, 58)","(56, 58)",distilbert
+"(80, 85)","(80, 85)",wav2vec2
+"(64, 67)","(64, 67)",xlm - roberta
+"(120, 122)","(120, 122)",token - classification
+"(57, 59)","(57, 59)",gpt2
+"(37, 41)","(4, 41)",model task of osanseviero / dalle - mini - fork? - - - library _ name : generic language : - en pipeline _ tag : text - to - image
+"(7, 36)","(7, 36)",adapterhub / bert - base - uncased - pf - mrpc? - - - tags : - text - classification - bert
+"(55, 57)","(55, 57)",distilbert
+"(4, 26)","(4, 26)",model task of bigtooth / dialogpt - megumin? - - - tags : - conversational
+"(4, 27)","(4, 27)",model task of helsinki - nlp / opus - mt - en - st? - - - tags : - translation
+"(46, 46)","(46, 46)",audio
+"(4, 7)","(4, 7)",model task of adapt
+"(39, 39)","(39, 39)",bert
+"(4, 23)","(4, 23)",model task of intel / dynamic _ tinybert? - - - tags : - question - answering
+"(38, 42)","(38, 42)",automatic - speech - recognition
+"(143, 145)","(143, 145)",distilbert
+"(69, 69)","(69, 69)",##bert
+"(347, 349)","(346, 379)","araelectra - base - discriminator "" ) pipe = pipeline ( "" sentiment - analysis "", model = "" aubmindlab / aragpt2"
+"(63, 63)","(63, 63)",marian
+"(342, 342)","(311, 313)",text - classification
+"(38, 38)","(38, 38)",roberta
+"(341, 341)","(369, 341)",
+"(196, 196)","(196, 196)",bert
+"(403, 405)","(403, 405)",text - generation
+"(47, 47)","(47, 47)",bert
+"(8, 36)","(34, 36)",image - classification
+"(16, 43)","(7, 43)",adapterhub / roberta - base - pf - multirc? - - - tags : - text - classification - adapterhub : rc / multirc - roberta
+"(118, 120)","(118, 120)",distilbert
+"(9, 13)","(34, 36)",fill - mask
+"(176, 176)","(176, 176)",bart
+"(4, 32)","(4, 32)",model task of 2early4coffee / dialogpt - small - deadpool? - - - tags : - conversational
+"(60, 61)","(60, 61)",mt5
+"(403, 405)","(403, 405)",text - generation
+"(404, 406)","(404, 406)",text - generation
+"(19, 22)","(20, 49)",- base - cased? - - - language : eu license : cc - by - nc - 4. 0 tags : - basque - roberta
+"(63, 68)","(63, 68)",wav2vec2
+"(403, 405)","(403, 405)",text - generation
+"(61, 61)","(61, 61)",bert
+"(4, 35)","(4, 35)",model task of adapterhub / bert - base - uncased - pf - hotpotqa? - - - tags : - question - answering
+"(88, 88)","(88, 129)",bert - base - en - el - cased we are sharing smaller versions of [ bert - base - multilingual - cased ] ( that handle a custom number of languages. unlike [ distilbert
+"(112, 112)","(112, 112)",flash
+"(227, 232)","(227, 232)",wav2vec2
+"(347, 348)","(347, 348)",dpt
+"(8, 33)","(8, 33)",- nlp / opus - mt - ja - ru? - - - language : - ja - ru tags : - translation
+"(25, 25)","(25, 25)",bert
+"(28, 54)","(54, 54)",audio
+"(4, 28)","(4, 28)",model task of helsinki - nlp / opus - mt - en - loz? - - - tags : - translation
+"(4, 23)","(4, 23)",model task of richiellei / childe3? - - - tags : - conversational
+"(4, 6)","(4, 15)",model task of rostlab / prot _ t5
+"(65, 67)","(65, 67)",distilbert
+"(61, 61)","(61, 61)",bert
+"(85, 87)","(85, 87)",text - classification
+"(53, 58)","(53, 58)",wav2vec2
+"(65, 67)","(65, 67)",distilbert
+"(65, 67)","(65, 67)",distilbert
+"(5, 46)","(5, 46)",task of flax - sentence - embeddings / multi - qa _ v1 - minilm - l6 - mean _ cos? - - - pipeline _ tag : sentence - similarity
+"(49, 51)","(49, 51)",distilbert
+"(15, 16)","(48, 49)",t5
+"(142, 147)","(142, 147)",wav2vec2
+"(7, 35)","(7, 35)",adapterhub / bert - base - uncased - pf - emotion? - - - tags : - text - classification - bert
+"(4, 27)","(4, 27)",model task of helsinki - nlp / opus - mt - to - sv? - - - tags : - translation
+"(39, 41)","(39, 41)",fill - mask
+"(8, 33)","(8, 33)",- nlp / opus - mt - ca - de? - - - language : - ca - de tags : - translation
+"(405, 407)","(405, 407)",text - generation
+"(4, 33)","(4, 33)",model task of abhinavsaithegreat / dialogpt - small - harrypotter? - - - tags : - conversational
+"(60, 63)","(60, 63)",segformer
+"(4, 33)","(4, 33)",model task of makinitas / dialogpt - small - rickandmortyscripts? - - - tags : - conversational
+"(4, 29)","(4, 29)",model task of accurateisaiah / dialogpt - small - jefftastic? - - - tags : - conversational
+"(4, 36)","(4, 36)",model task of adapterhub / bert - base - uncased - pf - wnut _ 17? - - - tags : - token - classification
+"(405, 407)","(405, 407)",text - generation
+"(39, 39)","(39, 39)",bert
+"(11, 30)","(4, 30)",model task of osanseviero / clip - st? - - - tags : - sentence - transformers - feature - extraction
+"(58, 58)","(58, 58)",bart
+"(37, 39)","(37, 39)",text - generation
+"(400, 402)","(400, 402)",text - generation
+"(49, 49)","(49, 49)",bert
+"(26, 28)","(26, 28)",text - classification
+"(59, 60)","(59, 60)",mpnet
+"(70, 71)","(70, 71)",vit
+"(4, 36)","(4, 36)",model task of adapterhub / bert - base - uncased - pf - ud _ pos? - - - tags : - token - classification
+"(59, 59)","(59, 59)",audio
+"(411, 413)","(411, 413)",text - generation
+"(53, 53)","(53, 53)",roberta
+"(4, 32)","(4, 32)",model task of rizqfaridn / dialogpt - small - harrypotter? - - - tags : - conversational
+"(93, 95)","(203, 95)",
+"(146, 151)","(146, 151)",wav2vec2
+"(165, 170)","(165, 170)",wav2vec2
+"(84, 86)","(84, 86)",text - classification
+"(408, 410)","(408, 410)",text - generation
+"(4, 7)","(4, 7)",model task of adapt
+"(48, 49)","(48, 49)",mt5
+"(37, 39)","(37, 39)",question - answering
+"(27, 28)","(27, 28)",- 128
+"(81, 85)","(81, 85)",automatic - speech - recognition
+"(15, 37)","(35, 37)",gpt2
+"(27, 28)","(4, 28)",model task of daivakai / dialogpt - small - saitama? - - - tags : - conversational
+"(22, 53)","(116, 53)",
+"(60, 60)","(60, 60)",roberta
+"(81, 83)","(81, 83)",text - classification
+"(31, 67)","(65, 67)",distilbert
+"(4, 31)","(4, 31)",model task of aidynamics / dialogpt - medium - mentordealerguy? - - - tags : - conversational
+"(62, 63)","(62, 63)",t5
+"(71, 72)","(71, 72)",mpnet
+"(8, 33)","(8, 33)",- nlp / opus - mt - ru - da? - - - language : - ru - da tags : - translation
+"(90, 92)","(90, 92)",text - classification
+"(83, 83)","(345, 347)",question - answering
+"(91, 95)","(91, 95)",text2text - generation
+"(408, 410)","(408, 410)",text - generation
+"(97, 99)","(97, 99)",token - classification
+"(409, 411)","(409, 411)",text - generation
+"(45, 46)","(45, 61)",t5 - base model - index : - name : cover - letter - t5
+"(4, 7)","(4, 7)",model task of adapt
+"(84, 88)","(84, 88)",text2text - generation
+"(65, 65)","(65, 70)",albert - base - v2
+"(71, 73)","(71, 73)",distilbert
+"(35, 37)","(4, 33)",model task of razent / scifive - large - pubmed? - - - language : - en tags : - token - classification
+"(4, 26)","(4, 26)",model task of 1basco / dialogpt - small - jake? - - - tags : - conversational
+"(102, 107)","(102, 107)",wav2vec2
+"(81, 85)","(81, 85)",text2text - generation
+"(494, 494)","(494, 494)",roberta
+"(4, 28)","(4, 28)",model task of helsinki - nlp / opus - mt - en - lun? - - - tags : - translation
+"(75, 77)","(75, 77)",question - answering
+"(189, 189)","(189, 189)",audio
+"(409, 411)","(409, 411)",text - generation
+"(5, 11)","(5, 6)",task of
+"(100, 102)","(100, 102)",token - classification
+"(4, 6)","(4, 6)",model task of
+"(20, 47)","(20, 47)",##d? - - - language : hi datasets : wikipedia license : apache - 2. 0 - - - # distilbert
+"(68, 68)","(68, 68)",roberta
+"(409, 411)","(409, 411)",text - generation
+"(64, 64)","(64, 64)",audio
+"(82, 84)","(82, 84)",text - classification
+"(183, 188)","(183, 188)",wav2vec2
+"(124, 129)","(124, 129)",wav2vec2
+"(27, 28)","(4, 28)",model task of magmacubes1133 / dialogpt - large - rick? - - - tags : conversational
+"(35, 37)","(35, 37)",gpt2
+"(4, 30)","(4, 30)",model task of abbhishek / dialogpt - small - harrypotter? - - - tags : - conversational
+"(78, 80)","(78, 80)",text - generation
+"(64, 68)","(64, 68)",automatic - speech - recognition
+"(92, 94)","(92, 94)",text - classification
+"(109, 111)","(109, 111)",text - classification
+"(4, 33)","(4, 33)",model task of adapterhub / bert - base - uncased - pf - squad? - - - tags : - question - answering
+"(4, 27)","(4, 27)",model task of helsinki - nlp / opus - mt - cs - fi? - - - tags : - translation
+"(43, 43)","(43, 43)",audio
+"(59, 60)","(59, 60)",t5
+"(4, 35)","(4, 35)",model task of adapterhub / bert - base - uncased - pf - quoref? - - - tags : - question - answering
+"(64, 69)","(64, 69)",wav2vec2
+"(41, 45)","(41, 45)",automatic - speech - recognition
+"(402, 404)","(402, 404)",text - generation
+"(413, 415)","(413, 415)",text - generation
+"(38, 39)","(38, 39)",t5
+"(71, 71)","(71, 71)",bert
+"(4, 36)","(4, 36)",model task of adapterhub / bert - base - uncased - pf - conll2000? - - - tags : - token - classification
+"(23, 52)","(50, 52)",codet5
+"(88, 90)","(88, 90)",distilbert
+"(193, 195)","(193, 195)",distilbert
+"(126, 126)","(269, 271)",text - classification
+"(87, 89)","(87, 89)",token - classification
+"(51, 51)","(237, 51)",
+"(412, 414)","(412, 414)",gpt2
+"(65, 67)","(65, 67)",distilbert
+"(14, 36)","(36, 36)",bart
+"(87, 89)","(87, 89)",text - classification
+"(35, 37)","(35, 37)",gpt2
+"(165, 170)","(165, 170)",wav2vec2
+"(53, 58)","(53, 58)",wav2vec2
+"(53, 53)","(53, 53)",bert
+"(83, 87)","(83, 87)",automatic - speech - recognition
+"(7, 8)","(36, 36)",roberta
+"(20, 47)","(20, 47)",##d? - - - language : lt datasets : wikipedia license : apache - 2. 0 - - - # distilbert
+"(65, 67)","(65, 67)",distilbert
+"(102, 106)","(102, 106)",text2text - generation
+"(4, 30)","(4, 30)",model task of aishanisingh / diaglogpt - small - michaelscott? - - - tags : - conversational
+"(4, 30)","(4, 30)",model task of jalensmh / dialogpt - medium - jalenbot? - - - tags : - conversational
+"(4, 7)","(4, 7)",model task of adapt
+"(4, 29)","(4, 29)",model task of accurateisaiah / dialogpt - small - mozark? - - - tags : - conversational
+"(258, 261)","(258, 261)",xlm - roberta
+"(404, 406)","(404, 406)",text - generation
+"(62, 63)","(62, 63)",##t5
+"(33, 33)","(33, 33)",roberta
+"(25, 61)","(57, 61)",automatic - speech - recognition
+"(38, 38)","(38, 38)",translation
+"(4, 14)","(4, 33)",model task of phongdtd / wavlm - vlsp - vi? - - - tags : - automatic - speech - recognition
+"(49, 49)","(49, 49)",bert
+"(20, 47)","(20, 47)",##d? - - - language : es datasets : wikipedia license : apache - 2. 0 - - - # distilbert
+"(56, 60)","(56, 60)",automatic - speech - recognition
+"(4, 29)","(4, 29)",model task of ritchie / dialogpt - small - rickandmorty? - - - tags : - conversational
+"(15, 16)","(35, 35)",bert
+"(5, 34)","(5, 34)",task of ricardo - filho / sbertimbau - large - nli - sts? - - - pipeline _ tag : sentence - similarity
+"(82, 86)","(82, 86)",automatic - speech - recognition
+"(65, 67)","(65, 67)",distilbert
+"(66, 71)","(66, 71)",wav2vec2
+"(407, 409)","(407, 409)",text - generation
+"(28, 29)","(4, 29)",model task of kennethfoo / dialogpt - medium - harrypotter? - - - tags : - conversational
+"(4, 7)","(4, 7)",model task of adapt
+"(13, 19)","(8, 43)",- nlp / opus - mt - tc - big - pt - zle? - - - language : - pt - ru - uk - zle tags : - translation
+"(4, 32)","(4, 32)",model task of rizqfaridn / dialogpt - medium - harrypotter? - - - tags : - conversational
+"(4, 25)","(4, 25)",model task of professional / dialogpt - small - joshua? - - - tags : - conversational
+"(37, 41)","(37, 41)",automatic - speech - recognition
+"(80, 84)","(80, 84)",text2text - generation
+"(4, 6)","(4, 6)",model task of
+"(7, 37)","(7, 37)",adapterhub / bert - base - uncased - pf - qnli? - - - tags : - text - classification - bert
+"(30, 32)","(30, 32)",fill - mask
+"(400, 402)","(400, 402)",text - generation
+"(81, 85)","(81, 85)",text2text - generation
+"(105, 105)","(105, 105)",roberta
+"(53, 58)","(53, 58)",wav2vec2
+"(230, 232)","(230, 232)",gpt2
+"(38, 38)","(7, 38)",adapterhub / bert - base - uncased - pf - squad _ v2? - - - tags : - question - answering - bert
+"(67, 69)","(67, 69)",distilbert
+"(4, 7)","(4, 7)",model task of adapt
+"(36, 36)","(7, 36)",adapterhub / bert - base - uncased - pf - newsqa? - - - tags : - question - answering - bert
+"(4, 30)","(4, 30)",model task of 2gud / dialoggpt - small - koopsbot? - - - tags : - conversational
+"(80, 84)","(80, 84)",automatic - speech - recognition
+"(65, 67)","(65, 67)",distilbert
+"(4, 30)","(4, 30)",model task of adapterhub / roberta - base - pf - drop? - - - tags : - question - answering
+"(59, 59)","(59, 59)",audio
+"(57, 58)","(57, 58)",xlnet
+"(8, 33)","(8, 33)",- nlp / opus - mt - ja - nl? - - - language : - ja - nl tags : - translation
+"(4, 27)","(4, 27)",model task of helsinki - nlp / opus - mt - en - ru? - - - tags : - translation
+"(81, 85)","(81, 85)",text2text - generation
+"(60, 65)","(60, 65)",wav2vec2
+"(4, 27)","(4, 27)",model task of galaxy / dialogpt - small - hermoine? - - - tags : - conversational
+"(118, 122)","(118, 122)",automatic - speech - recognition
+"(50, 51)","(50, 51)",mbart
+"(148, 153)","(148, 153)",wav2vec2
+"(7, 39)","(7, 39)",adapterhub / bert - base - uncased - pf - anli _ r3? - - - tags : - text - classification - bert
+"(242, 247)","(242, 247)",wav2vec2
+"(18, 57)","(55, 57)",distilbert
+"(4, 28)","(4, 28)",model task of gappy / dialogpt - small - zhongli? - - - tags : - conversational
+"(8, 33)","(8, 33)",- nlp / opus - mt - ja - pt? - - - language : - ja - pt tags : - translation
+"(409, 411)","(409, 411)",text - generation
+"(74, 76)","(74, 76)",distilbert
+"(64, 67)","(64, 67)",xlm - roberta
+"(63, 64)","(63, 64)",mt5
+"(22, 54)","(50, 54)",automatic - speech - recognition
+"(83, 85)","(83, 85)",text - classification
+"(54, 54)","(54, 54)",bert
+"(107, 107)","(107, 107)",bert
+"(91, 93)","(91, 93)",text - classification
+"(61, 65)","(61, 65)",automatic - speech - recognition
+"(31, 35)","(4, 35)",model task of chmanoj / xls - r - demo - test? - - - language : - ab tags : - automatic - speech - recognition
+"(47, 47)","(47, 47)",bert
+"(4, 27)","(4, 27)",model task of helsinki - nlp / opus - mt - en - run? - - - tags : - translation
+"(79, 83)","(79, 83)",text2text - generation
+"(4, 31)","(4, 31)",model task of adapterhub / roberta - base - pf - comqa? - - - tags : - question - answering
+"(4, 28)","(4, 28)",model task of helsinki - nlp / opus - mt - en - swc? - - - tags : - translation
+"(13, 19)","(8, 43)",- nlp / opus - mt - tc - big - zle - fi? - - - language : - fi - ru - uk - zle tags : - translation
+"(60, 65)","(60, 65)",wav2vec2
+"(4, 29)","(4, 29)",model task of atgdev / dialogpt - small - harrypotter? - - - tags : - conversational
+"(4, 28)","(4, 28)",model task of noobed / dialogpt - small - astley? - - - tags : - conversational
+"(269, 271)","(269, 271)",text - classification
+"(62, 62)","(62, 62)",bert
+"(10, 43)","(8, 43)",- nlp / opus - mt - tc - base - uk - ces _ slk? - - - language : - cs - sk - uk tags : - translation
+"(67, 72)","(67, 72)",wav2vec2
+"(407, 409)","(407, 409)",text - generation
+"(9, 39)","(92, 94)",image - classification
+"(92, 94)","(92, 94)",text - classification
+"(39, 41)","(39, 41)",text - generation
+"(13, 18)","(13, 13)",bart
+"(4, 7)","(4, 7)",model task of adapt
+"(53, 54)","(53, 54)",xlnet
+"(4, 27)","(4, 27)",model task of helsinki - nlp / opus - mt - cs - fr? - - - tags : - translation
+"(39, 40)","(39, 40)",t5
+"(23, 48)","(48, 48)",audio
+"(93, 95)","(93, 95)",token - classification
+"(64, 66)","(64, 66)",distilbert
+"(50, 51)","(50, 51)",mbart
+"(193, 193)","(193, 193)",bert
+"(4, 7)","(4, 7)",model task of adapt
+"(4, 27)","(4, 27)",model task of helsinki - nlp / opus - mt - fr - ru? - - - tags : - translation
+"(68, 71)","(68, 71)",xlm - roberta
+"(64, 64)","(64, 64)",bert
+"(33, 33)","(33, 33)",roberta
+"(345, 347)","(345, 347)",question - answering
+"(138, 140)","(138, 140)",token - classification
+"(4, 31)","(4, 31)",model task of adapterhub / roberta - base - pf - newsqa? - - - tags : - question - answering
+"(4, 33)","(4, 33)",model task of adapterhub / bert - base - uncased - pf - drop? - - - tags : - question - answering
+"(4, 27)","(4, 27)",model task of accurateisaiah / dialogpt - small - sinclair? - - - tags : - conversational
+"(43, 43)","(43, 43)",audio
+"(165, 170)","(165, 170)",wav2vec2
+"(8, 35)","(8, 35)",- nlp / opus - mt - eo - fi? - - - language : - eo - fi tags : - translation
+"(4, 7)","(4, 7)",model task of adapt
+"(89, 89)","(89, 89)",roberta
+"(49, 51)","(49, 51)",distilbert
+"(24, 55)","(55, 55)",bert
+"(112, 114)","(112, 114)",distilbert
+"(145, 145)","(54, 59)",wav2vec2
+"(29, 30)","(4, 30)",model task of rmicheal48 / dialogpt - small - steven _ universe? - - - tags : - conversational
+"(7, 36)","(7, 36)",adapterhub / bert - base - uncased - pf - scicite? - - - tags : - text - classification - bert
+"(60, 65)","(60, 65)",wav2vec2
+"(65, 70)","(65, 70)",wav2vec2
+"(43, 47)","(43, 47)",automatic - speech - recognition
+"(4, 24)","(4, 24)",model task of aj / rick - discord - bot? - - - tags : - conversational
+"(397, 399)","(397, 399)",text - generation
+"(73, 73)","(73, 73)",roberta
+"(4, 7)","(4, 7)",model task of adapt
+"(4, 7)","(4, 7)",model task of adapt
+"(59, 60)","(59, 60)",t5
+"(136, 138)","(59, 138)","wavlm - vlsp - vi results : [ ] - - - <! - - this model card has been generated automatically according to the information the trainer had access to. you should probably proofread and complete it, then remove this comment. - - > # wavlm - vlsp - vi this model is a fine - tuned version of [ microsoft / wavlm"
+"(142, 144)","(142, 144)",distilbert
+"(151, 154)","(151, 154)",gpt _ neo
+"(62, 62)","(62, 62)",audio
+"(61, 62)","(61, 62)",t5
+"(67, 72)","(67, 72)",wav2vec2
+"(404, 406)","(404, 406)",text - generation
+"(7, 36)","(7, 36)",adapterhub / bert - base - uncased - pf - wic? - - - tags : - text - classification - bert
+"(84, 86)","(84, 86)",text - generation
+"(65, 67)","(65, 67)",distilbert
+"(237, 239)","(237, 239)",fill - mask
+"(4, 27)","(4, 27)",model task of jonesy / dialogpt - small _ jt? - - - tags : - conversational
+"(42, 46)","(42, 46)",automatic - speech - recognition
+"(5, 27)","(5, 27)",task of ai - growth - lab / patentsberta? - - - pipeline _ tag : sentence - similarity
+"(7, 36)","(7, 36)",adapterhub / bert - base - uncased - pf - stsb? - - - tags : - text - classification - bert
+"(232, 232)","(232, 232)",##bert
+"(36, 36)","(36, 36)",bert
+"(97, 99)","(97, 99)",fill - mask
+"(78, 80)","(78, 80)",fill - mask
+"(19, 43)","(42, 43)",t5
+"(35, 35)","(35, 35)",roberta
+"(29, 31)","(4, 31)","model task of alerosae / socratesgpt - 2? - - - language : "" en "" tags : - text - generation"
+"(5, 11)","(5, 35)",task of osanseviero / full - sentence - distillroberta3? - - - pipeline _ tag : sentence - similarity
+"(91, 93)","(91, 93)",text - classification
+"(19, 53)","(53, 53)",##bert
+"(66, 68)","(66, 68)",distilbert
+"(66, 68)","(66, 68)",distilbert
+"(4, 28)","(4, 28)",model task of helsinki - nlp / opus - mt - toi - en? - - - tags : - translation
+"(4, 31)","(4, 31)",model task of 0xdeadbea7 / dialogpt - small - rick? - - - tags : - conversational
+"(45, 49)","(45, 49)",automatic - speech - recognition
+"(90, 92)","(90, 92)",token - classification
+"(4, 30)","(4, 30)",model task of osanseviero / hot _ dog _ or _ sandwich? - - - tags : - image - classification
+"(4, 30)","(4, 30)",model task of averyrealhuman / dialogpt - small - tonystark? - - - tags : - conversational
+"(100, 105)","(100, 105)",wav2vec2
+"(311, 313)","(311, 313)",text - classification
+"(419, 421)","(419, 421)",text - generation
+"(17, 51)","(447, 51)",
+"(19, 22)","(26, 51)",##d? - - - language : eu license : cc - by - nc - 4. 0 tags : - basque - roberta
+"(124, 129)","(124, 129)",wav2vec2
+"(35, 37)","(35, 37)",gpt2
+"(176, 181)","(176, 181)",wav2vec2
+"(4, 33)","(4, 33)",model task of ilovethatlady / dialogpt - small - rickandmorty? - - - tags : - conversational
+"(401, 403)","(401, 403)",text - generation
+"(4, 28)","(4, 28)",model task of helsinki - nlp / opus - mt - toi - es? - - - tags : - translation
+"(32, 32)","(32, 32)",roberta
+"(93, 95)","(93, 95)",text - classification
+"(7, 37)","(7, 37)",adapterhub / bert - base - uncased - pf - rotten _ tomatoes? - - - tags : - text - classification - bert
+"(255, 256)","(255, 256)",t5
+"(253, 255)","(253, 255)",fill - mask
+"(137, 142)","(137, 142)",wav2vec2
+"(63, 64)","(63, 64)",t5
+"(241, 243)","(241, 243)",convbert
+"(49, 51)","(49, 51)",distilbert
+"(130, 135)","(130, 135)",wav2vec2
+"(243, 243)","(30, 243)","fill - mask license : cc - by - sa - 4. 0 thumbnail : tags : - finance - financial widget : - text : "" total net sales decreased % or $ [ num ] billion during [ num ] compared to [ num ]. "" - text : "" total net sales decreased [ num ] % or $ billion during [ num ] compared to [ num ]. "" - text : "" total net sales decreased [ num ] % or $ [ num ] billion during compared to [ num ]. "" - text : "" during, the company repurchased $ [ num ] billion of its common stock and paid dividend equivalents of $ [ num ] billion. "" - text : "" during 2019, the company repurchased $ billion of its common stock and paid dividend equivalents of $ [ num ] billion. "" - - - # sec - bert < img align = "" center "" src = "" alt = "" sec - bert"
+"(403, 405)","(403, 405)",text - generation
+"(402, 404)","(402, 404)",text - generation
+"(53, 53)","(53, 53)",roberta
+"(4, 31)","(4, 31)",model task of not7even / dialogpt - small - 7evenpool? - - - tags : - conversational
+"(83, 85)","(83, 85)",token - classification
+"(176, 180)","(472, 474)",text - generation
+"(65, 67)","(65, 67)",distilbert
+"(64, 69)","(64, 69)",wav2vec2
+"(90, 92)","(90, 92)",token - classification
+"(89, 91)","(89, 91)",text - classification
+"(443, 445)","(443, 381)",
+"(410, 412)","(410, 412)",text - generation
+"(4, 28)","(4, 28)",model task of helsinki - nlp / opus - mt - crs - fr? - - - tags : - translation
+"(59, 59)","(59, 59)",audio
+"(127, 128)","(127, 128)",t5
+"(105, 105)","(105, 105)",pegasus
+"(5, 29)","(5, 29)",task of kblab / sentence - bert - swedish - cased? - - - pipeline _ tag : sentence - similarity
+"(102, 102)","(102, 102)",roberta
+"(50, 54)","(50, 54)",automatic - speech - recognition
+"(8, 33)","(8, 33)",- nlp / opus - mt - is - es? - - - language : - is - es tags : - translation
+"(157, 158)","(157, 158)",mt5
+"(4, 31)","(4, 31)",model task of rishabhrawatt / dialogpt - small - kela? - - - tags : - conversational
+"(67, 69)","(67, 69)",distilbert
+"(49, 51)","(49, 51)",distilbert
+"(62, 62)","(62, 62)",roberta
+"(5, 11)","(5, 16)",task of gpl / signal1m - distilbert
+"(54, 54)","(54, 54)",bert
+"(65, 70)","(65, 70)",wav2vec2
+"(447, 452)","(447, 452)",wav2vec2
+"(4, 36)","(4, 36)",model task of adapterhub / bert - base - uncased - pf - squad _ v2? - - - tags : - question - answering
+"(67, 67)","(67, 67)",marian
+"(409, 411)","(409, 411)",text - generation
+"(67, 69)","(67, 69)",distilbert
+"(64, 67)","(64, 67)",xlm - roberta
+"(4, 24)","(4, 24)",model task of novachrono / twervy? - - - tags : - conversational
+"(68, 70)","(68, 70)",distilbert
+"(45, 49)","(45, 49)",automatic - speech - recognition
+"(186, 191)","(186, 191)",wav2vec2
+"(30, 32)","(30, 32)",summarization
+"(37, 37)","(7, 37)",adapterhub / bert - base - uncased - pf - hotpotqa? - - - tags : - question - answering - bert
+"(9, 42)","(38, 42)",text2text - generation
+"(90, 92)","(90, 92)",token - classification
+"(4, 7)","(4, 7)",model task of adapt
+"(5, 44)","(5, 44)",task of flax - sentence - embeddings / multi - qa _ v1 - distilbert - mean _ cos? - - - pipeline _ tag : sentence - similarity
+"(51, 53)","(4, 53)",model task of google / roberta2roberta _ l - 24 _ cnn _ daily _ mail? - - - language : en license : apache - 2. 0 datasets : - cnn _ dailymail tags : - summarization
+"(4, 7)","(4, 35)",model task of adapterhub / bert - base - uncased - pf - boolq? - - - tags : - text - classification
+"(64, 66)","(64, 66)",distilbert
+"(4, 7)","(4, 7)",model task of adapt
+"(124, 127)","(124, 127)",xlm - roberta
+"(107, 107)","(107, 107)",bert
+"(52, 52)","(52, 52)",marian
+"(398, 400)","(398, 400)",text - generation
+"(41, 43)","(41, 43)",text - classification
+"(67, 69)","(64, 69)",distilgpt2
+"(4, 29)","(4, 29)",model task of norie4 / dialogpt - small - kyutebot? - - - tags : - conversational
+"(33, 33)","(33, 33)",roberta
+"(178, 178)","(178, 178)",audio
+"(65, 67)","(65, 67)",distilbert
+"(68, 73)","(68, 73)",wav2vec2
+"(4, 37)","(4, 37)",model task of adapterhub / bert - base - uncased - pf - ud _ deprel? - - - tags : - token - classification
+"(4, 30)","(4, 30)",model task of aaaa - 4 / dialogpt - small - player _ 03? - - - tags : - conversational
+"(20, 47)","(20, 47)",##d? - - - language : sw datasets : wikipedia license : apache - 2. 0 - - - # distilbert
+"(56, 60)","(56, 60)",automatic - speech - recognition
+"(47, 47)","(47, 47)",bert
+"(71, 73)","(71, 73)",distilbert
+"(245, 245)","(245, 245)",bart
+"(61, 63)","(61, 63)",distilbert
+"(4, 27)","(4, 27)",model task of helsinki - nlp / opus - mt - cs - sv? - - - tags : - translation
+"(4, 28)","(4, 28)",model task of helsinki - nlp / opus - mt - eo - fr? - - - tags : - translation
+"(64, 67)","(64, 67)",xlm - roberta
+"(417, 419)","(417, 419)",text - generation
+"(10, 41)","(4, 41)",model task of airklizz / mt5 - base - wikinewssum - italian? - - - license : apache - 2. 0 tags : - summarization
+"(279, 281)","(279, 281)",fill - mask
+"(4, 7)","(4, 7)",model task of adapt
+"(4, 27)","(4, 27)",model task of helsinki - nlp / opus - mt - en - mg? - - - tags : - translation
+"(100, 102)","(100, 102)",text - classification
+"(46, 50)","(46, 50)",automatic - speech - recognition
+"(91, 93)","(91, 93)",text - classification
+"(49, 53)","(49, 53)",automatic - speech - recognition
+"(9, 43)","(39, 43)",automatic - speech - recognition
+"(4, 28)","(4, 28)",model task of helsinki - nlp / opus - mt - en - luo? - - - tags : - translation
+"(112, 113)","(112, 113)",t5
+"(125, 129)","(125, 129)",automatic - speech - recognition
+"(253, 254)","(253, 254)",t5
+"(7, 37)","(7, 37)",adapterhub / bert - base - uncased - pf - snli? - - - tags : - text - classification - bert
+"(4, 29)","(4, 29)",model task of rlagusrlagus123 / xtc20000? - - - tags : - conversational
+"(140, 142)","(140, 142)",distilbert
+"(90, 92)","(90, 92)",token - classification
+"(64, 64)","(64, 64)",bert
+"(19, 49)","(20, 49)",- base - cased? - - - language : eu license : cc - by - nc - 4. 0 tags : - basque - roberta
+"(97, 99)","(97, 99)",text - classification
+"(19, 50)","(52, 50)",
+"(401, 403)","(401, 403)",text - generation
+"(38, 38)","(7, 38)",adapterhub / bert - base - uncased - pf - duorc _ s? - - - tags : - question - answering - bert
+"(89, 91)","(89, 91)",text - classification
+"(46, 48)","(46, 48)",fill - mask
+"(16, 17)","(40, 40)",audio
+"(15, 16)","(48, 49)",t5
+"(61, 61)","(4, 61)",model task of helsinki - nlp / opus - mt - gem - en? - - - language : - da - sv - af - nn - fy - fo - de - nb - nl - is - en - lb - yi - gem tags : - translation
+"(63, 64)","(63, 64)",t5
+"(4, 28)","(4, 28)",model task of helsinki - nlp / opus - mt - guw - es? - - - tags : - translation
+"(79, 79)","(79, 79)",roberta
+"(33, 33)","(33, 33)",roberta
+"(4, 27)","(4, 27)",model task of nova / dialogpt - medium - lelouch? - - - tags : - conversational
+"(4, 27)","(4, 27)",model task of helsinki - nlp / opus - mt - to - es? - - - tags : - translation
+"(86, 88)","(86, 88)",text - classification
+"(181, 186)","(181, 186)",wav2vec2
+"(81, 82)","(81, 82)",t5
+"(416, 418)","(416, 418)",text - generation
+"(46, 46)","(46, 46)",bert
+"(4, 6)","(4, 15)",model task of artelab / mbart - summarization
+"(4, 27)","(4, 27)",model task of chip / dialogpt - small - chizuru? - - - tags : - conversational
+"(67, 67)","(4, 67)",model task of unicamp - dl / translation - en - pt - t5? - - - language : - en - pt datasets : - emea - paracrawl 99k - capes - scielo - jrc - acquis - biomedical domain corpora tags : - translation
+"(4, 7)","(4, 7)",model task of adapt
+"(4, 7)","(4, 7)",model task of adapt
+"(7, 37)","(7, 37)",adapterhub / bert - base - uncased - pf - sst2? - - - tags : - text - classification - bert
+"(55, 55)","(55, 60)",albert - base - v2
+"(100, 102)","(100, 102)",gpt2
+"(71, 73)","(71, 73)",text - classification
+"(37, 37)","(7, 37)",adapterhub / bert - base - uncased - pf - wikihop? - - - tags : - question - answering - bert
+"(4, 28)","(4, 28)",model task of abhisht / dialogpt - medium - emilybot? - - - tags : - conversational
+"(100, 105)","(100, 105)",wav2vec2
+"(76, 78)","(76, 78)",camembert
+"(62, 64)","(62, 64)",distilbert
+"(92, 94)","(92, 94)",text - classification
+"(413, 415)","(413, 415)",text - generation
+"(67, 72)","(67, 72)",wav2vec2
+"(5, 36)","(5, 36)",task of flax - sentence - embeddings / stackoverflow _ mpnet - base? - - - pipeline _ tag : sentence - similarity
+"(127, 132)","(127, 132)",wav2vec2
+"(114, 116)","(114, 116)",distilbert
+"(4, 33)","(4, 33)",model task of adapterhub / roberta - base - pf - conll2000? - - - tags : - token - classification
+"(37, 38)","(37, 38)",mt5
+"(90, 92)","(90, 92)",text - classification
+"(66, 71)","(66, 71)",wav2vec2
+"(402, 404)","(402, 404)",text - generation
+"(4, 28)","(4, 28)",model task of helsinki - nlp / opus - mt - fr - nso? - - - tags : - translation
+"(405, 407)","(405, 407)",text - generation
+"(4, 9)","(4, 35)",model task of kblab / bert - base - swedish - cased - reallysimple - ner? - - - tags : - token - classification
+"(9, 10)","(40, 41)",prophetnet
+"(4, 36)","(4, 36)",model task of adapterhub / bert - base - uncased - pf - duorc _ p? - - - tags : - question - answering
+"(4, 24)","(4, 24)",model task of chocoduck / joey _ bot? - - - tags : - conversational
+"(8, 33)","(8, 33)",- nlp / opus - mt - ja - ms? - - - language : - ja - ms tags : - translation
+"(7, 36)","(7, 36)",adapterhub / bert - base - uncased - pf - mnli? - - - tags : - text - classification - bert
+"(112, 112)","(112, 112)",bert
+"(4, 29)","(4, 29)",model task of rifsxd / dialogpt - medium - raifu? - - - tags : - conversational
+"(56, 60)","(56, 60)",automatic - speech - recognition
+"(65, 70)","(65, 70)",wav2vec2
+"(4, 7)","(4, 7)",model task of adapt
+"(4, 27)","(4, 27)",model task of helsinki - nlp / opus - mt - fr - run? - - - tags : - translation
+"(70, 72)","(70, 72)",distilbert
+"(405, 407)","(405, 407)",text - generation
+"(207, 207)","(207, 207)",roberta
+"(35, 35)","(7, 35)",adapterhub / bert - base - uncased - pf - drop? - - - tags : - question - answering - bert
+"(8, 43)","(41, 43)",text - generation
+"(399, 401)","(399, 401)",text - generation
+"(62, 62)","(62, 62)",audio
+"(49, 49)","(49, 49)",bert
+"(67, 69)","(67, 69)",distilbert
+"(255, 260)","(255, 260)",wav2vec2
+"(447, 452)","(447, 452)",wav2vec2
+"(154, 154)","(154, 154)",bert
+"(47, 49)","(4, 49)",model task of kblab / bert - base - swedish - lowermix - reallysimple - ner? - - - model : - kb / bert - base - swedish - cased tags : - token - classification
+"(140, 142)","(140, 142)",distilbert
+"(106, 108)","(106, 108)",text - classification
+"(5, 13)","(5, 60)","task of aida - upm / mstsb - paraphrase - multilingual - mpnet - base - v2? - - - pipeline _ tag : sentence - similarity language : "" multilingual "" tags : - feature - extraction - sentence - similarity"
+"(53, 53)","(53, 53)",bart
+"(281, 286)","(281, 286)",wav2vec2
+"(4, 26)","(4, 26)",model task of sired / dialogpt - small - trumpbot? - - - tags : - conversational
+"(35, 35)","(7, 35)",adapterhub / bert - base - uncased - pf - squad? - - - tags : - question - answering - bert
+"(4, 24)","(4, 24)",model task of awsaf / large - eren? - - - tags : - conversational
+"(123, 125)","(123, 125)",token - classification
+"(255, 256)","(255, 256)",t5
+"(5, 34)","(4, 40)",model task of aida - upm / bertweet - base - multi - mami? - - - pipeline _ tag : text - classification tags : - text - classification
+"(62, 65)","(62, 65)",xlm - roberta
+"(7, 36)","(7, 36)",adapterhub / bert - base - uncased - pf - imdb? - - - tags : - text - classification - bert
+"(35, 37)","(35, 37)",gpt2
+"(51, 56)","(51, 56)",wav2vec2
+"(4, 29)","(4, 29)",model task of gamerman02 / dialogpt - medium - gamerbot? - - - tags : - conversational
+"(19, 49)","(63, 49)",
+"(34, 34)","(34, 34)",roberta
+"(112, 114)","(112, 114)",text - classification
+"(4, 36)","(4, 36)",model task of adapterhub / bert - base - uncased - pf - conll2003? - - - tags : - token - classification
+"(78, 82)","(78, 82)",automatic - speech - recognition
+"(5, 13)","(5, 6)",task of
+"(88, 90)","(88, 90)",token - classification
+"(61, 61)","(61, 61)",bert
+"(255, 256)","(255, 256)",t5
+"(206, 208)","(206, 208)",text - classification
+"(71, 71)","(71, 71)",##bert
+"(4, 7)","(4, 7)",model task of adapt
+"(65, 67)","(65, 67)",distilbert
+"(39, 39)","(39, 39)",bert
+"(70, 71)","(70, 71)",mpnet
+"(486, 486)","(486, 486)",bart
+"(20, 47)","(20, 47)",##d? - - - language : ro datasets : wikipedia license : apache - 2. 0 - - - # distilbert
+"(43, 46)","(4, 46)",model task of nielsr / segformer - b0 - finetuned - segments - sidewalk? - - - license : apache - 2. 0 tags : - vision - image - segmentation
+"(82, 86)","(82, 86)",automatic - speech - recognition
+"(37, 37)","(7, 37)",adapterhub / bert - base - uncased - pf - quoref? - - - tags : - question - answering - bert
+"(4, 28)","(4, 28)",model task of helsinki - nlp / opus - mt - guw - fr? - - - tags : - translation
+"(408, 410)","(408, 410)",text - generation
+"(20, 47)","(20, 47)",##d? - - - language : no datasets : wikipedia license : apache - 2. 0 - - - # distilbert
+"(89, 91)","(89, 91)",text - classification
+"(410, 412)","(410, 412)",text - generation
+"(4, 36)","(4, 36)",model task of adapterhub / roberta - base - pf - conll2003 _ pos? - - - tags : - token - classification
+"(4, 23)","(4, 23)",model task of jonesy / fg _ old? - - - tags : - conversational
+"(4, 34)","(4, 34)",model task of adapterhub / bert - base - uncased - pf - cq? - - - tags : - question - answering
+"(49, 49)","(49, 49)",bert
+"(15, 37)","(35, 37)",gpt2
+"(25, 25)","(54, 55)",mt5
+"(203, 205)","(203, 95)",
+"(24, 25)","(24, 25)",conversational
+"(8, 33)","(8, 33)",- nlp / opus - mt - ru - lt? - - - language : - ru - lt tags : - translation
+"(17, 40)","(7, 40)",adapterhub / bert - base - uncased - pf - sick? - - - tags : - text - classification - adapter - transformers - bert
+"(78, 82)","(78, 82)",automatic - speech - recognition
+"(63, 64)","(63, 64)",t5
+"(79, 83)","(79, 83)",text2text - generation
+"(37, 39)","(37, 39)",question - answering
+"(206, 211)","(206, 211)",wav2vec2
+"(53, 53)","(53, 53)",bert
+"(310, 312)","(310, 312)",gpt2
+"(4, 27)","(4, 27)",model task of richiellei / dialogpt - small - rick? - - - tags : - conversational
+"(63, 65)","(63, 65)",distilbert
+"(253, 254)","(253, 254)",t5
+"(4, 31)","(4, 31)",model task of ak270802 / dialogpt - small - harrypotter? - - - tags : - conversational
+"(4, 28)","(4, 28)",model task of helsinki - nlp / opus - mt - crs - es? - - - tags : - translation
+"(251, 252)","(251, 252)",t5
+"(403, 405)","(403, 405)",text - generation
+"(63, 63)","(63, 63)",audio
+"(81, 85)","(81, 85)",automatic - speech - recognition
+"(83, 87)","(83, 87)",automatic - speech - recognition
+"(44, 44)","(176, 44)",
+"(403, 405)","(403, 405)",text - generation
+"(4, 7)","(4, 7)",model task of adapt
+"(20, 53)","(380, 53)",
+"(37, 37)","(7, 37)",adapterhub / roberta - base - pf - fce _ error _ detection? - - - tags : - token - classification - roberta
+"(4, 32)","(4, 32)",model task of adapterhub / roberta - base - pf - quoref? - - - tags : - question - answering
+"(73, 78)","(73, 78)",wav2vec2
+"(31, 67)","(65, 67)",distilbert
+"(65, 67)","(65, 67)",distilbert
+"(91, 93)","(91, 93)",text - classification
+"(419, 419)","(419, 419)",roberta
+"(52, 52)","(52, 52)",bert
+"(4, 35)","(4, 35)",model task of adapterhub / bert - base - uncased - pf - wikihop? - - - tags : - question - answering
+"(4, 27)","(4, 27)",model task of helsinki - nlp / opus - mt - en - mk? - - - tags : - translation
+"(63, 63)","(63, 63)",audio
+"(60, 62)","(60, 62)",deberta
+"(65, 67)","(65, 67)",distilbert
+"(62, 63)","(62, 63)",mt5
+"(20, 43)","(39, 43)",automatic - speech - recognition
+"(63, 63)","(63, 63)",albert
+"(8, 35)","(8, 35)",- nlp / opus - mt - cs - eo? - - - language : - cs - eo tags : - translation
+"(5, 44)","(5, 44)",task of flax - sentence - embeddings / multi - qa _ v1 - mpnet - asymmetric - q? - - - pipeline _ tag : sentence - similarity
+"(416, 418)","(416, 418)",text - generation
+"(19, 45)","(44, 45)",rubert
+"(46, 46)","(46, 46)",marian
+"(39, 41)","(39, 41)",fill - mask
+"(64, 64)","(64, 64)",audio
+"(61, 63)","(4, 63)",model task of alexjercan / codebert - base - buggy - token - classification? - - - tags : - generated _ from _ trainer metrics : - precision - recall - f1 - accuracy model - index : - name : codebert - base - buggy - token - classification
+"(4, 30)","(4, 30)",model task of ps2102 / dialogpt - small - harrypotter? - - - tags : - conversational
+"(25, 52)","(4, 52)",model task of chompk / wav2vec2 - large - xlsr - thai - tokenized? - - - language : th datasets : - common _ voice tags : - audio - automatic - speech - recognition
+"(165, 170)","(165, 170)",wav2vec2
+"(124, 127)","(124, 127)",xlm - roberta
+"(4, 27)","(4, 27)",model task of kaihatsu / dialogpt - small - rick? - - - tags : - conversational
+"(64, 66)","(64, 66)",distilbert
+"(54, 54)","(54, 54)",audio
+"(4, 31)","(4, 31)",model task of sirbastianxvii / dialogpt - small - tvd? - - - tags : - conversational
+"(4, 26)","(4, 26)",model task of axcel / dialogpt - small - rick? - - - tags : - conversational
+"(4, 6)","(4, 6)",model task of
+"(82, 86)","(82, 86)",automatic - speech - recognition
+"(62, 62)","(62, 62)",audio
+"(53, 58)","(53, 58)",wav2vec2
+"(37, 37)","(37, 37)",translation
+"(63, 63)","(63, 63)",audio
+"(111, 116)","(111, 116)",wav2vec2
+"(4, 27)","(4, 27)",model task of helsinki - nlp / opus - mt - to - fr? - - - tags : - translation
+"(48, 50)","(4, 50)",model task of intel / bert - large - uncased - sparse - 80 - 1x4 - block - pruneofa? - - - language : en license : apache - 2. 0 tags : - fill - mask
+"(49, 51)","(4, 51)",model task of ifenna / dbert - 3epoch? - - - datasets : - squad _ v2 - wiki _ qa language : - en metrics : - accuracy pipeline _ tag : question - answering
+"(38, 42)","(38, 42)",automatic - speech - recognition
+"(7, 39)","(7, 39)",adapterhub / bert - base - uncased - pf - yelp _ polarity? - - - tags : - text - classification - bert
+"(7, 8)","(7, 32)",adapterhub / roberta - base - pf - cola? - - - tags : - text - classification - roberta
+"(57, 59)","(57, 59)",distilbert
+"(8, 33)","(8, 33)",- nlp / opus - mt - fr - no? - - - language : - fr - no tags : - translation
+"(4, 28)","(4, 28)",model task of helsinki - nlp / opus - mt - zne - fr? - - - tags : - translation
+"(92, 94)","(92, 94)",text - classification
+"(113, 118)","(113, 118)",wav2vec2
+"(124, 127)","(124, 127)",xlm - roberta
+"(39, 39)","(39, 39)",bert
+"(407, 409)","(407, 409)",text - generation
+"(4, 30)","(4, 30)",model task of itnodove / dialogpt - medium - cyberbones? - - - tags : - conversational
+"(59, 60)","(59, 60)",xlnet
+"(358, 359)","(358, 359)",t5
+"(28, 60)","(56, 60)",automatic - speech - recognition
+"(4, 26)","(4, 26)",model task of osanseviero / hugging - geese? - - - tags : - image - classification
+"(408, 410)","(408, 410)",text - generation
+"(4, 27)","(4, 27)",model task of helsinki - nlp / opus - mt - fi - mg? - - - tags : - translation
+"(4, 34)","(4, 34)",model task of adapterhub / bert - base - uncased - pf - comqa? - - - tags : - question - answering
+"(412, 414)","(412, 414)",text - generation
+"(8, 13)","(8, 33)",##zemraj / ballpark - trivia - xl? - - - language : - en tags : - text - generation
+"(42, 44)","(42, 44)",roformer
+"(38, 38)","(38, 38)",bert
+"(59, 59)","(59, 59)",bert
+"(55, 55)","(55, 55)",bert
+"(36, 36)","(7, 36)",adapterhub / bert - base - uncased - pf - cq? - - - tags : - question - answering - bert
+"(147, 152)","(147, 152)",wav2vec2
+"(38, 40)","(91, 40)",
+"(81, 85)","(81, 85)",text2text - generation
+"(63, 63)","(67, 63)",
+"(62, 64)","(62, 64)",distilbert
+"(85, 87)","(85, 87)",text - classification
+"(49, 49)","(49, 49)",bert
+"(101, 103)","(101, 103)",token - classification
+"(90, 92)","(90, 92)",token - classification
+"(4, 26)","(4, 26)",model task of jonesy / dialogpt - medium _ barney? - - - tags : - conversational
+"(69, 69)","(69, 69)",bert
+"(53, 53)","(53, 53)",bert
+"(60, 65)","(60, 65)",wav2vec2
+"(64, 64)","(64, 64)",albert

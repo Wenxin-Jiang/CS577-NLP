@@ -1,0 +1,114 @@
+true_labels,pred_labels,pred_texts
+"(284, 285)","(57, 58)",t5
+"(55, 55)","(55, 55)",roberta
+"(4, 30)","(4, 30)",model task of aishanisingh / dialogpt - small - harrypotter? - - - tags : - conversational
+"(239, 239)","(239, 239)",bart
+"(64, 64)","(64, 64)",audio
+"(176, 176)","(124, 129)",wav2vec2
+"(124, 129)","(124, 129)",wav2vec2
+"(27, 28)","(27, 28)",- 128
+"(213, 215)","(213, 215)",distilbert
+"(32, 32)","(101, 141)","bertformaskedlm as wobertformaskedlm from wobert import woberttokenizer pretrained _ model _ or _ path _ list = [ "" junnyu / wobert"
+"(4, 38)","(4, 38)",model task of adapterhub / bert - base - uncased - pf - mit _ movie _ trivia? - - - tags : - token - classification
+"(4, 29)","(4, 29)",model task of augustojaba / dialogpt - small - harrypotter? - - - tags : - conversational
+"(82, 84)","(82, 84)",distilbert
+"(73, 75)","(73, 75)",text - classification
+"(4, 7)","(4, 7)",model task of adapt
+"(124, 129)","(124, 129)",wav2vec2
+"(41, 43)","(41, 43)",text - generation
+"(443, 445)","(443, 445)",question - answering
+"(494, 494)","(494, 494)",roberta
+"(15, 16)","(35, 35)",bert
+"(399, 401)","(399, 401)",text - generation
+"(7, 8)","(32, 32)",roberta
+"(52, 56)","(52, 56)",automatic - speech - recognition
+"(124, 129)","(124, 129)",wav2vec2
+"(88, 90)","(88, 90)",text - classification
+"(29, 64)","(59, 64)",wav2vec2
+"(68, 70)","(68, 28)",
+"(5, 13)","(5, 39)",task of aida - upm / mstsb _ stsb - xlm - r - multilingual? - - - pipeline _ tag : sentence - similarity
+"(63, 63)","(63, 63)",audio
+"(4, 33)","(4, 33)",model task of adapterhub / roberta - base - pf - duorc _ s? - - - tags : - question - answering
+"(4, 27)","(4, 27)",model task of invincible / chat _ bot - harrypotter - medium? - - - tags : - conversational
+"(53, 53)","(7, 8)",adapter
+"(73, 75)","(73, 75)",text - classification
+"(66, 68)","(66, 68)",distilbert
+"(176, 176)","(124, 129)",wav2vec2
+"(87, 89)","(87, 89)",text - classification
+"(71, 73)","(71, 73)",distilbert
+"(189, 191)","(189, 191)",distilbert
+"(5, 44)","(5, 44)",task of flax - sentence - embeddings / multi - qa _ v1 - distilbert - cls _ dot? - - - pipeline _ tag : sentence - similarity
+"(50, 50)","(50, 50)",audio
+"(506, 508)","(506, 42)",
+"(4, 7)","(4, 7)",model task of adapt
+"(67, 72)","(67, 72)",wav2vec2
+"(88, 90)","(88, 90)",text - classification
+"(64, 64)","(64, 64)",audio
+"(408, 410)","(408, 410)",text - generation
+"(4, 28)","(4, 28)",model task of aj / dialogpt - small - ricksanchez? - - - tags : - conversational
+"(81, 86)","(81, 86)",wav2vec2
+"(176, 176)","(124, 129)",wav2vec2
+"(176, 176)","(124, 129)",wav2vec2
+"(400, 402)","(400, 402)",text - generation
+"(4, 31)","(4, 31)",model task of jalensmh / dialogpt - small - exophoria? - - - tags : - conversational
+"(4, 38)","(4, 38)",model task of adapterhub / bert - base - uncased - pf - fce _ error _ detection? - - - tags : - token - classification
+"(406, 408)","(406, 408)",text - generation
+"(53, 58)","(53, 58)",wav2vec2
+"(48, 50)","(109, 50)",
+"(4, 28)","(4, 28)",model task of helsinki - nlp / opus - mt - crs - sv? - - - tags : - translation
+"(140, 142)","(140, 142)",distilbert
+"(124, 129)","(124, 129)",wav2vec2
+"(8, 16)","(127, 35)",
+"(54, 56)","(54, 56)",distilbert
+"(35, 35)","(35, 35)",roberta
+"(15, 42)","(40, 42)",text - classification
+"(401, 403)","(401, 403)",text - generation
+"(179, 184)","(179, 184)",wav2vec2
+"(4, 7)","(4, 7)",model task of adapt
+"(65, 67)","(65, 67)",distilbert
+"(20, 47)","(8, 47)",- nlp / opus - mt - tc - big - zle - es? - - - language : - be - es - ru - rue - uk - zle tags : - translation
+"(4, 7)","(4, 7)",model task of adapt
+"(7, 35)","(7, 35)",adapterhub / bert - base - uncased - pf - record? - - - tags : - text - classification - bert
+"(4, 22)","(4, 22)",model task of silentmyuth / stableben? - - - tags : - conversational
+"(8, 14)","(4, 29)",model task of alaggung / bart - rl? - - - language : - ko tags : - summarization
+"(7, 8)","(34, 34)",roberta
+"(61, 61)","(61, 61)",audio
+"(17, 42)","(40, 42)",gpt2
+"(414, 416)","(414, 416)",text - generation
+"(4, 7)","(4, 30)",model task of adapterhub / roberta - base - pf - emotion? - - - tags : - text - classification
+"(7, 36)","(7, 36)",adapterhub / bert - base - uncased - pf - emo? - - - tags : - text - classification - bert
+"(65, 70)","(65, 70)",wav2vec2
+"(66, 68)","(4, 68)",model task of audeering / wav2vec2 - large - robust - 12 - ft - emotion - msp - dim? - - - language : en datasets : - msp - podcast inference : true tags : - speech - audio - wav2vec2 - audio - classification
+"(4, 33)","(4, 33)",model task of adapterhub / roberta - base - pf - duorc _ p? - - - tags : - question - answering
+"(65, 65)","(65, 65)",roberta
+"(91, 93)","(91, 93)",text - classification
+"(145, 146)","(145, 57)",
+"(8, 18)","(32, 34)",token - classification
+"(134, 134)","(134, 175)",bert - base - en - fr - cased we are sharing smaller versions of [ bert - base - multilingual - cased ] ( that handle a custom number of languages. unlike [ distilbert
+"(455, 460)","(95, 500)","wav2vec 2. 0 base voxpopuli - sv swedish results : - task : name : speech recognition type : automatic - speech - recognition dataset : name : nst swedish asr database metrics : - name : test wer type : wer value : 5. 619804368919309 - task : name : speech recognition type : automatic - speech - recognition dataset : name : common voice type : common _ voice args : sv - se metrics : - name : test wer type : wer value : 19. 145252414798616 - - - # wav2vec 2. 0 base - voxpopuli - sv - swedish finetuned version of facebooks [ voxpopuli - sv base ] ( model using nst and common voice data. evalutation without a language model gives the following : wer for nst + common voice test set ( 2 % of total sentences ) is * * 5. 62 % * *, wer for common voice test set is * * 19. 15 % * *. when using this model, make sure that your speech input is sampled at 16khz. # # usage the model can be used directly ( without a language model ) as follows : ` ` ` python import torch import torchaudio from datasets import load _ dataset from transformers import wav2vec2forctc, wav2vec2processor test _ dataset = load _ dataset ( "" common _ voice "", "" sv - se "", split = "" test [ : 2 % ] "" ). processor = wav2vec2processor. from _ pretrained ( "" kblab / wav2vec2 - base - voxpopuli - sv - swedish "" ) model = wav2vec2forctc. from _ pretrained ( "" kblab / wav2vec2"
+"(4, 29)","(4, 29)",model task of magnuschase7 / dialogpt - medium - harrypotter? - - - tags : - conversational
+"(402, 404)","(402, 404)",text - generation
+"(66, 70)","(66, 70)",automatic - speech - recognition
+"(341, 341)","(369, 341)",
+"(35, 35)","(35, 35)",roberta
+"(72, 72)","(71, 72)",biobert
+"(83, 87)","(83, 87)",automatic - speech - recognition
+"(80, 84)","(80, 84)",automatic - speech - recognition
+"(23, 53)","(51, 53)",gpt2
+"(49, 51)","(49, 51)",distilbert
+"(40, 42)","(40, 42)",gpt2
+"(8, 35)","(8, 35)",- nlp / opus - mt - tl - pt? - - - language : - tl - pt tags : - translation
+"(130, 130)","(51, 130)","pengmengjie - finetuned - sms results : [ ] - - - <! - - this model card has been generated automatically according to the information the trainer had access to. you should probably proofread and complete it, then remove this comment. - - > # pengmengjie - finetuned - sms this model is a fine - tuned version of [ bert"
+"(63, 63)","(63, 63)",roberta
+"(54, 54)","(54, 54)",bert
+"(15, 39)","(37, 39)",gpt2
+"(4, 27)","(4, 27)",model task of helsinki - nlp / opus - mt - fr - kg? - - - tags : - translation
+"(135, 140)","(135, 140)",wav2vec2
+"(68, 73)","(68, 73)",wav2vec2
+"(82, 86)","(82, 86)",automatic - speech - recognition
+"(198, 198)","(198, 198)",roberta
+"(48, 49)","(443, 445)",question - answering
+"(35, 37)","(4, 37)",model task of microsoft / dit - base - finetuned - rvlcdip? - - - tags : - dit - vision - image - classification
+"(4, 28)","(4, 28)",model task of helsinki - nlp / opus - mt - fi - mh? - - - tags : - translation
+"(415, 417)","(415, 417)",text - generation
+"(4, 28)","(4, 28)",model task of robinmari / dialogpt - small - mikoto? - - - tags : - conversational

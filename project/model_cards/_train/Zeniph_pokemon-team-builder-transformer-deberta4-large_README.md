@@ -1,0 +1,1 @@
+Transformer model trained to build competitive pokemon teams. Intended with https://github.com/AlexanderBelooussov/pokemon-ai

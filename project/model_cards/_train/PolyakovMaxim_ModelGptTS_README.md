@@ -1,0 +1,1 @@
+This model generate the time shift's text of Norbit Company also generate the same ending of the textes of any phrases like base gpt model.

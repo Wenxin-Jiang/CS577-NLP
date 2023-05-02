@@ -1,0 +1,1 @@
+This temporary repo contains a TF checkpoint for [`facebook/xglm-564M`](https://huggingface.co/facebook/xglm-564M).

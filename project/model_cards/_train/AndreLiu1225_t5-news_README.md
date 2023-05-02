@@ -1,0 +1,1 @@
+This is a pretrained model that was loaded from t5-base. It has been adapted and changed by changing the max_length and summary_length.

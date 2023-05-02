@@ -1,1 +1,0 @@
-ElectraBERT tuned with korean-bad-speeches

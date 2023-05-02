@@ -1,0 +1,1 @@
+This model is based on Langboat/mengzi-t5-base and trained on 12 Chinese dialogue datasets on 8 A100 GPUs for 3 days.

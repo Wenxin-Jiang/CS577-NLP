@@ -1,0 +1,2 @@
+This model is finetuned by Qichang Zheng(Pyke) based on bart with patent abstract dataset(7 million records), with 'facebook/bart-base' being the tokenizer and original model. The input is the same as the output, which is the patent abstract.
+This model is finetuned to serve as a reference to the research that Qichang is in.
