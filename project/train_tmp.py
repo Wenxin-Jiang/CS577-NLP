@@ -9,7 +9,9 @@ import matplotlib.pyplot as plt
 from torch.utils.data import DataLoader
 from torch import nn
 from datasets import load_dataset, Dataset, concatenate_datasets
-from transformers import AutoTokenizer, AutoModelForQuestionAnswering, TrainingArguments, Trainer, BertForQuestionAnswering, AdamW, BertTokenizerFast, BertModel, BertConfig, BertTokenizer
+from transformers import AutoTokenizer, AutoModelForQuestionAnswering, TrainingArguments, \
+    Trainer, BertForQuestionAnswering, AdamW, BertTokenizerFast, BertModel, BertConfig, \
+        BertTokenizer, BertPreTrainedModel
 from collections import Counter
 from sklearn.metrics import f1_score
 from transformers.data.metrics.squad_metrics import compute_exact, compute_f1
@@ -57,13 +59,13 @@ def clean_answer(answer, tokenizer):
 
 
 
-class MyQAModel(nn.Module):
-    def __init__(self, model_checkpoint):
-        super(MyQAModel, self).__init__()
-
-        self.bert = BertModel.from_pretrained(model_checkpoint)
-        self.qa_outputs = nn.Linear(self.bert.config.hidden_size, 2)
-        self.dropout = nn.Dropout(self.bert.config.hidden_dropout_prob)
+class MyQAModel(BertPreTrainedModel):
+    def __init__(self, config):
+        super().__init__(config)
+        self.bert = BertModel(config)
+        self.qa_outputs = nn.Linear(config.hidden_size, 2)
+        self.dropout = nn.Dropout(config.hidden_dropout_prob)
+        self.init_weights()
 
     def forward(self, input_ids, attention_mask=None, token_type_ids=None, start_positions=None, end_positions=None):
         bert_outputs = self.bert(input_ids, attention_mask=attention_mask, token_type_ids=token_type_ids)
@@ -86,15 +88,43 @@ class MyQAModel(nn.Module):
         else:
             return start_logits, end_logits
 
-def preprocess_data(tokenizer, question, context, max_length):
-    inputs = tokenizer.encode_plus(question, context, add_special_tokens=True, max_length=max_length, padding='max_length', truncation=True)
-    input_ids, token_type_ids, attention_mask = inputs["input_ids"], inputs["token_type_ids"], inputs["attention_mask"]
-    
-    return {
-        'input_ids': torch.tensor(input_ids, dtype=torch.long),
-        'token_type_ids': torch.tensor(token_type_ids, dtype=torch.long),
-        'attention_mask': torch.tensor(attention_mask, dtype=torch.long)
-    }
+def preprocess_data(dataset, max_length):
+    tokenized_data = []
+    for item in dataset:
+        for qa in item['paragraphs'][0]['qas']:
+            question = qa['question']
+            context = item['paragraphs'][0]['context']
+            char_start_position = qa['answers'][0]['answer_start']
+            char_end_position = char_start_position + len(qa['answers'][0]['text'])
+
+            inputs = tokenizer.encode_plus(question, context, add_special_tokens=True, max_length=max_length, padding='max_length', truncation=True, return_offsets_mapping=True)
+            input_ids, token_type_ids, attention_mask, offsets_mapping = inputs["input_ids"], inputs["token_type_ids"], inputs["attention_mask"], inputs["offset_mapping"]
+
+            token_start_position = None
+            token_end_position = None
+            for i, offsets in enumerate(offsets_mapping):
+                if token_start_position is None and offsets[0] == char_start_position:
+                    token_start_position = i
+                if offsets[1] == char_end_position:
+                    token_end_position = i
+                    break
+
+            if token_start_position is not None and token_end_position is not None:
+                logger.info(f"Token positions found for answer: {qa['answers'][0]['text']}")
+                tokenized_data.append({
+                    'input_ids': torch.tensor(input_ids, dtype=torch.long),
+                    'token_type_ids': torch.tensor(token_type_ids, dtype=torch.long),
+                    'attention_mask': torch.tensor(attention_mask, dtype=torch.long),
+                    'start_positions': torch.tensor(token_start_position, dtype=torch.long),
+                    'end_positions': torch.tensor(token_end_position, dtype=torch.long)
+                })
+            else:
+                logger.info(f"Token positions not found for answer: {qa['answers'][0]['text']}")
+
+    return tokenized_data
+
+
+
 
 
 def compute_exact_match(true_labels, pred_labels):
@@ -127,10 +157,10 @@ def evaluate(model, data_loader):
     
     with torch.no_grad():
         for batch in data_loader:
-            input_ids = torch.stack(batch['input_ids']).transpose(0, 1)
-            attention_mask = torch.stack(batch['attention_mask']).transpose(0, 1)
-            start_positions = torch.cat(batch['start_positions'], dim=0).view(-1)
-            end_positions = torch.cat(batch['end_positions'], dim=0).view(-1)
+            input_ids = torch.stack(batch['input_ids']).transpose(0, 1).to(device)
+            attention_mask = torch.stack(batch['attention_mask']).transpose(0, 1).to(device)
+            start_positions = batch['start_positions'].clone().detach().to(device)
+            end_positions = batch['end_positions'].clone().detach().to(device)
 
             input_ids = input_ids.to(device)
             attention_mask = attention_mask.to(device)
@@ -308,14 +338,14 @@ if __name__ == "__main__":
 
     
         
-    tokenized_train = preprocess_data(train_dataset, "train",)
-    tokenized_val = preprocess_data(val_dataset, "val", 512)
-    tokenized_test = preprocess_data(test_dataset, "test", 512)
+    tokenized_train = preprocess_data(train_dataset, 512)
+    tokenized_val = preprocess_data(val_dataset, 512)
+    tokenized_test = preprocess_data(test_dataset, 512)
 
     # Convert dictionaries to Datasets
-    tokenized_dataset_train = Dataset.from_dict(tokenized_train)
-    tokenized_dataset_val = Dataset.from_dict(tokenized_val)
-    tokenized_dataset_test = Dataset.from_dict(tokenized_test)
+    tokenized_dataset_train = Dataset.from_list(tokenized_train)
+    tokenized_dataset_val = Dataset.from_list(tokenized_val)
+    tokenized_dataset_test = Dataset.from_list(tokenized_test)
 
     model = MyQAModel.from_pretrained(model_checkpoint)
     # If need to load model from checkpoint
@@ -328,7 +358,7 @@ if __name__ == "__main__":
     eval_loader = DataLoader(tokenized_dataset_val, batch_size=batch_size, shuffle=True)
     test_loader = DataLoader(tokenized_dataset_test, batch_size=batch_size, shuffle=True)
     lr = 2e-5
-    num_epochs = 1
+    num_epochs = 5
     optimizer = AdamW(model.parameters(), lr=lr)
 
     train_losses = []
@@ -345,52 +375,43 @@ if __name__ == "__main__":
         model.train()
         train_loss = 0
         for i, batch in enumerate(train_loader):
-            #     loggerenumerate(train_loader):
-            # if i == 0.debug(batch.keys())
-            input_ids = torch.stack(batch['input_ids']).transpose(0, 1)
-            attention_mask = torch.stack(batch['attention_mask']).transpose(0, 1)
-            start_positions = torch.cat(batch['start_positions'], dim=0).view(-1)
-            end_positions = torch.cat(batch['end_positions'], dim=0).view(-1)
-            if epoch == 0 and i == 0:
-                logger.critical(f"Using device: {device}")
-                # logger.debug(f"input_ids: {input_ids.shape}, start_positions: {start_positions.shape}, end_positions: {end_positions.shape}")
-            input_ids = input_ids.to(device)
-            attention_mask = attention_mask.to(device)
-            start_positions = start_positions.to(device)
-            end_positions = end_positions.to(device)
+            input_ids = torch.stack(batch['input_ids']).transpose(0, 1).to(device)
+            attention_mask = torch.stack(batch['attention_mask']).transpose(0, 1).to(device)
+            start_positions = batch['start_positions'].clone().detach().to(device)
+            end_positions = batch['end_positions'].clone().detach().to(device)
+
             optimizer.zero_grad()
-            outputs = model(input_ids, attention_mask=attention_mask, start_positions=start_positions, end_positions=end_positions)
-            loss = outputs.loss
+            # logger.debug(f"shape of input_ids: {input_ids.shape}")
+            # logger.debug(f"shape of attention_mask: {attention_mask.shape}")
+            # logger.debug(f"shape of start_positions: {start_positions.shape}")
+            # logger.debug(f"shape of end_positions: {end_positions.shape}")
+
+            loss = model(input_ids, attention_mask=attention_mask, start_positions=start_positions, end_positions=end_positions)
             loss.backward()
             optimizer.step()
             train_loss += loss.item()
             train_losses.append(loss.item())
-            # if i % 10 == 0:
             logger.info(f"Epoch {epoch+1}, Batch {i+1} - Loss: {loss.item():.4f}")
-        
-        
+
         avg_train_loss = train_loss / len(train_loader)
-        
+
+        # Eval loop
         model.eval()
         eval_loss = 0
         for i, batch in enumerate(eval_loader):
-            input_ids = torch.stack(batch['input_ids']).transpose(0, 1)
-            attention_mask = torch.stack(batch['attention_mask']).transpose(0, 1)
-            start_positions = torch.cat(batch['start_positions'], dim=0).view(-1)
-            end_positions = torch.cat(batch['end_positions'], dim=0).view(-1)
+            input_ids = torch.stack(batch['input_ids']).transpose(0, 1).to(device)
+            attention_mask = torch.stack(batch['attention_mask']).transpose(0, 1).to(device)
+            start_positions = batch['start_positions'].clone().detach().to(device)
+            end_positions = batch['end_positions'].clone().detach().to(device)
 
-            input_ids = input_ids.to(device)
-            attention_mask = attention_mask.to(device)
-            start_positions = start_positions.to(device)
-            end_positions = end_positions.to(device)
-            
             with torch.no_grad():
-                outputs = model(input_ids, attention_mask=attention_mask, start_positions=start_positions, end_positions=end_positions)
-                loss = outputs.loss
+                start_logits, end_logits = model(input_ids, attention_mask=attention_mask)
+                loss = model(input_ids, attention_mask=attention_mask, start_positions=start_positions, end_positions=end_positions)
+
                 eval_loss += loss.item()
                 val_losses.append(loss.item())
-                start_predictions = torch.argmax(outputs.start_logits, dim=1)
-                end_predictions = torch.argmax(outputs.end_logits, dim=1)
+                start_predictions = torch.argmax(start_logits, dim=1)
+                end_predictions = torch.argmax(end_logits, dim=1)
 
         avg_eval_loss = eval_loss / len(eval_loader)
 
@@ -401,10 +422,10 @@ if __name__ == "__main__":
         model.eval()
         test_loss = 0
         for i, batch in enumerate(test_loader):
-            input_ids = torch.stack(batch['input_ids']).transpose(0, 1)
-            attention_mask = torch.stack(batch['attention_mask']).transpose(0, 1)
-            start_positions = torch.cat(batch['start_positions'], dim=0).view(-1)
-            end_positions = torch.cat(batch['end_positions'], dim=0).view(-1)
+            input_ids = torch.stack(batch['input_ids']).transpose(0, 1).to(device)
+            attention_mask = torch.stack(batch['attention_mask']).transpose(0, 1).to(device)
+            start_positions = batch['start_positions'].clone().detach().to(device)
+            end_positions = batch['end_positions'].clone().detach().to(device)
 
             input_ids = input_ids.to(device)
             attention_mask = attention_mask.to(device)
@@ -412,14 +433,23 @@ if __name__ == "__main__":
             end_positions = end_positions.to(device)
             
             with torch.no_grad():
-                outputs = model(input_ids, attention_mask=attention_mask, start_positions=start_positions, end_positions=end_positions)
-                loss = outputs.loss
+                start_logits, end_logits = model(input_ids, attention_mask=attention_mask)
+                loss = model(input_ids, attention_mask=attention_mask, start_positions=start_positions, end_positions=end_positions)
                 test_loss += loss.item()
                 test_losses.append(loss.item())
 
         avg_test_loss = test_loss / len(test_loader)
 
         logger.critical(f"Epoch {epoch+1} - Train loss: {avg_train_loss:.4f} - Eval loss: {avg_eval_loss:.4f} - Test loss: {avg_test_loss:.4f}")
+
+        exact_matches = []
+        f1_scores = []
+        train_exact_matches = []
+        train_f1_scores = []
+        val_exact_matches = []
+        val_f1_scores = []
+        test_exact_matches = []
+        test_f1_scores = []
 
         train_preds, train_true_labels, train_exact_match, train_f1 = evaluate(model, train_loader)
         val_preds, val_true_labels, val_exact_match, val_f1 = evaluate(model, eval_loader)
@@ -472,108 +502,108 @@ if __name__ == "__main__":
         "test": (test_loader, predicted_answers_test, true_answers_test),
     }
 
-    for dataset_name, (data_loader, predicted_answers, true_answers) in datasets.items():
-        for i, batch in enumerate(data_loader):
-            input_ids = torch.stack(batch['input_ids']).transpose(0, 1)
-            attention_mask = torch.stack(batch['attention_mask']).transpose(0, 1)
-            start_positions = torch.cat(batch['start_positions'], dim=0).view(-1)
-            end_positions = torch.cat(batch['end_positions'], dim=0).view(-1)
+    # for dataset_name, (data_loader, predicted_answers, true_answers) in datasets.items():
+    #     for i, batch in enumerate(data_loader):
+    #         input_ids = torch.stack(batch['input_ids']).transpose(0, 1).to(device)
+    #         attention_mask = torch.stack(batch['attention_mask']).transpose(0, 1).to(device)
+    #         start_positions = batch['start_positions'].clone().detach().to(device)
+    #         end_positions = batch['end_positions'].clone().detach().to(device)
 
-            input_ids = input_ids.to(device)
-            attention_mask = attention_mask.to(device)
-            start_positions = start_positions.to(device)
-            end_positions = end_positions.to(device)
+    #         input_ids = input_ids.to(device)
+    #         attention_mask = attention_mask.to(device)
+    #         start_positions = start_positions.to(device)
+    #         end_positions = end_positions.to(device)
 
-            with torch.no_grad():
-                outputs = model(input_ids, attention_mask=attention_mask, start_positions=start_positions, end_positions=end_positions)
-                start_predictions = torch.argmax(outputs.start_logits, dim=1)
-                end_predictions = torch.argmax(outputs.end_logits, dim=1)
+    #         with torch.no_grad():
+    #             outputs = model(input_ids, attention_mask=attention_mask, start_positions=start_positions, end_positions=end_positions)
+    #             start_predictions = torch.argmax(outputs.start_logits, dim=1)
+    #             end_predictions = torch.argmax(outputs.end_logits, dim=1)
 
-                for idx in range(len(start_positions)):
-                    input_ids_example = input_ids[idx]
+    #             for idx in range(len(start_positions)):
+    #                 input_ids_example = input_ids[idx]
 
-                    # Find the position of the second SEP token
-                    sep_positions = (input_ids_example == tokenizer.sep_token_id).nonzero(as_tuple=True)[0]
-                    sep_position = sep_positions[1].item()
+    #                 # Find the position of the second SEP token
+    #                 sep_positions = (input_ids_example == tokenizer.sep_token_id).nonzero(as_tuple=True)[0]
+    #                 sep_position = sep_positions[1].item()
 
-                    # Decode the question text from input_ids
-                    question = tokenizer.decode(input_ids_example[:sep_position], skip_special_tokens=True)
+    #                 # Decode the question text from input_ids
+    #                 question = tokenizer.decode(input_ids_example[:sep_position], skip_special_tokens=True)
 
-                    predicted_start = start_predictions[idx].item()
-                    predicted_end = end_predictions[idx].item()
-                    true_start = start_positions[idx].item()
-                    true_end = end_positions[idx].item()
+    #                 predicted_start = start_predictions[idx].item()
+    #                 predicted_end = end_predictions[idx].item()
+    #                 true_start = start_positions[idx].item()
+    #                 true_end = end_positions[idx].item()
 
-                    # Get the predicted answer text
-                    predicted_answer = tokenizer.decode(input_ids_example[sep_position + predicted_start:sep_position + predicted_end + 1].tolist(), skip_special_tokens=True)
+    #                 # Get the predicted answer text
+    #                 predicted_answer = tokenizer.decode(input_ids_example[sep_position + predicted_start:sep_position + predicted_end + 1].tolist(), skip_special_tokens=True)
 
-                    # Get the true answer text
-                    true_answer = tokenizer.decode(input_ids_example[sep_position + true_start:sep_position + true_end + 1].tolist(), skip_special_tokens=True)
+    #                 # Get the true answer text
+    #                 true_answer = tokenizer.decode(input_ids_example[sep_position + true_start:sep_position + true_end + 1].tolist(), skip_special_tokens=True)
 
-                    predicted_answers.append(predicted_answer)
-                    true_answers.append(true_answer)
+    #                 predicted_answers.append(predicted_answer)
+    #                 true_answers.append(true_answer)
 
-                    # logger.debug(f"[{dataset_name}] Predicted answer: {predicted_answer}")
-                    # logger.debug(f"[{dataset_name}] True answer: {true_answer}")
+    #                 # logger.debug(f"[{dataset_name}] Predicted answer: {predicted_answer}")
+    #                 # logger.debug(f"[{dataset_name}] True answer: {true_answer}")
 
 
-    logger.critical(f"I am here!")
-    # Save the true and predicted answers to a CSV file
-    with open("answers.csv", "w", newline='', encoding='utf-8') as csvfile:
-        csv_writer = csv.writer(csvfile)
-        csv_writer.writerow(["predicted_answer", "true_answer"])
+    # logger.critical(f"I am here!")
+    # # Save the true and predicted answers to a CSV file
+    # with open("answers.csv", "w", newline='', encoding='utf-8') as csvfile:
+    #     csv_writer = csv.writer(csvfile)
+    #     csv_writer.writerow(["predicted_answer", "true_answer"])
 
-        for predicted_answer, true_answer in zip(predicted_answers, true_answers):
-            csv_writer.writerow([predicted_answer, true_answer])
+    #     for predicted_answer, true_answer in zip(predicted_answers, true_answers):
+    #         csv_writer.writerow([predicted_answer, true_answer])
 
-    # Plot the training loss per iteration, and validation and test loss per epoch
-    iterations_train = range(1, len(train_losses) + 1)
-    iterations_val = range(1, len(val_losses) + 1)
-    iterations_test = range(1, len(test_losses) + 1)
+    # # Plot the training loss per iteration, and validation and test loss per epoch
+    # iterations_train = range(1, len(train_losses) + 1)
+    # iterations_val = range(1, len(val_losses) + 1)
+    # iterations_test = range(1, len(test_losses) + 1)
 
-    iterations_train_acc = range(1, len(train_accuracies) + 1)
-    iterations_val_acc = range(1, len(val_accuracies) + 1)
-    iterations_test_acc = range(1, len(test_accuracies) + 1)
-    logger.critical(f"I am here!")
-    # Train, validation, and test loss plots
-    plt.plot(train_losses, label='Training loss')
-    plt.plot(val_losses, label='Validation loss')
-    plt.plot(test_losses, label='Test loss')
+    # iterations_train_acc = range(1, len(train_accuracies) + 1)
+    # iterations_val_acc = range(1, len(val_accuracies) + 1)
+    # iterations_test_acc = range(1, len(test_accuracies) + 1)
+    # logger.critical(f"I am here!")
+    # # Train, validation, and test loss plots
+    # plt.plot(train_losses, label='Training loss')
+    # plt.plot(val_losses, label='Validation loss')
+    # plt.plot(test_losses, label='Test loss')
 
-    plt.title(f'Losses (lr={lr}, num_epochs={num_epochs})')
-    plt.xlabel('Iterations')
-    plt.ylabel('Loss')
-    plt.legend()
+    # plt.title(f'Losses (lr={lr}, num_epochs={num_epochs})')
+    # plt.xlabel('Iterations')
+    # plt.ylabel('Loss')
+    # plt.legend()
 
-    plt.savefig(f'loss_plot_QA_{num_epochs}_{lr}.png')
-    plt.show()
-    plt.close()
+    # plt.savefig(f'loss_plot_QA_{num_epochs}_{lr}.png')
+    # plt.show()
+    # plt.close()
 
-    # Train, validation, and test exact match plots
-    plt.plot(train_exact_matches, label='Train exact match')
-    plt.plot(val_exact_matches, label='Validation exact match')
-    plt.plot(test_exact_matches, label='Test exact match')
+    # # Train, validation, and test exact match plots
+    # plt.plot(train_exact_matches, label='Train exact match')
+    # plt.plot(val_exact_matches, label='Validation exact match')
+    # plt.plot(test_exact_matches, label='Test exact match')
 
-    plt.title(f'Exact Match (lr={lr}, num_epochs={num_epochs})')
-    plt.xlabel('Iterations')
-    plt.ylabel('Exact Match')
-    plt.legend()
+    # plt.title(f'Exact Match (lr={lr}, num_epochs={num_epochs})')
+    # plt.xlabel('Iterations')
+    # plt.ylabel('Exact Match')
+    # plt.legend()
 
-    plt.savefig(f'exact_match_plot_QA_{num_epochs}_{lr}.png')
-    plt.show()
-    plt.close()
+    # plt.savefig(f'exact_match_plot_QA_{num_epochs}_{lr}.png')
+    # plt.show()
+    # plt.close()
     
-    logger.critical(f"I am here!")
-    # Train, validation, and test F1 score plots
-    plt.plot(train_f1_scores, label='Train F1 score')
-    plt.plot(val_f1_scores, label='Validation F1 score')
-    plt.plot(test_f1_scores, label='Test F1 score')
+    # logger.critical(f"I am here!")
+    # # Train, validation, and test F1 score plots
+    # plt.plot(train_f1_scores, label='Train F1 score')
+    # plt.plot(val_f1_scores, label='Validation F1 score')
+    # plt.plot(test_f1_scores, label='Test F1 score')
 
-    plt.title(f'F1 Score (lr={lr}, num_epochs={num_epochs})')
-    plt.xlabel('Iterations')
-    plt.ylabel('F1 Score')
-    plt.legend()
+    # plt.title(f'F1 Score (lr={lr}, num_epochs={num_epochs})')
+    # plt.xlabel('Iterations')
+    # plt.ylabel('F1 Score')
+    # plt.legend()
 
-    plt.savefig(f'f1_score_plot_QA_{num_epochs}_{lr}.png')
-    plt.show()
-    plt.close()
+    # plt.savefig(f'f1_score_plot_QA_{num_epochs}_{lr}.png')
+    # plt.show()
+    # plt.close()
