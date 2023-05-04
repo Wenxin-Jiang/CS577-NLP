@@ -1,0 +1,114 @@
+true_labels,pred_labels,pred_texts
+"(4, 7)","(4, 7)",model task of adapt
+"(67, 72)","(67, 72)",wav2vec2
+"(73, 75)","(73, 75)",text - classification
+"(71, 73)","(71, 73)",distilbert
+"(4, 29)","(4, 29)",model task of magnuschase7 / dialogpt - medium - harrypotter? - - - tags : - conversational
+"(61, 61)","(80, 61)",
+"(48, 49)","(65, 49)",
+"(23, 53)","(51, 53)",gpt2
+"(82, 86)","(82, 86)",automatic - speech - recognition
+"(65, 65)","(65, 65)",roberta
+"(15, 42)","(4, 42)",model task of ishan / distilbert - base - uncased - mnli? - - - language : en thumbnail : tags : - pytorch - text - classification
+"(35, 35)","(7, 35)",adapterhub / roberta - base - pf - duorc _ s? - - - tags : - question - answering - roberta
+"(66, 68)","(66, 68)",audio - classification
+"(506, 508)","(506, 508)",text - generation
+"(124, 129)","(124, 129)",wav2vec2
+"(415, 417)","(415, 417)",text - generation
+"(406, 408)","(406, 408)",text - generation
+"(65, 70)","(65, 70)",wav2vec2
+"(8, 18)","(32, 34)",token - classification
+"(54, 54)","(54, 54)",bert
+"(65, 67)","(65, 67)",distilbert
+"(4, 7)","(4, 7)",model task of adapt
+"(4, 28)","(4, 28)",model task of aj / dialogpt - small - ricksanchez? - - - tags : - conversational
+"(399, 401)","(399, 401)",text - generation
+"(4, 22)","(4, 22)",model task of silentmyuth / stableben? - - - tags : - conversational
+"(15, 39)","(282, 39)",
+"(213, 215)","(213, 215)",distilbert
+"(4, 33)","(4, 33)",model task of adapterhub / roberta - base - pf - duorc _ s? - - - tags : - question - answering
+"(7, 36)","(7, 36)",adapterhub / bert - base - uncased - pf - emo? - - - tags : - text - classification - bert
+"(49, 51)","(49, 51)",distilbert
+"(64, 64)","(66, 64)",
+"(134, 134)","(20, 134)","##d? - - - language : multilingual datasets : wikipedia license : apache - 2. 0 widget : - text : "" google generated 46 billion in revenue. "" - text : "" paris is the capital of. "" - text : "" algiers is the largest city in. "" - text : "" paris est la de la france. "" - text : "" paris est la capitale de la. "" - text : "" l'election americaine a eu en novembre 2020. "" - - - # bert"
+"(4, 27)","(4, 27)",model task of invincible / chat _ bot - harrypotter - medium? - - - tags : - conversational
+"(64, 64)","(83, 64)",
+"(176, 176)","(176, 176)",audio
+"(87, 89)","(87, 89)",text - classification
+"(7, 8)","(7, 34)",adapterhub / roberta - base - pf - sst2? - - - tags : - text - classification - roberta
+"(124, 129)","(124, 129)",wav2vec2
+"(50, 50)","(52, 50)",
+"(4, 27)","(4, 27)",model task of helsinki - nlp / opus - mt - fr - kg? - - - tags : - translation
+"(176, 176)","(176, 176)",audio
+"(124, 129)","(124, 129)",wav2vec2
+"(4, 38)","(4, 38)",model task of adapterhub / bert - base - uncased - pf - fce _ error _ detection? - - - tags : - token - classification
+"(17, 42)","(190, 192)",gpt2
+"(4, 33)","(4, 33)",model task of adapterhub / roberta - base - pf - duorc _ p? - - - tags : - question - answering
+"(179, 184)","(179, 184)",wav2vec2
+"(443, 445)","(171, 445)","electra - base - discriminator "" max _ seq _ len = 384 learning _ rate = 1e - 4 lr _ schedule = linearwarmup warmup _ proportion = 0. 1 doc _ stride = 128 max _ query _ length = 64 ` ` ` # # performance evaluated on the squad 2. 0 dev set with the [ official eval script ] ( ` ` ` "" exact "" : 77. 30144024256717, "" f1 "" : 81. 35438272008543, "" total "" : 11873, "" hasans _ exact "" : 74. 34210526315789, "" hasans _ f1 "" : 82. 45961302894314, "" hasans _ total "" : 5928, "" noans _ exact "" : 80. 25231286795626, "" noans _ f1 "" : 80. 25231286795626, "" noans _ total "" : 5945 ` ` ` # # usage # # # in transformers ` ` ` python from transformers import automodelforquestionanswering, autotokenizer, pipeline model _ name = "" deepset / electra - base - squad2 "" # a ) get predictions nlp = pipeline ('question - answering"
+"(63, 63)","(63, 63)",roberta
+"(35, 37)","(4, 37)",model task of microsoft / dit - base - finetuned - rvlcdip? - - - tags : - dit - vision - image - classification
+"(4, 38)","(4, 38)",model task of adapterhub / bert - base - uncased - pf - mit _ movie _ trivia? - - - tags : - token - classification
+"(7, 35)","(7, 35)",adapterhub / bert - base - uncased - pf - record? - - - tags : - text - classification - bert
+"(53, 58)","(53, 58)",wav2vec2
+"(80, 84)","(80, 84)",automatic - speech - recognition
+"(8, 14)","(4, 11)",model task of alaggung / bart
+"(88, 90)","(88, 90)",text - classification
+"(4, 7)","(4, 7)",model task of adapt
+"(8, 35)","(8, 35)",- nlp / opus - mt - tl - pt? - - - language : - tl - pt tags : - translation
+"(32, 32)","(406, 156)",
+"(400, 402)","(400, 402)",text - generation
+"(402, 404)","(402, 404)",text - generation
+"(4, 28)","(4, 28)",model task of robinmari / dialogpt - small - mikoto? - - - tags : - conversational
+"(29, 64)","(59, 64)",wav2vec2
+"(124, 129)","(124, 129)",wav2vec2
+"(4, 7)","(4, 7)",model task of adapt
+"(401, 403)","(401, 403)",text - generation
+"(66, 70)","(66, 70)",automatic - speech - recognition
+"(54, 56)","(54, 56)",distilbert
+"(81, 86)","(81, 86)",wav2vec2
+"(4, 29)","(4, 29)",model task of augustojaba / dialogpt - small - harrypotter? - - - tags : - conversational
+"(66, 68)","(66, 68)",distilbert
+"(88, 90)","(88, 90)",text - classification
+"(82, 84)","(307, 307)",bert
+"(63, 63)","(82, 63)",
+"(68, 70)","(26, 14)",
+"(284, 285)","(57, 58)",t5
+"(4, 28)","(4, 28)",model task of helsinki - nlp / opus - mt - fi - mh? - - - tags : - translation
+"(198, 198)","(77, 198)","roberta _ token _ itr0 _ 1e - 05 _ all _ 01 _ 03 _ 2022 - 15 _ 36 _ 04 results : [ ] - - - <! - - this model card has been generated automatically according to the information the trainer had access to. you should probably proofread and complete it, then remove this comment. - - > # correct _ twitter _ roberta _ token _ itr0 _ 1e - 05 _ all _ 01 _ 03 _ 2022 - 15 _ 36 _ 04 this model is a fine - tuned version of [ cardiffnlp / twitter - roberta"
+"(53, 53)","(7, 53)",adapterhub / bert - base - uncased - pf - qqp? - - - tags : - text - classification - adapter - transformers - adapterhub : sts / qqp - bert
+"(15, 16)","(16, 35)",? - - - language : - en license : apache - 2. 0 tags : - bert
+"(239, 239)","(239, 239)",bart
+"(176, 176)","(176, 176)",audio
+"(52, 56)","(52, 56)",automatic - speech - recognition
+"(5, 13)","(5, 8)",task of aida
+"(48, 50)","(82, 50)",
+"(20, 47)","(8, 19)",- nlp / opus - mt - tc - big -
+"(55, 55)","(55, 55)",roberta
+"(4, 31)","(4, 31)",model task of jalensmh / dialogpt - small - exophoria? - - - tags : - conversational
+"(494, 494)","(494, 494)",roberta
+"(72, 72)","(71, 72)",biobert
+"(41, 43)","(41, 43)",text - generation
+"(83, 87)","(83, 87)",automatic - speech - recognition
+"(408, 410)","(408, 410)",text - generation
+"(35, 35)","(7, 35)",adapterhub / roberta - base - pf - duorc _ p? - - - tags : - question - answering - roberta
+"(4, 7)","(4, 7)",model task of adapt
+"(176, 176)","(176, 176)",audio
+"(8, 16)","(127, 129)",text - classification
+"(73, 75)","(73, 75)",text - classification
+"(414, 416)","(414, 416)",text - generation
+"(455, 460)","(95, 500)","wav2vec 2. 0 base voxpopuli - sv swedish results : - task : name : speech recognition type : automatic - speech - recognition dataset : name : nst swedish asr database metrics : - name : test wer type : wer value : 5. 619804368919309 - task : name : speech recognition type : automatic - speech - recognition dataset : name : common voice type : common _ voice args : sv - se metrics : - name : test wer type : wer value : 19. 145252414798616 - - - # wav2vec 2. 0 base - voxpopuli - sv - swedish finetuned version of facebooks [ voxpopuli - sv base ] ( model using nst and common voice data. evalutation without a language model gives the following : wer for nst + common voice test set ( 2 % of total sentences ) is * * 5. 62 % * *, wer for common voice test set is * * 19. 15 % * *. when using this model, make sure that your speech input is sampled at 16khz. # # usage the model can be used directly ( without a language model ) as follows : ` ` ` python import torch import torchaudio from datasets import load _ dataset from transformers import wav2vec2forctc, wav2vec2processor test _ dataset = load _ dataset ( "" common _ voice "", "" sv - se "", split = "" test [ : 2 % ] "" ). processor = wav2vec2processor. from _ pretrained ( "" kblab / wav2vec2 - base - voxpopuli - sv - swedish "" ) model = wav2vec2forctc. from _ pretrained ( "" kblab / wav2vec2"
+"(130, 130)","(51, 55)",pengmengjie
+"(145, 146)","(145, 57)",
+"(4, 30)","(4, 30)",model task of aishanisingh / dialogpt - small - harrypotter? - - - tags : - conversational
+"(189, 191)","(189, 191)",distilbert
+"(27, 28)","(27, 66)",- 128 - finetuned - squad - seed - 4? - - - tags : - generated _ from _ trainer datasets : - squad model - index : - name : spanbert
+"(7, 8)","(7, 32)",adapterhub / roberta - base - pf - emotion? - - - tags : - text - classification - roberta
+"(135, 140)","(135, 140)",wav2vec2
+"(5, 44)","(5, 44)",task of flax - sentence - embeddings / multi - qa _ v1 - distilbert - cls _ dot? - - - pipeline _ tag : sentence - similarity
+"(40, 42)","(40, 42)",gpt2
+"(68, 73)","(68, 73)",wav2vec2
+"(140, 142)","(140, 142)",distilbert
+"(341, 341)","(341, 372)","clip - vit - large - patch14 "" ) processor = clipprocessor. from _ pretrained ( "" openai / clip - vit"
+"(91, 93)","(91, 93)",text - classification
+"(4, 28)","(4, 28)",model task of helsinki - nlp / opus - mt - crs - sv? - - - tags : - translation

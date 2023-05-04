@@ -1,0 +1,1378 @@
+2023-05-04 16:44:09.343 | DEBUG    | __main__:<module>:324 - Raw Dataset size: 1039
+2023-05-04 16:44:09.343 | INFO     | __main__:<module>:332 - Train dataset size: 831
+2023-05-04 16:44:09.343 | INFO     | __main__:<module>:333 - Val dataset size: 104
+2023-05-04 16:44:09.343 | INFO     | __main__:<module>:334 - Test dataset size: 104
+2023-05-04 16:44:09.462 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roformer
+2023-05-04 16:44:09.464 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: gpt2
+2023-05-04 16:44:09.466 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:09.468 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:09.470 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:09.473 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bart
+2023-05-04 16:44:09.476 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text2text-generation
+2023-05-04 16:44:09.478 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:09.480 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:09.481 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:09.482 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:09.483 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:09.485 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:09.486 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:09.487 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:09.490 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: distilbert
+2023-05-04 16:44:09.492 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:09.493 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: translation
+2023-05-04 16:44:09.495 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:09.496 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:09.498 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: deberta
+2023-05-04 16:44:09.500 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: fill-mask
+2023-05-04 16:44:09.501 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:09.502 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:09.504 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:09.507 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:09.508 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: albert
+2023-05-04 16:44:09.509 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:09.510 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:09.511 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:09.511 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:09.512 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:09.514 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:09.516 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: question-answering
+2023-05-04 16:44:09.517 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:09.523 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:09.530 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:09.536 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:09.537 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:09.538 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:09.540 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: marian
+2023-05-04 16:44:09.541 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:09.543 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:09.545 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:09.546 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:09.547 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:09.549 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: fill-mask
+2023-05-04 16:44:09.549 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:09.550 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:09.550 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:09.552 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:09.555 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:09.558 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:09.561 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:09.564 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:09.564 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:09.566 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: albert
+2023-05-04 16:44:09.567 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:09.569 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: question-answering
+2023-05-04 16:44:09.576 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:09.583 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: sentence-similarity
+2023-05-04 16:44:09.586 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:09.587 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:09.588 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:09.590 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:09.593 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bert
+2023-05-04 16:44:09.594 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:09.594 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:09.595 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:09.596 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:09.598 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bart
+2023-05-04 16:44:09.599 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text2text-generation
+2023-05-04 16:44:09.600 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:09.601 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:09.603 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:09.605 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:09.606 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:09.608 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:09.609 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: question-answering
+2023-05-04 16:44:09.612 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:09.613 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:09.615 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:09.616 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:09.617 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:09.618 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:09.621 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:09.622 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:09.622 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:09.624 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: xlm-roberta
+2023-05-04 16:44:09.625 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:09.627 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:09.628 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:09.630 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: question-answering
+2023-05-04 16:44:09.631 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:09.632 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:09.634 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:09.634 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:09.635 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:09.636 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:09.638 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:09.640 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: xlnet
+2023-05-04 16:44:09.640 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:09.642 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:09.646 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:09.648 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:09.650 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:09.652 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:09.654 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:09.655 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:09.656 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:09.658 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:09.660 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:09.662 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:09.662 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:09.664 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:09.665 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:09.666 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:09.668 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:09.670 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:09.673 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:09.677 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: xlm-roberta
+2023-05-04 16:44:09.679 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:09.679 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:09.681 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:09.683 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:09.689 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:09.696 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:09.702 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:09.705 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:09.706 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:09.708 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: question-answering
+2023-05-04 16:44:09.713 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: roberta
+2023-05-04 16:44:09.719 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: question-answering
+2023-05-04 16:44:09.720 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:09.728 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:09.736 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:09.744 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:09.746 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:09.747 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:09.748 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:09.752 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: vit
+2023-05-04 16:44:09.753 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:09.755 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:09.756 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:09.758 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: xlm-roberta
+2023-05-04 16:44:09.759 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:09.761 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:09.764 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:09.769 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:09.773 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:09.774 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:09.776 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:09.777 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:09.778 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:09.780 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:09.783 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: t5
+2023-05-04 16:44:09.784 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:09.785 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:09.786 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:09.787 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:09.789 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:09.790 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:09.793 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: mpnet
+2023-05-04 16:44:09.795 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: sentence-similarity
+2023-05-04 16:44:09.797 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:09.798 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: gpt2
+2023-05-04 16:44:09.801 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:09.803 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:09.808 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:09.808 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:09.811 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: gpt_neo
+2023-05-04 16:44:09.814 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:09.817 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text2text-generation
+2023-05-04 16:44:09.818 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-to-image
+2023-05-04 16:44:09.818 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:09.821 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:09.822 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: convbert
+2023-05-04 16:44:09.822 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:09.826 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: xlm-roberta
+2023-05-04 16:44:09.828 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: gpt2
+2023-05-04 16:44:09.829 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:09.831 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:09.833 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:09.836 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: sentence-similarity
+2023-05-04 16:44:09.837 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:09.839 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:09.840 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:09.842 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:09.845 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: fill-mask
+2023-05-04 16:44:09.847 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:09.854 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:09.860 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:09.867 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:09.869 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:09.871 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:09.872 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:09.872 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: question-answering
+2023-05-04 16:44:09.874 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:09.875 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:09.877 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: gpt2
+2023-05-04 16:44:09.878 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:09.880 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:09.883 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:09.886 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text2text-generation
+2023-05-04 16:44:09.893 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:09.899 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:09.906 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:09.907 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:09.910 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:09.911 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:09.913 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:09.913 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:09.915 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:09.917 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:09.918 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: summarization
+2023-05-04 16:44:09.921 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:09.925 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: feature-extraction
+2023-05-04 16:44:09.926 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:09.928 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:09.932 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: mt5
+2023-05-04 16:44:09.933 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: fill-mask
+2023-05-04 16:44:09.935 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:09.935 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:09.936 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bert
+2023-05-04 16:44:09.938 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:09.939 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: question-answering
+2023-05-04 16:44:09.942 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:09.943 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: xlnet
+2023-05-04 16:44:09.945 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:09.951 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:09.958 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:09.959 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:09.960 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: albert
+2023-05-04 16:44:09.961 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:09.963 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:09.965 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:09.965 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:09.966 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: marian
+2023-05-04 16:44:09.969 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: deberta-v2
+2023-05-04 16:44:09.971 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: fill-mask
+2023-05-04 16:44:09.973 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: t5
+2023-05-04 16:44:09.974 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wavlm
+2023-05-04 16:44:09.976 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:09.977 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:09.981 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:09.984 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:09.987 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:09.990 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: roformer
+2023-05-04 16:44:09.993 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: sentence-similarity
+2023-05-04 16:44:09.994 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:09.996 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:09.997 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:10.003 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: segformer
+2023-05-04 16:44:10.008 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: image-segmentation
+2023-05-04 16:44:10.012 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:10.015 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bert
+2023-05-04 16:44:10.018 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: fill-mask
+2023-05-04 16:44:10.020 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.021 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:10.023 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.025 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:10.027 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:10.028 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: gpt2
+2023-05-04 16:44:10.030 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.031 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: translation
+2023-05-04 16:44:10.034 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:10.035 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.039 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: summarization
+2023-05-04 16:44:10.040 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:10.043 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.044 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.046 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.048 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.049 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:10.051 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: question-answering
+2023-05-04 16:44:10.052 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:10.053 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:10.056 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:10.058 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.061 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:10.063 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: audio
+2023-05-04 16:44:10.070 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.077 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:10.083 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:10.085 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:10.087 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:10.090 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:10.091 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:10.093 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: gpt2
+2023-05-04 16:44:10.094 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.096 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.097 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:10.098 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.101 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:10.102 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:10.104 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.105 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:10.106 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:10.106 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:10.108 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.109 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:10.110 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:10.115 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: sentence-similarity
+2023-05-04 16:44:10.119 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.122 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: question-answering
+2023-05-04 16:44:10.124 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: sentence-similarity
+2023-05-04 16:44:10.126 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:10.127 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:10.128 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:10.129 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:10.131 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: question-answering
+2023-05-04 16:44:10.132 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.133 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:10.133 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:10.135 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.136 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:10.139 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.142 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:10.146 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:10.147 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.148 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: fill-mask
+2023-05-04 16:44:10.149 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: mt5
+2023-05-04 16:44:10.152 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:10.156 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text2text-generation
+2023-05-04 16:44:10.159 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.162 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:10.165 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: audio
+2023-05-04 16:44:10.167 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:10.167 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:10.168 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: xlm-roberta
+2023-05-04 16:44:10.170 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:10.172 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:10.173 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:10.174 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.175 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.176 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.178 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:10.180 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.181 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:10.182 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:10.183 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.185 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.187 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.188 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:10.192 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: mt5
+2023-05-04 16:44:10.195 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:10.199 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:10.200 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.201 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:10.202 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: roberta
+2023-05-04 16:44:10.203 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.205 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.206 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: translation
+2023-05-04 16:44:10.207 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:10.208 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:10.215 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: flash
+2023-05-04 16:44:10.217 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.219 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:10.221 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: sentence-similarity
+2023-05-04 16:44:10.223 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:10.224 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.226 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:10.227 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:10.228 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:10.229 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.232 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.235 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:10.237 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: audio
+2023-05-04 16:44:10.239 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wavlm
+2023-05-04 16:44:10.241 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:10.246 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: clip
+2023-05-04 16:44:10.249 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.252 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:10.255 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:10.257 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:10.263 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:10.265 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.266 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.270 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:10.273 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:10.275 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.277 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:10.278 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bart
+2023-05-04 16:44:10.280 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.282 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:10.284 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.286 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:10.288 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.293 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:10.294 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.295 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:10.296 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.298 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: t5
+2023-05-04 16:44:10.299 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: summarization
+2023-05-04 16:44:10.301 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: mbart
+2023-05-04 16:44:10.303 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: summarization
+2023-05-04 16:44:10.303 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:10.305 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:10.306 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:10.308 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.310 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: question-answering
+2023-05-04 16:44:10.311 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.313 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.314 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.315 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.317 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.320 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.323 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:10.326 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: audio
+2023-05-04 16:44:10.329 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: gpt2
+2023-05-04 16:44:10.332 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.334 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: xlm-roberta
+2023-05-04 16:44:10.335 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:10.337 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:10.339 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.341 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:10.343 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:10.345 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.346 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bert
+2023-05-04 16:44:10.348 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:10.349 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:10.350 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.351 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.353 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.354 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:10.355 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:10.363 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bart
+2023-05-04 16:44:10.371 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: summarization
+2023-05-04 16:44:10.373 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:10.375 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.377 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: fill-mask
+2023-05-04 16:44:10.380 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: translation
+2023-05-04 16:44:10.384 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.388 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:10.392 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:10.393 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.396 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: pegasus
+2023-05-04 16:44:10.398 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:10.399 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:10.401 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.401 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:10.403 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:10.405 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:10.407 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:10.408 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: xlm-roberta
+2023-05-04 16:44:10.409 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:10.418 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.427 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:10.435 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:10.437 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bert
+2023-05-04 16:44:10.438 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:10.438 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:10.440 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: gpt2
+2023-05-04 16:44:10.442 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:10.444 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: wav2vec2
+2023-05-04 16:44:10.446 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:10.449 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:10.450 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.451 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:10.454 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: gpt2
+2023-05-04 16:44:10.456 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: mbart
+2023-05-04 16:44:10.458 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: summarization
+2023-05-04 16:44:10.460 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.462 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: wav2vec2
+2023-05-04 16:44:10.465 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:10.467 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:10.467 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:10.470 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.474 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:10.477 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:10.483 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: roberta
+2023-05-04 16:44:10.489 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: fill-mask
+2023-05-04 16:44:10.491 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.491 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:10.493 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.494 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.496 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:10.498 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.499 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.501 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.503 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.504 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.505 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:10.506 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:10.508 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.510 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:10.511 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.511 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: conversational
+2023-05-04 16:44:10.514 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:10.517 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:10.518 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bert
+2023-05-04 16:44:10.520 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:10.523 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:10.524 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:10.526 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:10.529 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.530 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:10.532 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.533 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: question-answering
+2023-05-04 16:44:10.534 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.536 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:10.537 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: conversational
+2023-05-04 16:44:10.537 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:10.539 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.540 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:10.542 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.544 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:10.545 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.548 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: encoder-decoder
+2023-05-04 16:44:10.550 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: summarization
+2023-05-04 16:44:10.557 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.564 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:10.571 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: audio
+2023-05-04 16:44:10.574 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.577 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: t5
+2023-05-04 16:44:10.579 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: summarization
+2023-05-04 16:44:10.580 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.582 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:10.582 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:10.585 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:10.588 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.588 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:10.590 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: marian
+2023-05-04 16:44:10.592 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:10.594 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.597 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:10.599 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: audio
+2023-05-04 16:44:10.601 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: deberta
+2023-05-04 16:44:10.602 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:10.605 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: distilbert
+2023-05-04 16:44:10.607 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:10.609 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.610 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:10.612 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.613 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: image-classification
+2023-05-04 16:44:10.614 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.615 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.617 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:10.618 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: electra
+2023-05-04 16:44:10.619 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: fill-mask
+2023-05-04 16:44:10.620 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: prophetnet
+2023-05-04 16:44:10.622 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:10.623 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.625 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: vit
+2023-05-04 16:44:10.626 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: image-classification
+2023-05-04 16:44:10.629 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:10.630 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:10.631 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:10.632 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bert
+2023-05-04 16:44:10.634 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:10.634 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:10.635 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bart
+2023-05-04 16:44:10.636 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: summarization
+2023-05-04 16:44:10.636 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:10.637 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:10.639 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.640 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.641 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.643 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:10.648 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: clip
+2023-05-04 16:44:10.649 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:10.661 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bert
+2023-05-04 16:44:10.662 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bert
+2023-05-04 16:44:10.664 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:10.665 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:10.667 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text2text-generation
+2023-05-04 16:44:10.669 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.670 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.670 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:10.672 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:10.674 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:10.676 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:10.677 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.678 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.680 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.686 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: mpnet
+2023-05-04 16:44:10.688 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: sentence-similarity
+2023-05-04 16:44:10.690 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.692 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: roformer
+2023-05-04 16:44:10.693 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.695 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:10.697 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.699 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:10.701 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:10.702 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:10.703 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.706 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: gpt2
+2023-05-04 16:44:10.707 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: xlnet
+2023-05-04 16:44:10.708 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text2text-generation
+2023-05-04 16:44:10.710 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.711 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:10.713 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:10.715 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:10.716 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: feature-extraction
+2023-05-04 16:44:10.718 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.718 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:10.719 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:10.720 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.723 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.727 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:10.730 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:10.731 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.733 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: question-answering
+2023-05-04 16:44:10.734 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:10.736 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.737 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:10.738 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: question-answering
+2023-05-04 16:44:10.740 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.741 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: question-answering
+2023-05-04 16:44:10.744 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: gpt2
+2023-05-04 16:44:10.744 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:10.746 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:10.747 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.749 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.750 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.750 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:10.753 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:10.761 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: openai-gpt
+2023-05-04 16:44:10.769 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.770 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.773 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:10.773 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:10.775 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.777 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:10.779 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: mt5
+2023-05-04 16:44:10.780 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: summarization
+2023-05-04 16:44:10.787 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.793 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:10.800 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:10.801 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.803 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:10.805 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: sentence-similarity
+2023-05-04 16:44:10.806 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.807 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:10.808 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bart
+2023-05-04 16:44:10.810 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: question-answering
+2023-05-04 16:44:10.813 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bert
+2023-05-04 16:44:10.815 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: sentence-similarity
+2023-05-04 16:44:10.818 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bart
+2023-05-04 16:44:10.821 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text2text-generation
+2023-05-04 16:44:10.822 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:10.823 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:10.824 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: roberta
+2023-05-04 16:44:10.825 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.827 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.828 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.830 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.831 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:10.835 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: translation
+2023-05-04 16:44:10.835 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:10.837 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.837 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:10.840 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: sentence-similarity
+2023-05-04 16:44:10.842 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:10.844 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: xlm-roberta
+2023-05-04 16:44:10.845 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: fill-mask
+2023-05-04 16:44:10.846 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.847 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:10.854 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.861 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:10.868 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: audio
+2023-05-04 16:44:10.870 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:10.871 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.873 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:10.874 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.875 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:10.877 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: roformer
+2023-05-04 16:44:10.878 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.879 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: marian
+2023-05-04 16:44:10.885 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bert
+2023-05-04 16:44:10.886 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.888 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.889 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.891 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:10.893 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.894 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: question-answering
+2023-05-04 16:44:10.896 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: xlm-roberta
+2023-05-04 16:44:10.897 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:10.902 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.904 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: hubert
+2023-05-04 16:44:10.906 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:10.908 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:10.910 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.913 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.916 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:10.919 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:10.921 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.921 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:10.922 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:10.925 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bart
+2023-05-04 16:44:10.927 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.928 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:10.933 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:10.937 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:10.938 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:10.938 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:10.939 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:10.940 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:10.942 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.944 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: question-answering
+2023-05-04 16:44:10.946 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:10.947 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:10.949 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:10.951 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:10.951 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:10.953 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:10.954 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: question-answering
+2023-05-04 16:44:10.956 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:10.956 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:10.958 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:10.961 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:10.963 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:10.964 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:10.966 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: deberta-v2
+2023-05-04 16:44:10.969 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-classification
+2023-05-04 16:44:10.971 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: deberta-v2
+2023-05-04 16:44:10.973 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-classification
+2023-05-04 16:44:10.974 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.977 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:10.978 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bert
+2023-05-04 16:44:10.980 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:10.981 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:10.983 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:10.984 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: roberta
+2023-05-04 16:44:10.985 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:10.994 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:11.002 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:11.010 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:11.012 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:11.013 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roformer
+2023-05-04 16:44:11.015 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.017 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: mpnet
+2023-05-04 16:44:11.020 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: sentence-similarity
+2023-05-04 16:44:11.020 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.022 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.023 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.025 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.027 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.028 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.034 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bert
+2023-05-04 16:44:11.036 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:11.038 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.039 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.040 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:11.042 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bert
+2023-05-04 16:44:11.044 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.045 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: roberta
+2023-05-04 16:44:11.047 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.049 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: wav2vec2
+2023-05-04 16:44:11.052 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:11.053 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.055 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.056 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:11.063 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: electra
+2023-05-04 16:44:11.069 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.069 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:11.071 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:11.075 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: translation
+2023-05-04 16:44:11.076 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:11.078 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.082 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:11.086 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.087 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:11.088 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:11.088 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:11.091 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.093 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: sentence-similarity
+2023-05-04 16:44:11.094 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:11.096 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:11.096 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:11.101 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:11.103 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.105 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: fill-mask
+2023-05-04 16:44:11.108 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:11.112 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text2text-generation
+2023-05-04 16:44:11.113 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.115 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.117 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.119 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.120 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.121 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.123 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.124 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.130 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: xlm-roberta
+2023-05-04 16:44:11.136 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.137 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:11.140 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.141 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.143 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.144 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.145 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.147 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:11.149 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bert
+2023-05-04 16:44:11.150 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.151 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:11.155 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bert
+2023-05-04 16:44:11.157 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.159 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.160 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.162 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:11.164 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.165 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:11.167 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:11.169 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bert
+2023-05-04 16:44:11.170 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:11.172 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.173 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:11.175 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:11.176 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.178 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.180 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:11.182 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:11.183 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bert
+2023-05-04 16:44:11.185 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:11.186 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.188 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.191 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:11.193 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:11.194 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:11.195 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:11.196 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.199 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: mt5
+2023-05-04 16:44:11.201 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:11.202 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:11.203 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:11.204 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.206 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:11.207 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.208 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: image-classification
+2023-05-04 16:44:11.210 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.211 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: question-answering
+2023-05-04 16:44:11.213 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.216 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:11.219 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text2text-generation
+2023-05-04 16:44:11.220 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.221 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: gpt_neo
+2023-05-04 16:44:11.222 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:11.223 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.225 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: xlm-roberta
+2023-05-04 16:44:11.226 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:11.228 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: mt5
+2023-05-04 16:44:11.230 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.231 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.233 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.233 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:11.236 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: camembert
+2023-05-04 16:44:11.237 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:11.239 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: fill-mask
+2023-05-04 16:44:11.241 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:11.243 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.244 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: gpt2
+2023-05-04 16:44:11.247 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.248 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: image-classification
+2023-05-04 16:44:11.249 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:11.250 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:11.253 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.253 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:11.255 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:11.257 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:11.258 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bart
+2023-05-04 16:44:11.259 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:11.263 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: vit
+2023-05-04 16:44:11.267 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: image-classification
+2023-05-04 16:44:11.271 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: xlm-roberta
+2023-05-04 16:44:11.274 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.276 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.279 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:11.281 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:11.282 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.291 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.299 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: fill-mask
+2023-05-04 16:44:11.300 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:11.300 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:11.302 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.304 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: question-answering
+2023-05-04 16:44:11.307 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.310 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.311 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:11.313 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.315 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: question-answering
+2023-05-04 16:44:11.316 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:11.317 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:11.319 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:11.321 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:11.321 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:11.323 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:11.324 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.327 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:11.330 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:11.333 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:11.338 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:11.339 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.344 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:11.344 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.345 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: question-answering
+2023-05-04 16:44:11.349 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:11.349 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:11.351 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.352 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.353 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:11.353 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:11.355 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: dpt
+2023-05-04 16:44:11.357 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: image-segmentation
+2023-05-04 16:44:11.357 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:11.361 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: translation
+2023-05-04 16:44:11.364 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.365 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:11.366 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: albert
+2023-05-04 16:44:11.368 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.370 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.371 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:11.373 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:11.374 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.376 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.378 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.379 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:11.415 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wavlm
+2023-05-04 16:44:11.450 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:11.454 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: t5
+2023-05-04 16:44:11.455 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.457 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text2text-generation
+2023-05-04 16:44:11.458 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: electra
+2023-05-04 16:44:11.460 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bert
+2023-05-04 16:44:11.462 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.463 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.464 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.465 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.466 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:11.467 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:11.469 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: gpt2
+2023-05-04 16:44:11.470 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:11.472 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: mbart
+2023-05-04 16:44:11.474 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: summarization
+2023-05-04 16:44:11.476 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.476 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:11.479 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.481 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.484 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:11.487 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text2text-generation
+2023-05-04 16:44:11.491 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: t5
+2023-05-04 16:44:11.493 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: sentence-similarity
+2023-05-04 16:44:11.495 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: mt5
+2023-05-04 16:44:11.497 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:11.498 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.500 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.502 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.503 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.505 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.507 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.508 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:11.510 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: question-answering
+2023-05-04 16:44:11.512 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: electra
+2023-05-04 16:44:11.515 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: question-answering
+2023-05-04 16:44:11.516 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:11.517 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:11.519 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:11.521 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.522 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:11.524 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bart
+2023-05-04 16:44:11.525 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: summarization
+2023-05-04 16:44:11.530 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: clip
+2023-05-04 16:44:11.533 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:11.536 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:11.539 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:11.540 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:11.541 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.542 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:11.544 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:11.545 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: gpt2
+2023-05-04 16:44:11.547 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:11.550 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-classification
+2023-05-04 16:44:11.552 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.553 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.555 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:11.556 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.558 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.559 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.560 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:11.561 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:11.562 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:11.563 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.564 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: gpt2
+2023-05-04 16:44:11.572 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:11.580 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:11.589 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:11.589 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:11.590 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:11.591 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.592 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: gpt2
+2023-05-04 16:44:11.593 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.597 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bert
+2023-05-04 16:44:11.600 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:11.602 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:11.606 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: translation
+2023-05-04 16:44:11.607 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bert
+2023-05-04 16:44:11.609 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:11.610 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:11.612 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.613 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.614 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:11.615 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: xlm-roberta
+2023-05-04 16:44:11.616 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:11.619 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: roformer
+2023-05-04 16:44:11.621 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.622 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.624 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.625 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.626 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.628 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:11.630 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:11.632 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:11.634 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:11.635 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bert
+2023-05-04 16:44:11.637 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:11.639 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:11.640 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: question-answering
+2023-05-04 16:44:11.642 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.643 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.645 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.646 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: question-answering
+2023-05-04 16:44:11.648 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:11.649 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:11.651 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: image-classification
+2023-05-04 16:44:11.652 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:11.653 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:11.655 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.656 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:11.659 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: sentence-similarity
+2023-05-04 16:44:11.660 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.661 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: mt5
+2023-05-04 16:44:11.663 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:11.665 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: gpt2
+2023-05-04 16:44:11.666 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:11.668 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:11.670 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:11.673 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.675 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: sentence-similarity
+2023-05-04 16:44:11.677 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bert
+2023-05-04 16:44:11.678 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.679 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:11.681 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.682 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:11.684 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.685 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.686 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.687 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:11.688 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.689 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.694 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: gpt2
+2023-05-04 16:44:11.699 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:11.702 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:11.705 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio-classification
+2023-05-04 16:44:11.708 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: audio
+2023-05-04 16:44:11.709 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bert
+2023-05-04 16:44:11.711 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.711 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:11.713 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: vit
+2023-05-04 16:44:11.715 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: image-classification
+2023-05-04 16:44:11.722 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:11.728 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:11.735 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:11.736 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:11.737 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:11.739 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.740 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.742 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:11.749 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:11.756 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:11.762 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:11.764 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:11.766 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:11.767 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.768 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bert
+2023-05-04 16:44:11.769 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.770 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:11.771 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:11.776 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:11.777 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:11.781 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bert
+2023-05-04 16:44:11.783 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: sentence-similarity
+2023-05-04 16:44:11.786 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.788 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:11.789 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:11.790 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:11.791 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:11.794 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:11.796 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: xlm-roberta
+2023-05-04 16:44:11.801 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bert
+2023-05-04 16:44:11.806 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:11.808 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: t5
+2023-05-04 16:44:11.810 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: summarization
+2023-05-04 16:44:11.814 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:11.818 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:11.819 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:11.824 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:11.830 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: fill-mask
+2023-05-04 16:44:11.830 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:11.832 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bert
+2023-05-04 16:44:11.834 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: token-classification
+2023-05-04 16:44:11.836 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:11.836 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:11.837 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:11.838 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.840 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.842 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.846 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: electra
+2023-05-04 16:44:11.848 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.849 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:11.851 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:11.852 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:11.854 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: xlm-roberta
+2023-05-04 16:44:11.856 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: fill-mask
+2023-05-04 16:44:11.859 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: roformer
+2023-05-04 16:44:11.862 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: roberta
+2023-05-04 16:44:11.865 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: sentence-similarity
+2023-05-04 16:44:11.868 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bert
+2023-05-04 16:44:11.869 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.870 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:11.871 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:11.873 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.876 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.877 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.879 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.879 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:11.882 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: fill-mask
+2023-05-04 16:44:11.882 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:11.884 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.885 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bart
+2023-05-04 16:44:11.887 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: summarization
+2023-05-04 16:44:11.888 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.889 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:11.890 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.892 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.893 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.894 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: image-classification
+2023-05-04 16:44:11.895 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:11.896 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: roberta
+2023-05-04 16:44:11.898 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:11.900 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.901 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:11.902 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.903 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: tapas
+2023-05-04 16:44:11.905 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.906 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:11.907 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.909 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.910 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:11.911 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:11.913 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:11.917 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:11.919 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: xlnet
+2023-05-04 16:44:11.920 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: layoutlmv2
+2023-05-04 16:44:11.921 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.923 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: translation
+2023-05-04 16:44:11.924 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:11.925 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: gpt2
+2023-05-04 16:44:11.926 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.933 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:11.940 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:11.946 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: audio
+2023-05-04 16:44:11.948 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:11.949 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.951 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:11.955 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bert
+2023-05-04 16:44:11.959 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: sentence-similarity
+2023-05-04 16:44:11.959 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: sentence-similarity
+2023-05-04 16:44:11.961 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:11.962 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: translation
+2023-05-04 16:44:11.966 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.969 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.971 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:11.972 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:11.973 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+2023-05-04 16:44:11.975 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-generation
+2023-05-04 16:44:11.976 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: xlm-roberta
+2023-05-04 16:44:11.977 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: fill-mask
+2023-05-04 16:44:11.979 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.980 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:11.983 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: mpnet
+2023-05-04 16:44:11.985 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: sentence-similarity
+2023-05-04 16:44:11.987 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:11.989 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: text-classification
+2023-05-04 16:44:11.995 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: roberta
+2023-05-04 16:44:12.001 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: fill-mask
+2023-05-04 16:44:12.003 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: roberta
+2023-05-04 16:44:12.004 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: bart
+2023-05-04 16:44:12.007 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: mpnet
+2023-05-04 16:44:12.009 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: sentence-similarity
+2023-05-04 16:44:12.012 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: text-generation
+2023-05-04 16:44:12.013 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: t5
+2023-05-04 16:44:12.014 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: distilbert
+2023-05-04 16:44:12.015 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:12.018 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:12.022 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:12.025 | INFO     | __main__:preprocess_data:122 - Token positions not found for answer: audio
+2023-05-04 16:44:12.026 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: conversational
+2023-05-04 16:44:12.026 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: bert
+2023-05-04 16:44:12.029 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: wav2vec2
+2023-05-04 16:44:12.032 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: automatic-speech-recognition
+2023-05-04 16:44:12.035 | INFO     | __main__:preprocess_data:113 - Token positions found for answer: audio
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing MyQAModel: ['cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing MyQAModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing MyQAModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of MyQAModel were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['qa_outputs.bias', 'qa_outputs.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/home/jiang784/.conda/envs/cent7/2020.11-py38/PTM/lib/python3.10/site-packages/transformers/optimization.py:391: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+2023-05-04 16:44:15.332 | INFO     | __main__:<module>:414 - Epoch 1, Batch 1 - Loss: 6.2567
+2023-05-04 16:44:15.824 | INFO     | __main__:<module>:414 - Epoch 1, Batch 2 - Loss: 6.2945
+2023-05-04 16:44:16.317 | INFO     | __main__:<module>:414 - Epoch 1, Batch 3 - Loss: 6.1538
+2023-05-04 16:44:16.811 | INFO     | __main__:<module>:414 - Epoch 1, Batch 4 - Loss: 6.1432
+2023-05-04 16:44:17.303 | INFO     | __main__:<module>:414 - Epoch 1, Batch 5 - Loss: 6.1239
+2023-05-04 16:44:17.797 | INFO     | __main__:<module>:414 - Epoch 1, Batch 6 - Loss: 5.9847
+2023-05-04 16:44:18.290 | INFO     | __main__:<module>:414 - Epoch 1, Batch 7 - Loss: 5.9909
+2023-05-04 16:44:18.784 | INFO     | __main__:<module>:414 - Epoch 1, Batch 8 - Loss: 5.9038
+2023-05-04 16:44:19.277 | INFO     | __main__:<module>:414 - Epoch 1, Batch 9 - Loss: 5.8698
+2023-05-04 16:44:19.771 | INFO     | __main__:<module>:414 - Epoch 1, Batch 10 - Loss: 5.8828
+2023-05-04 16:44:20.264 | INFO     | __main__:<module>:414 - Epoch 1, Batch 11 - Loss: 5.7495
+2023-05-04 16:44:20.757 | INFO     | __main__:<module>:414 - Epoch 1, Batch 12 - Loss: 5.7517
+2023-05-04 16:44:21.250 | INFO     | __main__:<module>:414 - Epoch 1, Batch 13 - Loss: 5.6982
+2023-05-04 16:44:21.742 | INFO     | __main__:<module>:414 - Epoch 1, Batch 14 - Loss: 5.6383
+2023-05-04 16:44:22.234 | INFO     | __main__:<module>:414 - Epoch 1, Batch 15 - Loss: 5.4974
+2023-05-04 16:44:22.728 | INFO     | __main__:<module>:414 - Epoch 1, Batch 16 - Loss: 5.5289
+2023-05-04 16:44:23.222 | INFO     | __main__:<module>:414 - Epoch 1, Batch 17 - Loss: 5.4447
+2023-05-04 16:44:23.715 | INFO     | __main__:<module>:414 - Epoch 1, Batch 18 - Loss: 5.3621
+2023-05-04 16:44:24.208 | INFO     | __main__:<module>:414 - Epoch 1, Batch 19 - Loss: 5.3865
+2023-05-04 16:44:24.701 | INFO     | __main__:<module>:414 - Epoch 1, Batch 20 - Loss: 5.3891
+2023-05-04 16:44:25.194 | INFO     | __main__:<module>:414 - Epoch 1, Batch 21 - Loss: 5.3715
+2023-05-04 16:44:25.686 | INFO     | __main__:<module>:414 - Epoch 1, Batch 22 - Loss: 5.5745
+2023-05-04 16:44:26.178 | INFO     | __main__:<module>:414 - Epoch 1, Batch 23 - Loss: 5.1044
+2023-05-04 16:44:26.672 | INFO     | __main__:<module>:414 - Epoch 1, Batch 24 - Loss: 5.2144
+2023-05-04 16:44:27.165 | INFO     | __main__:<module>:414 - Epoch 1, Batch 25 - Loss: 5.0955
+2023-05-04 16:44:27.657 | INFO     | __main__:<module>:414 - Epoch 1, Batch 26 - Loss: 5.0056
+2023-05-04 16:44:28.151 | INFO     | __main__:<module>:414 - Epoch 1, Batch 27 - Loss: 4.9495
+2023-05-04 16:44:28.645 | INFO     | __main__:<module>:414 - Epoch 1, Batch 28 - Loss: 4.9808
+2023-05-04 16:44:29.138 | INFO     | __main__:<module>:414 - Epoch 1, Batch 29 - Loss: 5.0838
+2023-05-04 16:44:29.631 | INFO     | __main__:<module>:414 - Epoch 1, Batch 30 - Loss: 4.8970
+2023-05-04 16:44:30.123 | INFO     | __main__:<module>:414 - Epoch 1, Batch 31 - Loss: 4.7751
+2023-05-04 16:44:30.616 | INFO     | __main__:<module>:414 - Epoch 1, Batch 32 - Loss: 4.8875
+2023-05-04 16:44:31.108 | INFO     | __main__:<module>:414 - Epoch 1, Batch 33 - Loss: 4.8534
+2023-05-04 16:44:31.602 | INFO     | __main__:<module>:414 - Epoch 1, Batch 34 - Loss: 4.9034
+2023-05-04 16:44:32.095 | INFO     | __main__:<module>:414 - Epoch 1, Batch 35 - Loss: 4.6760
+2023-05-04 16:44:32.587 | INFO     | __main__:<module>:414 - Epoch 1, Batch 36 - Loss: 4.6368
+2023-05-04 16:44:33.080 | INFO     | __main__:<module>:414 - Epoch 1, Batch 37 - Loss: 4.3924
+2023-05-04 16:44:33.573 | INFO     | __main__:<module>:414 - Epoch 1, Batch 38 - Loss: 4.5197
+2023-05-04 16:44:34.065 | INFO     | __main__:<module>:414 - Epoch 1, Batch 39 - Loss: 4.6284
+2023-05-04 16:44:34.558 | INFO     | __main__:<module>:414 - Epoch 1, Batch 40 - Loss: 4.3597
+2023-05-04 16:44:35.051 | INFO     | __main__:<module>:414 - Epoch 1, Batch 41 - Loss: 4.3105
+2023-05-04 16:44:35.545 | INFO     | __main__:<module>:414 - Epoch 1, Batch 42 - Loss: 4.1145
+2023-05-04 16:44:36.037 | INFO     | __main__:<module>:414 - Epoch 1, Batch 43 - Loss: 4.2948
+2023-05-04 16:44:36.530 | INFO     | __main__:<module>:414 - Epoch 1, Batch 44 - Loss: 4.5013
+2023-05-04 16:44:37.023 | INFO     | __main__:<module>:414 - Epoch 1, Batch 45 - Loss: 4.0845
+2023-05-04 16:44:37.517 | INFO     | __main__:<module>:414 - Epoch 1, Batch 46 - Loss: 4.3440
+2023-05-04 16:44:38.010 | INFO     | __main__:<module>:414 - Epoch 1, Batch 47 - Loss: 4.0882
+2023-05-04 16:44:38.502 | INFO     | __main__:<module>:414 - Epoch 1, Batch 48 - Loss: 4.0616
+2023-05-04 16:44:38.996 | INFO     | __main__:<module>:414 - Epoch 1, Batch 49 - Loss: 4.1930
+2023-05-04 16:44:39.489 | INFO     | __main__:<module>:414 - Epoch 1, Batch 50 - Loss: 4.3309
+2023-05-04 16:44:39.548 | INFO     | __main__:<module>:414 - Epoch 1, Batch 51 - Loss: 4.9170
+2023-05-04 16:44:41.855 | CRITICAL | __main__:<module>:438 - Epoch 1 - Train loss: 5.1216 - Eval loss: 3.9229
+2023-05-04 16:44:44.642 | CRITICAL | __main__:<module>:463 - Epoch 1 - Train loss: 5.1216 - Eval loss: 3.9229 - Test loss: 4.1480
+2023-05-04 16:44:55.478 | INFO     | __main__:<module>:471 - Train Exact Match: 0.2285, Train F1 Score: 0.4107
+2023-05-04 16:44:55.478 | INFO     | __main__:<module>:472 - Val Exact Match: 0.1504, Val F1 Score: 0.3186
+2023-05-04 16:44:55.478 | INFO     | __main__:<module>:473 - Test Exact Match: 0.1753, Test F1 Score: 0.3402
+2023-05-04 16:44:55.971 | INFO     | __main__:<module>:414 - Epoch 2, Batch 1 - Loss: 3.8220
+2023-05-04 16:44:56.463 | INFO     | __main__:<module>:414 - Epoch 2, Batch 2 - Loss: 4.0302
+2023-05-04 16:44:56.957 | INFO     | __main__:<module>:414 - Epoch 2, Batch 3 - Loss: 3.6696
+2023-05-04 16:44:57.450 | INFO     | __main__:<module>:414 - Epoch 2, Batch 4 - Loss: 4.0894
+2023-05-04 16:44:57.942 | INFO     | __main__:<module>:414 - Epoch 2, Batch 5 - Loss: 3.6523
+2023-05-04 16:44:58.435 | INFO     | __main__:<module>:414 - Epoch 2, Batch 6 - Loss: 4.2022
+2023-05-04 16:44:58.928 | INFO     | __main__:<module>:414 - Epoch 2, Batch 7 - Loss: 3.7781
+2023-05-04 16:44:59.421 | INFO     | __main__:<module>:414 - Epoch 2, Batch 8 - Loss: 3.7699
+2023-05-04 16:44:59.914 | INFO     | __main__:<module>:414 - Epoch 2, Batch 9 - Loss: 3.6499
+2023-05-04 16:45:00.407 | INFO     | __main__:<module>:414 - Epoch 2, Batch 10 - Loss: 3.4833
+2023-05-04 16:45:01.033 | INFO     | __main__:<module>:414 - Epoch 2, Batch 11 - Loss: 3.2999
+2023-05-04 16:45:01.526 | INFO     | __main__:<module>:414 - Epoch 2, Batch 12 - Loss: 3.7773
+2023-05-04 16:45:02.019 | INFO     | __main__:<module>:414 - Epoch 2, Batch 13 - Loss: 3.2226
+2023-05-04 16:45:02.512 | INFO     | __main__:<module>:414 - Epoch 2, Batch 14 - Loss: 3.5028
+2023-05-04 16:45:03.004 | INFO     | __main__:<module>:414 - Epoch 2, Batch 15 - Loss: 3.9131
+2023-05-04 16:45:03.497 | INFO     | __main__:<module>:414 - Epoch 2, Batch 16 - Loss: 3.4923
+2023-05-04 16:45:03.990 | INFO     | __main__:<module>:414 - Epoch 2, Batch 17 - Loss: 3.5660
+2023-05-04 16:45:04.483 | INFO     | __main__:<module>:414 - Epoch 2, Batch 18 - Loss: 3.5222
+2023-05-04 16:45:04.976 | INFO     | __main__:<module>:414 - Epoch 2, Batch 19 - Loss: 3.6647
+2023-05-04 16:45:05.469 | INFO     | __main__:<module>:414 - Epoch 2, Batch 20 - Loss: 3.3749
+2023-05-04 16:45:05.961 | INFO     | __main__:<module>:414 - Epoch 2, Batch 21 - Loss: 3.7287
+2023-05-04 16:45:06.454 | INFO     | __main__:<module>:414 - Epoch 2, Batch 22 - Loss: 3.2783
+2023-05-04 16:45:06.947 | INFO     | __main__:<module>:414 - Epoch 2, Batch 23 - Loss: 3.3501
+2023-05-04 16:45:07.439 | INFO     | __main__:<module>:414 - Epoch 2, Batch 24 - Loss: 3.1192
+2023-05-04 16:45:07.931 | INFO     | __main__:<module>:414 - Epoch 2, Batch 25 - Loss: 2.7831
+2023-05-04 16:45:08.424 | INFO     | __main__:<module>:414 - Epoch 2, Batch 26 - Loss: 3.3272
+2023-05-04 16:45:08.918 | INFO     | __main__:<module>:414 - Epoch 2, Batch 27 - Loss: 3.0724
+2023-05-04 16:45:09.411 | INFO     | __main__:<module>:414 - Epoch 2, Batch 28 - Loss: 2.9176
+2023-05-04 16:45:09.904 | INFO     | __main__:<module>:414 - Epoch 2, Batch 29 - Loss: 2.9281
+2023-05-04 16:45:10.396 | INFO     | __main__:<module>:414 - Epoch 2, Batch 30 - Loss: 3.0975
+2023-05-04 16:45:10.889 | INFO     | __main__:<module>:414 - Epoch 2, Batch 31 - Loss: 3.2541
+2023-05-04 16:45:11.382 | INFO     | __main__:<module>:414 - Epoch 2, Batch 32 - Loss: 3.2395
+2023-05-04 16:45:11.874 | INFO     | __main__:<module>:414 - Epoch 2, Batch 33 - Loss: 2.8251
+2023-05-04 16:45:12.367 | INFO     | __main__:<module>:414 - Epoch 2, Batch 34 - Loss: 2.9079
+2023-05-04 16:45:12.860 | INFO     | __main__:<module>:414 - Epoch 2, Batch 35 - Loss: 3.1839
+2023-05-04 16:45:13.353 | INFO     | __main__:<module>:414 - Epoch 2, Batch 36 - Loss: 3.0485
+2023-05-04 16:45:13.846 | INFO     | __main__:<module>:414 - Epoch 2, Batch 37 - Loss: 2.5713
+2023-05-04 16:45:14.338 | INFO     | __main__:<module>:414 - Epoch 2, Batch 38 - Loss: 3.0637
+2023-05-04 16:45:14.831 | INFO     | __main__:<module>:414 - Epoch 2, Batch 39 - Loss: 2.6241
+2023-05-04 16:45:15.324 | INFO     | __main__:<module>:414 - Epoch 2, Batch 40 - Loss: 2.8550
+2023-05-04 16:45:15.817 | INFO     | __main__:<module>:414 - Epoch 2, Batch 41 - Loss: 3.2185
+2023-05-04 16:45:16.309 | INFO     | __main__:<module>:414 - Epoch 2, Batch 42 - Loss: 2.8371
+2023-05-04 16:45:16.803 | INFO     | __main__:<module>:414 - Epoch 2, Batch 43 - Loss: 2.9748
+2023-05-04 16:45:17.296 | INFO     | __main__:<module>:414 - Epoch 2, Batch 44 - Loss: 2.4974
+2023-05-04 16:45:17.788 | INFO     | __main__:<module>:414 - Epoch 2, Batch 45 - Loss: 2.4267
+2023-05-04 16:45:18.281 | INFO     | __main__:<module>:414 - Epoch 2, Batch 46 - Loss: 3.1198
+2023-05-04 16:45:18.774 | INFO     | __main__:<module>:414 - Epoch 2, Batch 47 - Loss: 2.3415
+2023-05-04 16:45:19.266 | INFO     | __main__:<module>:414 - Epoch 2, Batch 48 - Loss: 2.4153
+2023-05-04 16:45:19.759 | INFO     | __main__:<module>:414 - Epoch 2, Batch 49 - Loss: 2.5250
+2023-05-04 16:45:20.252 | INFO     | __main__:<module>:414 - Epoch 2, Batch 50 - Loss: 2.2839
+2023-05-04 16:45:20.311 | INFO     | __main__:<module>:414 - Epoch 2, Batch 51 - Loss: 1.6170
+2023-05-04 16:45:22.617 | CRITICAL | __main__:<module>:438 - Epoch 2 - Train loss: 3.1944 - Eval loss: 2.4929
+2023-05-04 16:45:25.346 | CRITICAL | __main__:<module>:463 - Epoch 2 - Train loss: 3.1944 - Eval loss: 2.4929 - Test loss: 2.7753
+2023-05-04 16:45:36.183 | INFO     | __main__:<module>:471 - Train Exact Match: 0.3733, Train F1 Score: 0.5194
+2023-05-04 16:45:36.184 | INFO     | __main__:<module>:472 - Val Exact Match: 0.3186, Val F1 Score: 0.4204
+2023-05-04 16:45:36.184 | INFO     | __main__:<module>:473 - Test Exact Match: 0.2990, Test F1 Score: 0.4485
+2023-05-04 16:45:36.677 | INFO     | __main__:<module>:414 - Epoch 3, Batch 1 - Loss: 2.2013
+2023-05-04 16:45:37.170 | INFO     | __main__:<module>:414 - Epoch 3, Batch 2 - Loss: 2.2405
+2023-05-04 16:45:37.664 | INFO     | __main__:<module>:414 - Epoch 3, Batch 3 - Loss: 2.3928
+2023-05-04 16:45:38.156 | INFO     | __main__:<module>:414 - Epoch 3, Batch 4 - Loss: 2.4959
+2023-05-04 16:45:38.648 | INFO     | __main__:<module>:414 - Epoch 3, Batch 5 - Loss: 2.3070
+2023-05-04 16:45:39.141 | INFO     | __main__:<module>:414 - Epoch 3, Batch 6 - Loss: 2.5080
+2023-05-04 16:45:39.634 | INFO     | __main__:<module>:414 - Epoch 3, Batch 7 - Loss: 2.4424
+2023-05-04 16:45:40.127 | INFO     | __main__:<module>:414 - Epoch 3, Batch 8 - Loss: 1.8032
+2023-05-04 16:45:40.620 | INFO     | __main__:<module>:414 - Epoch 3, Batch 9 - Loss: 1.8865
+2023-05-04 16:45:41.112 | INFO     | __main__:<module>:414 - Epoch 3, Batch 10 - Loss: 1.8992
+2023-05-04 16:45:41.605 | INFO     | __main__:<module>:414 - Epoch 3, Batch 11 - Loss: 1.8362
+2023-05-04 16:45:42.098 | INFO     | __main__:<module>:414 - Epoch 3, Batch 12 - Loss: 1.7586
+2023-05-04 16:45:42.590 | INFO     | __main__:<module>:414 - Epoch 3, Batch 13 - Loss: 2.0845
+2023-05-04 16:45:43.083 | INFO     | __main__:<module>:414 - Epoch 3, Batch 14 - Loss: 2.7966
+2023-05-04 16:45:43.577 | INFO     | __main__:<module>:414 - Epoch 3, Batch 15 - Loss: 2.2513
+2023-05-04 16:45:44.070 | INFO     | __main__:<module>:414 - Epoch 3, Batch 16 - Loss: 1.7102
+2023-05-04 16:45:44.563 | INFO     | __main__:<module>:414 - Epoch 3, Batch 17 - Loss: 2.0438
+2023-05-04 16:45:45.055 | INFO     | __main__:<module>:414 - Epoch 3, Batch 18 - Loss: 1.7626
+2023-05-04 16:45:45.548 | INFO     | __main__:<module>:414 - Epoch 3, Batch 19 - Loss: 2.0392
+2023-05-04 16:45:46.041 | INFO     | __main__:<module>:414 - Epoch 3, Batch 20 - Loss: 2.0683
+2023-05-04 16:45:46.534 | INFO     | __main__:<module>:414 - Epoch 3, Batch 21 - Loss: 2.3341
+2023-05-04 16:45:47.027 | INFO     | __main__:<module>:414 - Epoch 3, Batch 22 - Loss: 1.5597
+2023-05-04 16:45:47.520 | INFO     | __main__:<module>:414 - Epoch 3, Batch 23 - Loss: 2.0625
+2023-05-04 16:45:48.012 | INFO     | __main__:<module>:414 - Epoch 3, Batch 24 - Loss: 2.3338
+2023-05-04 16:45:48.505 | INFO     | __main__:<module>:414 - Epoch 3, Batch 25 - Loss: 1.9342
+2023-05-04 16:45:48.998 | INFO     | __main__:<module>:414 - Epoch 3, Batch 26 - Loss: 1.9956
+2023-05-04 16:45:49.491 | INFO     | __main__:<module>:414 - Epoch 3, Batch 27 - Loss: 1.9866
+2023-05-04 16:45:49.984 | INFO     | __main__:<module>:414 - Epoch 3, Batch 28 - Loss: 2.4533
+2023-05-04 16:45:50.476 | INFO     | __main__:<module>:414 - Epoch 3, Batch 29 - Loss: 2.3424
+2023-05-04 16:45:50.969 | INFO     | __main__:<module>:414 - Epoch 3, Batch 30 - Loss: 2.5140
+2023-05-04 16:45:51.462 | INFO     | __main__:<module>:414 - Epoch 3, Batch 31 - Loss: 1.2993
+2023-05-04 16:45:51.955 | INFO     | __main__:<module>:414 - Epoch 3, Batch 32 - Loss: 1.9138
+2023-05-04 16:45:52.448 | INFO     | __main__:<module>:414 - Epoch 3, Batch 33 - Loss: 2.0139
+2023-05-04 16:45:52.941 | INFO     | __main__:<module>:414 - Epoch 3, Batch 34 - Loss: 1.6799
+2023-05-04 16:45:53.433 | INFO     | __main__:<module>:414 - Epoch 3, Batch 35 - Loss: 1.9857
+2023-05-04 16:45:53.925 | INFO     | __main__:<module>:414 - Epoch 3, Batch 36 - Loss: 2.1789
+2023-05-04 16:45:54.418 | INFO     | __main__:<module>:414 - Epoch 3, Batch 37 - Loss: 2.0906
+2023-05-04 16:45:54.910 | INFO     | __main__:<module>:414 - Epoch 3, Batch 38 - Loss: 1.7331
+2023-05-04 16:45:55.403 | INFO     | __main__:<module>:414 - Epoch 3, Batch 39 - Loss: 1.7999
+2023-05-04 16:45:55.896 | INFO     | __main__:<module>:414 - Epoch 3, Batch 40 - Loss: 2.3206
+2023-05-04 16:45:56.389 | INFO     | __main__:<module>:414 - Epoch 3, Batch 41 - Loss: 2.2899
+2023-05-04 16:45:56.882 | INFO     | __main__:<module>:414 - Epoch 3, Batch 42 - Loss: 1.6111
+2023-05-04 16:45:57.375 | INFO     | __main__:<module>:414 - Epoch 3, Batch 43 - Loss: 2.1083
+2023-05-04 16:45:57.867 | INFO     | __main__:<module>:414 - Epoch 3, Batch 44 - Loss: 1.8259
+2023-05-04 16:45:58.361 | INFO     | __main__:<module>:414 - Epoch 3, Batch 45 - Loss: 1.1417
+2023-05-04 16:45:58.853 | INFO     | __main__:<module>:414 - Epoch 3, Batch 46 - Loss: 2.0534
+2023-05-04 16:45:59.346 | INFO     | __main__:<module>:414 - Epoch 3, Batch 47 - Loss: 1.7821
+2023-05-04 16:45:59.838 | INFO     | __main__:<module>:414 - Epoch 3, Batch 48 - Loss: 1.5817
+2023-05-04 16:46:00.331 | INFO     | __main__:<module>:414 - Epoch 3, Batch 49 - Loss: 1.4099
+2023-05-04 16:46:00.823 | INFO     | __main__:<module>:414 - Epoch 3, Batch 50 - Loss: 1.2762
+2023-05-04 16:46:00.882 | INFO     | __main__:<module>:414 - Epoch 3, Batch 51 - Loss: 1.3779
+Traceback (most recent call last):
+  File "/depot/davisjam/data/wenxin/CS577-NLP/project/QAmodel/train_QA.py", line 431, in <module>
+    eval_loss += loss.item()
+KeyboardInterrupt

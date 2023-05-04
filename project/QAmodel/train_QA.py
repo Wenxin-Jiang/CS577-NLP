@@ -181,7 +181,6 @@ def evaluate(model, data_loader):
 
     exact_match = compute_exact_match(true_labels, pred_labels)
     f1_score = compute_f1_score(true_labels, pred_labels)
-
     return pred_labels, true_labels, all_input_ids, exact_match, f1_score
 
 
@@ -369,8 +368,8 @@ if __name__ == "__main__":
     # train_loader = DataLoader(tokenized_dataset_val, batch_size=batch_size, shuffle=True) # TODO: Test only
     eval_loader = DataLoader(tokenized_dataset_val, batch_size=batch_size, shuffle=True)
     test_loader = DataLoader(tokenized_dataset_test, batch_size=batch_size, shuffle=True)
-    lr = 5e-6
-    num_epochs = 10
+    lr = 1e-4
+    num_epochs = 3
     optimizer = AdamW(model.parameters(), lr=lr)
 
     train_losses = []
